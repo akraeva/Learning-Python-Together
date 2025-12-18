@@ -1,5 +1,5 @@
 # Stepick.org — Learning Python Together
-# 3.4 Ветвления
+# 3. Ветвления
 
 # pylint: disable=W0105
 
