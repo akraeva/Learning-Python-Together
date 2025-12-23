@@ -550,7 +550,3 @@ def m_4_5_11():
                 res = "Не арифметическая прогрессия"
                 break
     print(res)
-
-
-for i in range(1, 12):
-    print(f'def m_4_5_{i}():\n   """\n   ...\n   """\n   pass\n\n')
