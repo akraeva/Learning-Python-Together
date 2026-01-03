@@ -1,0 +1,21 @@
+Модуль X: Название
+==================
+
+.. contents::
+   :local:
+   :depth: 2
+
+Раздел 1 (X.Y)
+--------------
+.. autofunction:: src.module_X.m_X_Y_1()
+.. autofunction:: src.module_X.m_X_Y_2()
+
+Задачи I (X.Z)
+--------------
+.. autofunction:: src.module_X.m_X_Z_1()
+[...]
+
+Задачи II (X.W)
+---------------
+.. autofunction:: src.module_X.m_X_W_1()
+[...]

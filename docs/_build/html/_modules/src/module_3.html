@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+
+<html lang="ru" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>src.module_3 &#8212; документация Learning Python Together 1.0</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=27fed22d" />
+    <script src="../../_static/documentation_options.js?v=9ca2116e"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=cd1d70c9"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Исходный код src.module_3</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Stepick.org — Learning Python Together</span>
+<span class="c1"># 3. Ветвления</span>
+
+<span class="c1"># pylint: disable=W0105</span>
+
+<span class="c1"># === 3.4 Задачи I ===</span>
+
+
+<div class="viewcode-block" id="m_3_4_1">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_1">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_1</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;У меня больше</span>
+<span class="sd">    Перед персонажем мультяшного героя на столе лежат два ствола.</span>
+<span class="sd">    Он уверенно заявляет: &#39;Неплохо, но у меня больше!&#39;</span>
+<span class="sd">    Помогите герою определить, какой из двух стволов</span>
+<span class="sd">    (обозначенных числами a и b) длиннее, чтобы он мог продолжить</span>
+<span class="sd">    свои увлекательные приключения.</span>
+<span class="sd">    На вход подаются два целых числа a и b. Необходимо вывести наибольший</span>
+<span class="sd">    из двух чисел. Гарантированно, что одно число больше другого.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="k">else</span> <span class="n">b</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_4_2">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_2">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_2</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Роскомнадзор</span>
+<span class="sd">    Представим, у нас есть сайт, но вот незадача, мы не хотим,</span>
+<span class="sd">    чтобы на него имели доступ люди, младше 18 лет.</span>
+<span class="sd">    Предлагаю создать скрипт, который получает целочисленное значение</span>
+<span class="sd">    и возвращает &quot;Доступ запрещён&quot;, если пользователю меньше 18 лет,</span>
+<span class="sd">    иначе  &quot;Доступ разрешён&quot;.</span>
+<span class="sd">    На вход подаётся целочисленное неотрицательное значение возраста</span>
+<span class="sd">    пользователя age (0 &lt; age &lt;= 100)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Доступ разрешён&quot;</span> <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="k">else</span> <span class="s2">&quot;Доступ запрещён&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_4_3">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_3">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_3</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Проверка совпадения паролей</span>
+<span class="sd">    Напишите программу для проверки совпадения паролей.</span>
+<span class="sd">    Вам необходимо сравнить пароль, введенный пользователем, с повторно</span>
+<span class="sd">    введенным паролем и определить, совпадают ли они.</span>
+
+<span class="sd">    Если пароли совпадают, то вывести &quot;Пароли совпадают&quot;,</span>
+<span class="sd">    иначе &quot;Пароли не совпадают&quot;</span>
+<span class="sd">    Примечание: Опережая возможную ошибку, не в коем случаене называйте</span>
+<span class="sd">    переменную pass, которая является зарезервированным именем.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">password_1</span><span class="p">,</span> <span class="n">password_2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(),</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Пароли совпадают&quot;</span> <span class="k">if</span> <span class="n">password_1</span> <span class="o">==</span> <span class="n">password_2</span> <span class="k">else</span> <span class="s2">&quot;Пароли не совпадают&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_4_4">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_4">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_4</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Палиндром?</span>
+<span class="sd">    Дано слово. Проверьте, является ли это слово палиндромом*.</span>
+<span class="sd">    Теперь нам вместо булево значения True или False нужно</span>
+<span class="sd">    вывести словом ответ.</span>
+<span class="sd">    Входные данные: Одно слово на русском языке, записанное в нижнем регистре.</span>
+<span class="sd">    Выходные данные: Вывести &quot;Палиндром&quot;, если слово является палиндромом,</span>
+<span class="sd">        и &quot;Не палиндром&quot;, если нет.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">word</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Палиндром&quot;</span> <span class="k">if</span> <span class="n">word</span> <span class="o">==</span> <span class="n">word</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span> <span class="s2">&quot;Не палиндром&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_4_5">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_5">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_5</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Финансовая задача: расходы и доходы</span>
+<span class="sd">    На вход поступают два целочисленных значения доходы и расходы,</span>
+<span class="sd">    каждое с новой строки. В зависимости от разницы между этими значениями,</span>
+<span class="sd">    программа определяет финансовое положение анализируемого периода:</span>
+<span class="sd">    когда доходы больше расходов, когда расходы превышают доходы,</span>
+<span class="sd">    и когда доходы и расходы равны. Для каждого случая выводятся</span>
+<span class="sd">    соответствующие сообщения:</span>
+<span class="sd">        доходы &gt; расходов: Ого, ещё даже на еду осталось!</span>
+<span class="sd">        доходы &lt; расходов: О нет, опять микрозаймы :(</span>
+<span class="sd">        доходы == расходов: Ты ходишь по офигенно тонкому льду...</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">income</span><span class="p">,</span> <span class="n">expenses</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">income</span> <span class="o">&gt;</span> <span class="n">expenses</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Ого, ещё даже на еду осталось!&quot;</span>
+    <span class="k">elif</span> <span class="n">income</span> <span class="o">&lt;</span> <span class="n">expenses</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;О нет, опять микрозаймы :(&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Ты ходишь по офигенно тонкому льду...&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_4_6">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_6">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_6</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Проверка на четность</span>
+<span class="sd">    На вход программе подается целое число. Необходимо выяснить,</span>
+<span class="sd">    является ли это число четным или нечетным следующим текстовым</span>
+<span class="sd">    сообщением: &quot;Чётное&quot; или &quot;Нечётное&quot;</span>
+<span class="sd">        Входные данные: Целое число.</span>
+<span class="sd">        Выходные данные: Сообщение о четности числа</span>
+<span class="sd">    Пояснение: Чётным числом называют такое число,</span>
+<span class="sd">    результат остатка от деления (%) который на 2 даёт 0.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Чётное&quot;</span> <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;Нечётное&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_4_7">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_7">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_7</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Определение високосного года</span>
+<span class="sd">    Программа получает на вход год. Необходимо определить,</span>
+<span class="sd">        является ли этот год високосным.</span>
+<span class="sd">        Входные данные: Год (целое число).</span>
+<span class="sd">        Выходные данные: Сообщение о типе года (високосный или не високосный).</span>
+<span class="sd">    Пояснение:</span>
+<span class="sd">        Високосным годом считается год, который делится на 4.</span>
+<span class="sd">        Однако, если год делится на 100, то он не является високосным,</span>
+<span class="sd">        за исключением случая, если год также делится на 400.</span>
+<span class="sd">    Таким образом, у нас есть три правила определения високосного года:</span>
+<span class="sd">        Год полностью делится на 4 и год не делится полностью на 100.</span>
+<span class="sd">        Или год полностью делится на 400.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;високосный&quot;</span> <span class="k">if</span> <span class="n">res</span> <span class="k">else</span> <span class="s2">&quot;не високосный&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_4_8">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_8">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_8</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Анжела и Весовые Категории</span>
+<span class="sd">    Анжела, страстно следящая за своим весом, решила разделить его на</span>
+<span class="sd">    три увлекательные категории: &quot;Худший кошмар&quot;, &quot;В форме&quot; и &quot;Идеальный вес&quot;.</span>
+<span class="sd">    Каждая категория имеет свой диапазон веса.</span>
+<span class="sd">    Помогите Анжеле определить, в какую категорию она попадает!</span>
+<span class="sd">        &quot;Худший кошмар&quot;: вес от 60 кг и выше</span>
+<span class="sd">        &quot;В форме&quot;:       вес от 50 до 60 кг</span>
+<span class="sd">        &quot;Идеальный вес&quot;: вес до 50 кг</span>
+<span class="sd">    Примечание: внесу некоторое уточнение, до означает не включительно.</span>
+<span class="sd">    Замечание: Данные категории это субъективный взгляд Анжелы,</span>
+<span class="sd">        который кажется лично ей правильным. Не нужно бросаться</span>
+<span class="sd">        помидорами и говорить, что это кого то обидело ;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">weight</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">weight</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Идеальный вес&quot;</span>
+    <span class="k">elif</span> <span class="n">weight</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;В форме&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Худший кошмар&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_4_9">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_9">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_9</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Определение времени суток</span>
+<span class="sd">    Напишите программу, которая запрашивает текущее время в часах и определяет,</span>
+<span class="sd">    в какое время суток это время относится: утро, день, вечер, ночь.</span>
+<span class="sd">        Входные данные: Часы (целое число от 0 до 23).</span>
+<span class="sd">        Выходные данные: Сообщение о времени суток.</span>
+<span class="sd">    Пояснение:</span>
+<span class="sd">        утро считается с 6 часов до 12 часов ,</span>
+<span class="sd">        день - с 12 часов до 18 часов,</span>
+<span class="sd">        вечер - с 18 часов до 24 часов,</span>
+<span class="sd">        ночь - с 0 часов до 6 часов.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">time</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()),</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;ночь&quot;</span>
+    <span class="k">elif</span> <span class="mi">6</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;утро&quot;</span>
+    <span class="k">elif</span> <span class="mi">12</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;день&quot;</span>
+    <span class="k">elif</span> <span class="mi">18</span> <span class="o">&lt;=</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="mi">24</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;вечер&quot;</span>
+    <span class="k">if</span> <span class="n">res</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_4_10">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_10">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_10</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Крутые скидки в магазине &#39;PythonLand&#39;</span>
+<span class="sd">    Магазин &#39;PythonLand&#39; радует клиентов не только качественными товарами,</span>
+<span class="sd">    но и умопомрачительными скидками! Напишите программу, которая рассчитывает</span>
+<span class="sd">    сумму скидки в зависимости от суммы покупки. Таблица скидок следующая:</span>
+<span class="sd">        Сумма покупки	Скидка</span>
+<span class="sd">        от 100 до 500	10</span>
+<span class="sd">        от 500 до 1000	20</span>
+<span class="sd">        от 1000     	30</span>
+<span class="sd">    Пусть ваш код заставит клиентов &#39;PythonLand&#39; улыбнуться</span>
+<span class="sd">    и восторженно крикнуть: &#39;Ух ты, какая скидка!&#39;&quot;</span>
+<span class="sd">    На вход подаётся целое число, сумма покупки.</span>
+<span class="sd">    Вам необходимо написать конечную сумму, которую должен будет</span>
+<span class="sd">    заплатить покупатель с учётом скидки (только полученное число).</span>
+<span class="sd">    Примечание: в интервале до означает не включительно.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">purchase</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">purchase</span>
+    <span class="k">if</span> <span class="mi">100</span> <span class="o">&lt;=</span> <span class="n">purchase</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">*=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.1</span>
+    <span class="k">elif</span> <span class="mi">500</span> <span class="o">&lt;=</span> <span class="n">purchase</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">*=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.2</span>
+    <span class="k">elif</span> <span class="n">purchase</span> <span class="o">&gt;=</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">*=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_4_11">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_11">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_11</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Выбор квадранта*</span>
+<span class="sd">    Пользователь вводит координаты точки на плоскости.</span>
+<span class="sd">    Необходимо определить, в каком квадранте находится точка.</span>
+<span class="sd">        Входные данные: Координаты (x, y) точки: где x и y не равны 0.</span>
+<span class="sd">        Выходные данные: Номер квадранта: 1, 2, 3, 4</span>
+<span class="sd">    Примечание: Квадрант плоскости — любая из 4 областей (углов), на которые</span>
+<span class="sd">        плоскость делится двумя взаимно перпендикулярными прямыми,</span>
+<span class="sd">        принятыми в качестве осей координат.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">4</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="mi">2</span> <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="c1"># if x &gt; 0:</span>
+    <span class="c1">#     if y &gt; 0:</span>
+    <span class="c1">#         res = 1</span>
+    <span class="c1">#     else:</span>
+    <span class="c1">#         res = 4</span>
+    <span class="c1"># else:</span>
+    <span class="c1">#     if y &gt; 0:</span>
+    <span class="c1">#         res = 2</span>
+    <span class="c1">#     else:</span>
+    <span class="c1">#         res = 3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_4_12">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_12">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_12</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Испытания</span>
+<span class="sd">    В далеком королевстве настало время провести важное испытание для молодого</span>
+<span class="sd">    рыцаря Кэтсвила . Ему предстоит долгий и опасный путь через дремучий лес</span>
+<span class="sd">    и заснеженные горы, чтобы добраться до Замка Драконьего Короля.</span>
+<span class="sd">    Но чтобы пройти испытание, Кэтсвил должен узнать, сколько дней ему</span>
+<span class="sd">    потребуется на пути, зная, что его верная гончая Мухтар терпеливо несет</span>
+<span class="sd">    его n километров в день. Помогите рыцарю рассчитать, сколько дней ему</span>
+<span class="sd">    понадобится, чтобы преодолеть маршрут длиной m километров.</span>
+
+<span class="sd">    Примечание: Если общая длина маршрута не делится нацело на скорость</span>
+<span class="sd">        движения рыцаря, то рыцарю потребуется дополнительный день для покрытия</span>
+<span class="sd">        оставшегося расстояния. Пожалуйста, учтите это при решении задачи.</span>
+<span class="sd">    Входные данные:</span>
+<span class="sd">        Первое число - скорость движения n (км/день)</span>
+<span class="sd">        Второе число - длина маршрута m (км)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">speed</span><span class="p">,</span> <span class="n">distance</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">days</span> <span class="o">=</span> <span class="n">distance</span> <span class="o">//</span> <span class="n">speed</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">distance</span> <span class="o">%</span> <span class="n">speed</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">days</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_4_13">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_13">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_13</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Гласные и согласные</span>
+<span class="sd">    Разработайте программу, которая на вход получает букву латинского</span>
+<span class="sd">    алфавита в нижнем регистре.</span>
+<span class="sd">    Если введенная буква входит в следующий список a, e, i, o, u,</span>
+<span class="sd">        необходимо вывести сообщение о том, что эта буква гласная.</span>
+<span class="sd">    Если была введена буква y, программа должна написать,</span>
+<span class="sd">        что эта буква может быть как гласной, так и согласной.</span>
+<span class="sd">    Во всех других случаях должно выводиться сообщение о том,</span>
+<span class="sd">        что введена согласная буква.</span>
+
+<span class="sd">    Давайте ещё раз проговорим выходные данные:</span>
+<span class="sd">        Если символ входит в список a, e, i, o, u: Гласная буква</span>
+<span class="sd">        Если символ y: Буква может быть как гласной, так и согласной</span>
+<span class="sd">        Иначе выводим: Согласная буква</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ch</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="s2">&quot;aeiou&quot;</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Гласная буква&quot;</span>
+    <span class="k">elif</span> <span class="n">ch</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Буква может быть как гласной, так и согласной&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Согласная буква&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_4_14">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_14">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_14</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Оценка уровня освещенности и комфорта</span>
+<span class="sd">    У вас есть устройство для измерения уровня освещенности в помещении.</span>
+<span class="sd">    Давайте создадим программу, которая будет оценивать уровень освещенности,</span>
+<span class="sd">    указывать характеристику освещенности и давать рекомендации по действиям.</span>
+<span class="sd">    Результат будет представлен в следующем формате:</span>
+<span class="sd">    Примечание: Его ещё называют люксометром, а единицы измерения Люкс</span>
+
+<span class="sd">    Характер освещенности: &lt;Уровень освещенности, определенный в диапазоне по таблице (2 столбец)&gt;</span>
+<span class="sd">    Рекомендация: &lt;Рекомендация, основанная на уровне освещенности по таблице (3 столбец)&gt;</span>
+<span class="sd">    Освещённость, люкс	Уровень	                Рекомендация</span>
+<span class="sd">        от 0 до 100	    Тихий	                Рекомендуется включить дополнительное освещение</span>
+<span class="sd">        от 100 до 500	Нормальный уровень	    Оптимальный уровень освещенности</span>
+<span class="sd">        от 500 до 1000	Яркий свет	            Рекомендуется уменьшить яркость освещения</span>
+<span class="sd">        от 1000 до 5000	Очень яркий свет	    Рекомендуется использовать затеняющие шторы</span>
+<span class="sd">        от 5000 и выше	Ослепительно яркий свет	Избегайте длительного пребывания</span>
+<span class="sd">    Примечание: внесу некоторое уточнение, до означает не включительно.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">lux</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">lux</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="n">level</span><span class="p">,</span> <span class="n">advice</span> <span class="o">=</span> <span class="s2">&quot;Тихий&quot;</span><span class="p">,</span> <span class="s2">&quot;Рекомендуется включить дополнительное освещение&quot;</span>
+    <span class="k">elif</span> <span class="n">lux</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">:</span>
+        <span class="n">level</span><span class="p">,</span> <span class="n">advice</span> <span class="o">=</span> <span class="s2">&quot;Нормальный уровень&quot;</span><span class="p">,</span> <span class="s2">&quot;Оптимальный уровень освещенности&quot;</span>
+    <span class="k">elif</span> <span class="n">lux</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="n">level</span><span class="p">,</span> <span class="n">advice</span> <span class="o">=</span> <span class="s2">&quot;Яркий свет&quot;</span><span class="p">,</span> <span class="s2">&quot;Рекомендуется уменьшить яркость освещения&quot;</span>
+    <span class="k">elif</span> <span class="n">lux</span> <span class="o">&lt;</span> <span class="mi">5000</span><span class="p">:</span>
+        <span class="n">level</span><span class="p">,</span> <span class="n">advice</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Очень яркий свет&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Рекомендуется использовать затеняющие шторы&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">level</span><span class="p">,</span> <span class="n">advice</span> <span class="o">=</span> <span class="s2">&quot;Ослепительно яркий свет&quot;</span><span class="p">,</span> <span class="s2">&quot;Избегайте длительного пребывания&quot;</span>
+
+    <span class="n">res</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Характер освещенности: </span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="se">\n</span><span class="s2">Рекомендация: </span><span class="si">{</span><span class="n">advice</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_4_15">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_4_15">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_4_15</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Собачий возраст</span>
+<span class="sd">    Хочется узнать, возраст собаки какому человеческому возрасту соответствует.</span>
+<span class="sd">    Давайте разберемся вместе 🙂</span>
+<span class="sd">    Порывшись на просторах интернета нашёл такую вот гипотезу, что формула,</span>
+<span class="sd">    которая широко используется для расчета возраста собаки по человеческим</span>
+<span class="sd">    меркам, основывается на предположении, что первые два года жизни собаки</span>
+<span class="sd">    равносильны 24 человеческим годам, а каждый следующий год жизни собаки</span>
+<span class="sd">    эквивалентен пяти годам человеческой жизни. Таким образом, чтобы</span>
+<span class="sd">    определить возраст собаки по человеческим меркам, необходимо:</span>
+<span class="sd">        Определить возраст собаки в годах</span>
+<span class="sd">            Если возраст собаки меньше или равен двум годам,</span>
+<span class="sd">                умножьте ее возраст на 12.</span>
+<span class="sd">            Если возраст собаки больше двух лет, то используйте формулу:</span>
+<span class="sd">                возраст в человеческих годах = 24 + (возраст собаки - 2) * 5.</span>
+<span class="sd">    Теперь, зная формулу подсчёта давайте с вами напишем программу,</span>
+<span class="sd">    которая переведёт нам собачьи года в человеческие.</span>
+
+<span class="sd">    На вход подаётся целое число n (0 &lt;= n &lt;= 20), число полных лет собаки.</span>
+<span class="sd">    Нам необходимо рассчитать и вывести на экран какой это</span>
+<span class="sd">        квивалент человеческому возрасту.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">age</span> <span class="o">*</span> <span class="mi">12</span> <span class="k">if</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="k">else</span> <span class="mi">24</span> <span class="o">+</span> <span class="p">(</span><span class="n">age</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># === 3.5 Задачи II ===</span>
+
+
+<div class="viewcode-block" id="m_3_5_1">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_5_1">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_5_1</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Решение квадратного уравнения</span>
+<span class="sd">    Необходимо разработать программу, которая по полученным</span>
+<span class="sd">    коэффициентам a, b и c квадратного уравнения, найдет его корни.</span>
+<span class="sd">    Программа должна использовать формулу дискриминанта и условные</span>
+<span class="sd">    операторы для проверки количества и типа корней уравнения.</span>
+<span class="sd">    На вход программе поступают три целых числа a, b и c,</span>
+<span class="sd">        после чего программа должна вывести на экран:</span>
+<span class="sd">            Если у уравнения два корня:</span>
+<span class="sd">                x1 = &lt;x1&gt;</span>
+<span class="sd">                x2 = &lt;x2&gt;</span>
+<span class="sd">            Если у уравнения один корень:</span>
+<span class="sd">                x = &lt;x&gt;</span>
+<span class="sd">            Если у уравнения нет действительных корней:</span>
+<span class="sd">                &quot;Нет действительных корней&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Нет действительных корней&quot;</span>
+    <span class="k">elif</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">d</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">d</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;x1 = </span><span class="si">{</span><span class="n">x1</span><span class="si">}</span><span class="se">\n</span><span class="s2">x2 = </span><span class="si">{</span><span class="n">x2</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_5_2">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_5_2">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_5_2</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Мини-калькулятор</span>
+<span class="sd">    Реализуйте программу-мини-калькулятор, выполняющую простые</span>
+<span class="sd">    арифметические операции над двумя числами.</span>
+<span class="sd">    Входные данные:</span>
+<span class="sd">        - на первой строке подаётся знак операции operation_sign (+, -, *, /),</span>
+<span class="sd">        - на второй и третьей строке подаются</span>
+<span class="sd">          значения a и b (целочиселнные значения).</span>
+<span class="sd">    Выходные данные:</span>
+<span class="sd">        Результат выполнения заданной операции:</span>
+<span class="sd">    Пояснение:</span>
+<span class="sd">        Программа должна корректно обрабатывать деление на ноль,</span>
+<span class="sd">        в случае, если b == 0, то вывести &quot;На ноль делить нельзя&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">operation</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">num1</span>
+    <span class="k">match</span> <span class="n">operation</span><span class="p">:</span>
+        <span class="k">case</span> <span class="s2">&quot;+&quot;</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">num2</span>
+        <span class="k">case</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">-=</span> <span class="n">num2</span>
+        <span class="k">case</span> <span class="s2">&quot;*&quot;</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">*=</span> <span class="n">num2</span>
+        <span class="k">case</span> <span class="s2">&quot;/&quot;</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">/</span> <span class="n">num2</span> <span class="k">if</span> <span class="n">num2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;На ноль делить нельзя&quot;</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Ошибка: Неверный знак операции&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_5_3">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_5_3">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_5_3</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Показатели ощущения температуры</span>
+<span class="sd">    Мы с вами уже установили, что ощущенеие температуры может меняться</span>
+<span class="sd">    в зависимости от скорости ветра. Давайте я Вам напомню формулу расчёта:</span>
+
+<span class="sd">        twc = 13.12 + 0.6215*ta - 11.37*v100.16 + 0.3965*ta*v100.16</span>
+<span class="sd">        v10 = 1.5 * va</span>
+
+<span class="sd">        twc - ощущаемая температура в град С;</span>
+<span class="sd">        ta - температура окружающей среды в град С;</span>
+<span class="sd">        v10 - скорость ветра на уровне 10 метров от земли в м/с;</span>
+<span class="sd">        va - скорость ветра на уровне земли в м/с.</span>
+
+<span class="sd">    Введенные пользователем данные:</span>
+<span class="sd">        ta: температура окружающей среды (вещественное число);</span>
+<span class="sd">        va: скорость ветра на уровне земли в м/с (вещественное число).</span>
+<span class="sd">    Напомню, что рассчитанный twc необходимо будет округлить</span>
+<span class="sd">    до одного знака после запятой.</span>
+
+<span class="sd">    Давайте представим, мы на работе автоматизировали расчёт,</span>
+<span class="sd">    вроде всё круто и тут нам начальник говорит, что нужно соотнести</span>
+<span class="sd">    её с таблицей ниже по классам риска и по ощущению/последствиям.</span>
+<span class="sd">    Но нам ой как не хочется каждый раз открывать эту таблицу и соотносить,</span>
+<span class="sd">    чтобы условно вставить в наш какой то отчёт.</span>
+
+<span class="sd">    Предлагаю Вам доработать программу, чтобы она выводила</span>
+<span class="sd">    сообщение в следующем виде:</span>
+
+<span class="sd">        twc составляет: &lt;twc&gt; градусов Цельсия</span>
+<span class="sd">        Класс риска: &lt;Класс риска&gt;</span>
+<span class="sd">        Ощущение/последствия: &lt;Ощущение/последствия&gt;</span>
+
+<span class="sd">    Таблица - Ветро-холодовой индекс (twc) и время переохлаждения</span>
+<span class="sd">    (без обморожения) обнаженных частей тела человека</span>
+
+<span class="sd">        twc,	  Класс             Ощущение/последствие</span>
+<span class="sd">        °С        риска</span>
+<span class="sd">    до -10	        0	    Нет дискомфорта</span>
+<span class="sd">    от -10 до -25	1	    Дискомфорт, прохлада</span>
+<span class="sd">    от -25 до -35	2	    Очень холодно, переохлаждение поверхности кожи</span>
+<span class="sd">    от -35 до -60	3	    Чрезвычайно холодно, обнаженные части тела человека</span>
+<span class="sd">                                могут переохладиться за 10 минут</span>
+<span class="sd">    от -60	        4	    Экстремально холодно, обнаженные части тела человека</span>
+<span class="sd">                                могут переохладиться за 2 минуты</span>
+
+<span class="sd">    Примечание:</span>
+<span class="sd">        Внесу некоторое уточнение, до означает не включительно.</span>
+<span class="sd">        Обратите внимания, что у нас интервалыотрицательных температур.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">ta</span><span class="p">,</span> <span class="n">va</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">()),</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">v10</span> <span class="o">=</span> <span class="n">va</span> <span class="o">*</span> <span class="mf">1.5</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="mf">0.16</span>
+    <span class="n">twc</span> <span class="o">=</span> <span class="mf">13.12</span> <span class="o">+</span> <span class="mf">0.6215</span> <span class="o">*</span> <span class="n">ta</span> <span class="o">-</span> <span class="mf">11.37</span> <span class="o">*</span> <span class="n">v10</span><span class="o">**</span><span class="n">exp</span> <span class="o">+</span> <span class="mf">0.3965</span> <span class="o">*</span> <span class="n">ta</span> <span class="o">*</span> <span class="n">v10</span><span class="o">**</span><span class="n">exp</span>
+
+    <span class="k">if</span> <span class="n">twc</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">10</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Нет дискомфорта&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">twc</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">25</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Дискомфорт, прохлада&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">twc</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">35</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Очень холодно, переохлаждение поверхности кожи&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">twc</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">60</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;Чрезвычайно холодно, обнаженные части тела человека &quot;</span>
+            <span class="s2">&quot;могут переохладиться за 10 минут&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="mi">4</span><span class="p">,</span>
+            <span class="s2">&quot;Экстремально холодно, обнаженные части тела человека &quot;</span>
+            <span class="s2">&quot;могут переохладиться за 2 минуты&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="n">risk</span><span class="p">,</span> <span class="n">sense</span> <span class="o">=</span> <span class="n">res</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;twc составляет: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">twc</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2"> градусов Цельсия&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;Класс риска:</span><span class="si">{</span><span class="n">risk</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;Ощущение/последствия: </span><span class="si">{</span><span class="n">sense</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_5_4">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_5_4">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_5_4</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Анжела и Индекс Массы Тела (ИМТ) 2</span>
+<span class="sd">    Наша Анжела решила, а что если сможет помочь ещё кому то,</span>
+<span class="sd">    предоставив возможность расчёта и выдачу результата,</span>
+<span class="sd">    какой индекс у человека, что он означает и какие действия</span>
+<span class="sd">    нужно предпринять. Давайте вспомним из первой задачи</span>
+<span class="sd">    На вход подаётся два вещественных числа:</span>
+<span class="sd">        weight - масса тела в килограммах, height - рост в метрах.</span>
+<span class="sd">    Теперь нам нужно не просто рассчитать индекс массы тела,</span>
+<span class="sd">    округлённый до одного знака после запятой,</span>
+<span class="sd">    а уже по рассчитанному индексу дать ответ следующего характера:</span>
+
+<span class="sd">        &quot;Индекс вашей массы тела составляет: &lt;ИМТ&gt;&quot;</span>
+<span class="sd">        &quot;Что означает: &lt;Соответствие из 2 столбца таблицы&gt;&quot;</span>
+<span class="sd">        &quot;Рекомендации: &lt;Рекомендации из 3 столбца таблицы&gt;&quot;</span>
+
+
+<span class="sd">        Индекс 	    Соответствует	        Рекомендации</span>
+<span class="sd">        массы тела</span>
+<span class="sd">        до 16	    Выраженный дефицит      Рекомендуется обратиться к врачу и</span>
+<span class="sd">                    массы тела              разработать план питания и</span>
+<span class="sd">                                            повышения активности</span>
+<span class="sd">    от 16 до 18.5	Недостаточная (дефицит) Рекомендуется увеличить потребление</span>
+<span class="sd">                    масса тела              питательных веществ и калорий</span>
+<span class="sd">                                            Рекомендуется поддерживать текущий</span>
+<span class="sd">    от 18.5 до 25	Норма                   уровень веса и здорового образа</span>
+<span class="sd">                                            жизни</span>
+<span class="sd">                                            Рекомендуется снизить потребление</span>
+<span class="sd">    от 25 до 30	    Избыточная масса тела   калорий и увеличить физическую</span>
+<span class="sd">                                            активность</span>
+<span class="sd">                                            Рекомендуется консультация</span>
+<span class="sd">    от 30 до 35	    Ожирение I степени      специалиста и разработка программы</span>
+<span class="sd">                                            по снижению веса</span>
+<span class="sd">                                            Рекомендуется срочная консультация</span>
+<span class="sd">    от 35 до 40	    Ожирение II степени     врача и назначение плана по</span>
+<span class="sd">                                            снижению веса</span>
+<span class="sd">                                            Рекомендуется немедленная</span>
+<span class="sd">        от 40	    Ожирение III степени    консультация специалиста и принятие</span>
+<span class="sd">                                            радикальных мероприятий</span>
+<span class="sd">    Примечание: внесу некоторое уточнение, до означает не включительно.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">weight</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">()),</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">imt</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">weight</span> <span class="o">/</span> <span class="n">height</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">match</span> <span class="n">imt</span><span class="p">:</span>
+        <span class="k">case</span> <span class="n">i</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">16</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Выраженный дефицит массы тела&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Рекомендуется обратиться к врачу и разработать план &quot;</span>
+                <span class="s2">&quot;питания и повышения активности&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">case</span> <span class="n">i</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mf">18.5</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Недостаточная (дефицит) масса тела&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Рекомендуется увеличить потребление питательных веществ и калорий&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">case</span> <span class="n">i</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Норма&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Рекомендуется поддерживать текущий уровень веса и&quot;</span>
+                <span class="s2">&quot; здорового образа жизни&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">case</span> <span class="n">i</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Избыточная масса тела&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Рекомендуется снизить потребление калорий и увеличить &quot;</span>
+                <span class="s2">&quot;физическую активность&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">case</span> <span class="n">i</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">35</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Ожирение I степени&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Рекомендуется консультация специалиста и разработка &quot;</span>
+                <span class="s2">&quot;программы по снижению веса&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">case</span> <span class="n">i</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">40</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Ожирение II степени&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Рекомендуется срочная консультация врача и назначение &quot;</span>
+                <span class="s2">&quot;плана по снижению веса&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Ожирение III степени&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Рекомендуется немедленная консультация специалиста и &quot;</span>
+                <span class="s2">&quot;принятие радикальных мероприятий&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+    <span class="n">desc</span><span class="p">,</span> <span class="n">rec</span> <span class="o">=</span> <span class="n">res</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Индекс вашей массы тела составляет: </span><span class="si">{</span><span class="n">imt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;Что означает: </span><span class="si">{</span><span class="n">desc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;Рекомендации: </span><span class="si">{</span><span class="n">rec</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_5_5">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_5_5">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_5_5</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Камень, ножницы, бумага</span>
+<span class="sd">    Вася и Петя поспорили, кто пойдёт в магазин. Вопрос приобрёл серьёзный</span>
+<span class="sd">    характер. Вопрос необходимо решить серьёзно и по взрослому, так сказать.</span>
+<span class="sd">    В итоге Вася и Петя решили сыграть в игру &quot;Камень, ножницы, бумага&quot;.</span>
+
+<span class="sd">    Напишите программу, которая определит победителя.</span>
+<span class="sd">    Придерживаться стандартных правил:</span>
+<span class="sd">        - камень побеждает ножницы, но проигрывает бумаге;</span>
+<span class="sd">        - ножницы побеждают бумагу, но проигрывают камню;</span>
+<span class="sd">        - бумага побеждает камень, но проигрывает ножницам.</span>
+<span class="sd">    На вход поступает сначала строка это ход Васи,</span>
+<span class="sd">        затем с новой строки ход Пети: &quot;камень&quot;, &quot;ножницы&quot; или &quot;бумага&quot; —</span>
+<span class="sd">        ходы игроков Васи и Пети соответственно.</span>
+<span class="sd">    Необходимо вывести &quot;Победил Вася&quot;, если выиграл Вася, &quot;Победил Петя&quot;,</span>
+<span class="sd">        если выиграл Петя или &quot;Ничья&quot;, если они вдруг показали одинаковый ход,</span>
+<span class="sd">        например &quot;бумага бумага&quot;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">vasya</span><span class="p">,</span> <span class="n">petya</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">vasya</span> <span class="o">==</span> <span class="n">petya</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Ничья&quot;</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">vasya</span><span class="p">,</span> <span class="n">petya</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s2">&quot;камень&quot;</span><span class="p">,</span> <span class="s2">&quot;ножницы&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;ножницы&quot;</span><span class="p">,</span> <span class="s2">&quot;бумага&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;бумага&quot;</span><span class="p">,</span> <span class="s2">&quot;камень&quot;</span><span class="p">),</span>
+    <span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Победил Вася&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Победил Петя&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_5_6">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_5_6">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_5_6</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Кошачий возраст</span>
+<span class="sd">    Интересно вот, наш персонаж Кэтсвил и ему 10 лет допустим,</span>
+<span class="sd">    а какой эквивалент возраста человеку это. Давайте с вами это выясним :)</span>
+<span class="sd">    Порывшись на просторах интернета нашёл такую информацию:</span>
+<span class="sd">        Согласно ошибочному суждению для расчета возраста кошки по</span>
+<span class="sd">        человеческим меркам, необходимо произвести его умножение на семь.</span>
+<span class="sd">        Однако, это отнюдь не так.</span>
+<span class="sd">        Кошачий возраст находится в прямой зависимости от стадий жизни</span>
+<span class="sd">        четвероногого. В разные периоды это соотношение будет изменяться.</span>
+<span class="sd">    Примерно определить кошачьи года по человеческим меркам можно,</span>
+<span class="sd">    руководствуясь следующими правилами из таблицы возраста кошек:</span>
+<span class="sd">        - котята 1 год — это 15 лет;</span>
+<span class="sd">        - взрослые кошки 2 года — это 24 года;</span>
+<span class="sd">        - взрослые кошки от 3 и до 16 лет — это плюс 4 года</span>
+<span class="sd">          к каждому году жизни;</span>
+<span class="sd">        - взрослые кошки от 16 лет — это плюс 3 года к каждому году жизни.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">15</span>
+    <span class="k">elif</span> <span class="n">age</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">24</span>
+    <span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">+</span> <span class="p">(</span><span class="n">age</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">+</span> <span class="mi">14</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="p">(</span><span class="n">age</span> <span class="o">-</span> <span class="mi">16</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_5_7">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_5_7">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_5_7</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Программа конвертации единиц</span>
+<span class="sd">    На вход поступает вещественное число n, затем на следующей строке единицы</span>
+<span class="sd">    измерения a в которой она представлена (мм, см, м, км), далее со следующей</span>
+<span class="sd">    строки единица измерения b в которую нужно перевести (мм, см, м, км).</span>
+<span class="sd">    Программа должна перевести из одной единицы измерения в другую* и вывести</span>
+<span class="sd">    в следующем виде: &lt;значение&gt; &lt;единица измерения&gt;</span>
+<span class="sd">    Примечание: Полученное конвертированное значение округлим при помощи</span>
+<span class="sd">    функции round() до одного знака после запятой.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">units_from</span><span class="p">,</span> <span class="n">units_to</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(),</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="k">match</span> <span class="n">units_from</span><span class="p">:</span>
+        <span class="k">case</span> <span class="s2">&quot;мм&quot;</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">*=</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">case</span> <span class="s2">&quot;см&quot;</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">*=</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">case</span> <span class="s2">&quot;км&quot;</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">*=</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">match</span> <span class="n">units_to</span><span class="p">:</span>
+        <span class="k">case</span> <span class="s2">&quot;мм&quot;</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">/=</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">case</span> <span class="s2">&quot;см&quot;</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">/=</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">case</span> <span class="s2">&quot;км&quot;</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">/=</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">units_to</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="m_3_5_8">
+<a class="viewcode-back" href="../../modules/module_3.html#src.module_3.m_3_5_8">[документация]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">m_3_5_8</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Мешаем новые цвета ;)</span>
+<span class="sd">    Представьте, что у вас есть цветовой микшер, который может смешивать</span>
+<span class="sd">    три основных цвета: красный, синий и желтый.</span>
+<span class="sd">    Ваша задача - создать программу, которая определит результат смешивания</span>
+<span class="sd">    двух цветов, и выведет получившийся цвет.</span>
+<span class="sd">    Правила смешивания:</span>
+<span class="sd">        Если вы смешиваете два одинаковых цвета,</span>
+<span class="sd">            то результатом будет &quot;тот же цвет!&quot;.</span>
+<span class="sd">        При смешивании:</span>
+<span class="sd">            - красного и синего цветов получится фиолетовый,</span>
+<span class="sd">            - красного и желтого цветов получится оранжевый,</span>
+<span class="sd">            - синего и желтого цветов получится зеленый,</span>
+<span class="sd">            - для любой другой комбинации цветов результат</span>
+<span class="sd">              будет &quot;неопределенный цвет&quot;.</span>
+<span class="sd">    Давайте использовать цветовой микшер и определять результаты</span>
+<span class="sd">        смешивания цветов вместе! 🎨</span>
+<span class="sd">    Примечание: Порядок цветов может быть любой, нет разницы смешали мы</span>
+<span class="sd">    красный и синий или синий и красный, результат будет всё равно фиолетовый.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">color1</span><span class="p">,</span> <span class="n">color2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">color1</span> <span class="o">==</span> <span class="n">color2</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;тот же цвет!&quot;</span>
+    <span class="k">elif</span> <span class="p">{</span><span class="n">color1</span><span class="p">,</span> <span class="n">color2</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;красный&quot;</span><span class="p">,</span> <span class="s2">&quot;синий&quot;</span><span class="p">}:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;фиолетовый&quot;</span>
+    <span class="k">elif</span> <span class="p">{</span><span class="n">color1</span><span class="p">,</span> <span class="n">color2</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;красный&quot;</span><span class="p">,</span> <span class="s2">&quot;желтый&quot;</span><span class="p">}:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;оранжевый&quot;</span>
+    <span class="k">elif</span> <span class="p">{</span><span class="n">color1</span><span class="p">,</span> <span class="n">color2</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;синий&quot;</span><span class="p">,</span> <span class="s2">&quot;желтый&quot;</span><span class="p">}:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;зеленый&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;неопределенный цвет&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Learning Python Together</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Навигация</h3>
+<p class="caption" role="heading"><span class="caption-text">Модули:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/module_2.html">Модуль 2: Переменные и типы данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/module_3.html">Модуль 3: Ветвления</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/module_4.html">Модуль 4: Циклы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/module_5.html">Модуль 5: Числовые данные</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/module_6.html">Модуль 6: Строки</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Код модуля</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, nia.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
