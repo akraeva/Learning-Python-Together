@@ -38,8 +38,8 @@ autodoc_default_options = {
     "add_module_names": False,
 }
 
-napoleon_google_docstring = True  # NumPy/Google стиль
-napoleon_numpy_docstring = True  # Для сложных docstring
+napoleon_google_docstring = True
+napoleon_numpy_docstring = True
 
 # -- Options for HTML output -------------------------------------------------
 html_theme = "alabaster"
@@ -49,8 +49,4 @@ add_module_names = False
 
 html_theme_options = {
     "show_powered_by": False,
-    "collapse_navigation": False,
-    "sticky_navigation": True,
-    "navigation_depth": 4,
-    "style_external_links": True,
 }

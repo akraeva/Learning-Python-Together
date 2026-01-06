@@ -35,8 +35,6 @@
 <span></span><span class="c1"># Stepick.org — Learning Python Together</span>
 <span class="c1"># 6. Строки</span>
 
-<span class="c1"># pylint: disable=W0105</span>
-
 
 <span class="c1"># === 6.1 Форматирование строк ===</span>
 
@@ -46,12 +44,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_1_1</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Приветствие</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка с именем name и пол (мужской - м; женский - ж).</span>
+
 <span class="sd">    Давайте поприветствуем пользователя следующим образом.</span>
-<span class="sd">    Если пол мужской (м):</span>
-<span class="sd">        &quot;Привет, уважаемый name, рады снова видеть!&quot;</span>
-<span class="sd">    Если пол женский (ж):</span>
-<span class="sd">        &quot;Привет, уважаемая name, рады снова видеть!&quot;</span>
+<span class="sd">        Если пол мужской (м): &quot;Привет, уважаемый name, рады снова видеть!&quot;</span>
+<span class="sd">        Если пол женский (ж): &quot;Привет, уважаемая name, рады снова видеть!&quot;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">name</span><span class="p">,</span> <span class="n">gen</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(),</span> <span class="nb">input</span><span class="p">()</span>
     <span class="n">res</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Привет, уважаем</span><span class="si">{</span><span class="s1">&#39;ая&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">gen</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;ж&#39;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;ый&#39;</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, рады снова видеть!&quot;</span>
@@ -64,9 +62,11 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_1_2</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Тренируемся с выравниванием</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка. Ваша задача выравнять* текст по левому краю,</span>
 <span class="sd">    центру и по правому краю. Каждое выравнивание по 20 символов.</span>
-<span class="sd">    * Примечание: воспользуйтесь спецификаторами {:&lt;20}, {:^20}, {:&gt;20}.</span>
+
+<span class="sd">    Примечание: воспользуйтесь спецификаторами {:&lt;20}, {:^20}, {:&gt;20}.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">line</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">line</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">line</span><span class="si">:</span><span class="s2">^20</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">line</span><span class="si">:</span><span class="s2">&gt;20</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></div>
@@ -76,14 +76,16 @@
 <div class="viewcode-block" id="m_6_1_3">
 <a class="viewcode-back" href="../../modules/module_6.html#src.module_6.m_6_1_3">[документация]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_1_3</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Информационное сообщение</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Информационное сообщение</span>
+<span class="sd">    -----------------------------</span>
 <span class="sd">    На вход подаётся строка с наименованием товара item и следующей строкой</span>
-<span class="sd">    его стоимость price (вещественное число)*,</span>
+<span class="sd">    его стоимость price (вещественное число),</span>
 <span class="sd">    Вам необходимо вывести следующее сообщение:</span>
-<span class="sd">    Наименование позиции: item</span>
-<span class="sd">    Цена за единицу товара: price</span>
-<span class="sd">    * Примечание: округлите цену товара price до одного знака после</span>
+
+<span class="sd">        Наименование позиции: ``item``</span>
+<span class="sd">        Цена за единицу товара: ``price``</span>
+
+<span class="sd">    Примечание: округлите цену товара price до одного знака после</span>
 <span class="sd">    запятой спецификатором .1f.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">item</span><span class="p">,</span> <span class="n">price</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(),</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
@@ -97,24 +99,29 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_1_4</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Информационное сообщение 2</span>
-<span class="sd">    Вот мы довольные показали наше творение заказчику, а он говорит, хммм,</span>
+<span class="sd">    -------------------------------------</span>
+<span class="sd">    *Вот мы довольные показали наше творение заказчику, а он говорит, хммм,</span>
 <span class="sd">    как то смотрится что ли не так, а давай ты  отобразишь ещё два варианта,</span>
 <span class="sd">    а мы потом выберем, какой оставить в финале. И вот идёт вещание</span>
 <span class="sd">    &quot;гениальной мысли&quot;, как, по субъективному мнению заказчика,</span>
-<span class="sd">    это выглядело бы просто &quot;пушка, гонка&quot;</span>
+<span class="sd">    это выглядело бы просто &quot;пушка, гонка&quot;*</span>
+
 <span class="sd">    На вход подаётся строка с наименованием товара item и следующей строкой</span>
-<span class="sd">    его стоимость price (вещественное число)*, Вам необходимо вывести</span>
+<span class="sd">    его стоимость price (вещественное число), Вам необходимо вывести</span>
 <span class="sd">    следующее сообщение:</span>
-<span class="sd">        Наименование позиции: item</span>
-<span class="sd">        Цена за единицу товара: price</span>
+
+<span class="sd">        ``Наименование позиции: item</span>
+<span class="sd">        Цена за единицу товара: price``</span>
+
 <span class="sd">    После вывода основного сообщения необходимо вывести то же сообщение</span>
 <span class="sd">    с использованием дополнительного форматирования:</span>
-<span class="sd">    Для выравнивания наименования товара по правому краю и цены по левому краю</span>
-<span class="sd">    используйте {:&gt;10} и {:&lt;10}** соответственно.</span>
-<span class="sd">    * Примечание: Округлите цену товара price до одного знака после запятой</span>
-<span class="sd">    спецификатором .1f.</span>
-<span class="sd">    ** Примечание: Для применения одновременно и округления и спецификатора</span>
-<span class="sd">    вариванивания, допустим, по левому краю достаточно прописать price:&lt;10.1f</span>
+
+<span class="sd">        Для выравнивания наименования товара по правому краю и</span>
+<span class="sd">        цены по левому краю используйте {:&gt;10} и {:&lt;10} соответственно.</span>
+
+<span class="sd">    Примечание: Округлите цену товара price до одного знака после запятой</span>
+<span class="sd">    спецификатором .1f. Для применения одновременно и округления и</span>
+<span class="sd">    спецификатора вариванивания, достаточно прописать price:&lt;10.1f</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">item</span><span class="p">,</span> <span class="n">price</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(),</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
     <span class="n">res1</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Наименование позиции: </span><span class="si">{</span><span class="n">item</span><span class="si">:}</span><span class="se">\n</span><span class="s2">Цена за единицу товара: </span><span class="si">{</span><span class="n">price</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -128,10 +135,14 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_1_5</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Cмотреть продолжение в источнике</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    Натыкались же на смешные новости, где пишут что то интересное, далее идёт</span>
 <span class="sd">    троеточее и написано смотреть продолжение в источнике.</span>
-<span class="sd">    Давайте с вами также реализуем ;) Дадим 55 символов обрежем строку при</span>
-<span class="sd">    помощи спецификатора {:.55s} пропишем пробел далее ... потом снова пробел</span>
+
+<span class="sd">    Давайте с вами также реализуем ;)</span>
+
+<span class="sd">    Дадим 55 символов обрежем строку при помощи спецификатора {:.55s}</span>
+<span class="sd">    пропишем пробел далее ... потом снова пробел</span>
 <span class="sd">    и напишем фразу &quot;Смотреть продолжение в источнике!&quot;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">text</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
@@ -150,8 +161,10 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Напишите программу, которая принимает строку от пользователя</span>
 <span class="sd">    и выводит количество букв в ней.</span>
-<span class="sd">    Входные данные: Строка (например, &quot;Hello world&quot;).</span>
-<span class="sd">    Выходные данные: Количество букв в строке*.</span>
+
+<span class="sd">        Входные данные: Строка (например, &quot;Hello world&quot;).</span>
+
+<span class="sd">        Выходные данные: Количество букв в строке.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">input</span><span class="p">()))</span></div>
 
@@ -176,8 +189,10 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Напишите программу, которая принимает символ от пользователя и</span>
 <span class="sd">    выводит его код в кодировке Unicode.</span>
-<span class="sd">    Входные данные: Символ (например, &#39;A&#39;).</span>
-<span class="sd">    Выходные данные: Числовое представление символа в кодировке Unicode*.</span>
+
+<span class="sd">        Входные данные: Символ (например, &#39;A&#39;).</span>
+
+<span class="sd">        Выходные данные: Числовое представление символа в кодировке Unicode.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="nb">input</span><span class="p">()))</span></div>
 
@@ -189,8 +204,10 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Напишите программу, которая принимает целое число от пользователя</span>
 <span class="sd">    и выводит символ Unicode с таким кодом.</span>
-<span class="sd">    Входные данные: Целое число (например, 65).</span>
-<span class="sd">    Выходные данные: Символ с заданным числовым представлением*.</span>
+
+<span class="sd">        Входные данные: Целое число (например, 65).</span>
+
+<span class="sd">        Выходные данные: Символ с заданным числовым представлением*.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())))</span></div>
 
@@ -201,6 +218,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_2_5</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Строка в Unicode</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    Вам подаются на вход числа, считывайте их, пока не получите число 0.</span>
 <span class="sd">    Каждое полученное число через функцию chr() получите символ и</span>
 <span class="sd">    сложите все символы в одну строку.</span>
@@ -220,6 +238,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_4_1</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Перевод строки в нижний регистр</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка. Ваша задача вывести всю строку в нижнем регистре.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
@@ -232,6 +251,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_4_2</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Перевод строки в верхний регистр</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка. Ваша задача вывести всю строку в верхний регистр.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
@@ -255,8 +275,8 @@
 <div class="viewcode-block" id="m_6_4_4">
 <a class="viewcode-back" href="../../modules/module_6.html#src.module_6.m_6_4_4">[документация]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_4_4</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Замени каждый символ на противоположный</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Замени каждый символ на противоположный</span>
+<span class="sd">    -------------------------------------------</span>
 <span class="sd">    На вход подаётся строка. Ваша задача вывести строку,</span>
 <span class="sd">    в которой регистр каждого символа заменен на противоположный.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -268,9 +288,9 @@
 <div class="viewcode-block" id="m_6_4_5">
 <a class="viewcode-back" href="../../modules/module_6.html#src.module_6.m_6_4_5">[документация]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_4_5</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Выведи строку в &quot;заголовочном&quot; формате</span>
-<span class="sd">    На вход подаётся строка. Ваша задача вывести строку в &quot;заголовочном&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Выведи строку в «заголовочном» формате</span>
+<span class="sd">    ------------------------------------------</span>
+<span class="sd">    На вход подаётся строка. Ваша задача вывести строку в «заголовочном»</span>
 <span class="sd">    формате, где первая буква каждого слова написана заглавной.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
@@ -286,9 +306,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_5_1</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Найди количество вхождений</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся подстрока и строка. Предварительно строку необходимо</span>
-<span class="sd">    перевести в нижний регистр. Напишите программу, которая выводит число</span>
-<span class="sd">    вхождений подстроки в исходной строке.</span>
+<span class="sd">    перевести в нижний регистр.</span>
+
+<span class="sd">    Напишите программу, которая выводит число вхождений подстроки</span>
+<span class="sd">    в исходной строке.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">substring</span><span class="p">,</span> <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(),</span> <span class="nb">input</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">substring</span><span class="p">))</span></div>
@@ -300,19 +323,33 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_5_2</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Спор</span>
-<span class="sd">    Вася и Петя поспорили, при решении важного вопроса, кто пойдёт в магазин.</span>
+<span class="sd">    -------------------------------------</span>
+<span class="sd">    *Вася и Петя поспорили, при решении важного вопроса, кто пойдёт в магазин.</span>
 <span class="sd">    Они решили прибегнуть к взрослому способу решения вопросов и решили</span>
 <span class="sd">    подкинуть 10 раз монету, и какая сторона выпадет чаще, то тот кто её</span>
 <span class="sd">    выбрал, победил. Вася выбрал орла (ведь он у мамы тот ещё орёл),</span>
-<span class="sd">    ну а Петя, соответственно выбрал решку. На вход подаётся строка,</span>
-<span class="sd">    состоящая из 10 символов О и Р (подряд без пробелов в виде одной строки),</span>
-<span class="sd">    соответствующие О - Орёл, Р - Решка. Необходимо посчитать число вхождений</span>
-<span class="sd">    двух букв и определить какая сторона монеты выпала чаще и вывести:</span>
-<span class="sd">        Если победил Вася: Победил Вася</span>
-<span class="sd">        Если победил Петя: Победил Петя</span>
-<span class="sd">        Если ничья: Выпала ничья, перебрасываем!</span>
+<span class="sd">    ну а Петя, соответственно выбрал решку.*</span>
+
+<span class="sd">    На вход подаётся строка, состоящая из 10 символов О и Р</span>
+<span class="sd">    (подряд без пробелов в виде одной строки),</span>
+<span class="sd">    соответствующие О - Орёл, Р - Решка.</span>
+
+<span class="sd">    Необходимо посчитать число вхождений двух букв и определить,</span>
+<span class="sd">    какая сторона монеты выпала чаще и вывести:</span>
+
+<span class="sd">    - Если победил Вася: Победил Вася</span>
+<span class="sd">    - Если победил Петя: Победил Петя</span>
+<span class="sd">    - Если ничья: Выпала ничья, перебрасываем!</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+    <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">p</span><span class="p">,</span> <span class="n">o</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;Р&quot;</span><span class="p">),</span> <span class="n">string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;О&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">o</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Победил Вася&quot;</span>
+    <span class="k">elif</span> <span class="n">o</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Победил Петя&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;Выпала ничья, перебрасываем!&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
 
 
 
@@ -321,12 +358,16 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_5_3</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Начинается ли строка с подстроки?</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся подстрока и строка.</span>
 <span class="sd">    Предварительно строку необходимо перевести в нижний регистр.</span>
+
 <span class="sd">    Напишите программу, которая выводит, если строка начинается с подстроки:</span>
 <span class="sd">        &quot;Строка &lt;строка&gt; начинается с подстроки &lt;подстрока&gt;&quot;</span>
+
 <span class="sd">    В противном случае выведите:</span>
 <span class="sd">        &quot;Строка &lt;строка&gt; не начинается с подстроки &lt;подстрока&gt;&quot;</span>
+
 <span class="sd">    Примечание: Строку &lt;строка&gt; вывести уже переведённую в нижний регистр.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">substring</span><span class="p">,</span> <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(),</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -341,11 +382,16 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_5_4</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Проверка расширения файла</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся искомое расширение с точкой и имя файла с расширением.</span>
 <span class="sd">    Предварительно  имя файла с расширением необходимо перевести в нижний</span>
-<span class="sd">    регистр. Напишите программу, которая будет проверять, является ли</span>
-<span class="sd">    расширение файла искомым расширением, если является то вывести &quot;True&quot;,</span>
-<span class="sd">    в противном случае вывести &quot;False&quot;.</span>
+<span class="sd">    регистр.</span>
+
+<span class="sd">    Напишите программу, которая будет проверять, является ли</span>
+<span class="sd">    расширение файла искомым расширением,</span>
+
+<span class="sd">    - если является то вывести &quot;True&quot;,</span>
+<span class="sd">    - в противном случае вывести &quot;False&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">extension</span><span class="p">,</span> <span class="n">file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(),</span> <span class="nb">input</span><span class="p">()</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">file_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">extension</span><span class="p">)</span>
@@ -358,11 +404,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_5_5</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Нахождение индекса с начала строки</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся подстрока и строка.</span>
 <span class="sd">    Предварительно строку необходимо перевести в нижний регистр.</span>
+
 <span class="sd">    Напишите программу, которая находит индекс начала первого вхождения</span>
-<span class="sd">    подстроки в исходной строке.</span>
-<span class="sd">    Если подстрока не найдена, вывести -1.</span>
+<span class="sd">    подстроки в исходной строке. Если подстрока не найдена, вывести -1.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">substring</span><span class="p">,</span> <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(),</span> <span class="nb">input</span><span class="p">()</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">substring</span><span class="p">)</span>
@@ -375,8 +422,10 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_5_6</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Нахождение индекса с конца строки</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся подстрока и строка.</span>
 <span class="sd">    Предварительно строку необходимо перевести в нижний регистр.</span>
+
 <span class="sd">    Напишите программу, которая находит индекс последнего вхождения</span>
 <span class="sd">    подстроки в строке. Если подстрока не найдена, вывести -1.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -394,9 +443,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_6_1</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Только буквы</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка, состоящая из букв и, возможно, цифр и символов.</span>
+
 <span class="sd">    Проверьте, состоит ли содержимое строки только из букв,</span>
-<span class="sd">        используя метод isalpha().</span>
+<span class="sd">    используя метод isalpha().</span>
+
 <span class="sd">    Выведите &quot;True&quot;, если строка состоит только из букв,</span>
 <span class="sd">    и &quot;False&quot; в противном случае.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -410,9 +462,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_6_2</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Только цифры</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка, состоящая из цифр и, возможно, букв и символов.</span>
+
 <span class="sd">    Проверьте, состоит ли содержимое строки только из цифр,</span>
-<span class="sd">        используя метод isdigit().</span>
+<span class="sd">    используя метод isdigit().</span>
+
 <span class="sd">    Выведите &quot;True&quot;, если строка состоит только из цифр,</span>
 <span class="sd">    и &quot;False&quot; в противном случае.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -426,9 +481,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_6_3</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Только буквы и цифры</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка, состоящая из букв и цифр и, возможно, символов.</span>
+
 <span class="sd">    Проверьте, является ли содержимое строки только буквами и цифрами,</span>
-<span class="sd">        используя метод isalnum().</span>
+<span class="sd">    используя метод isalnum().</span>
+
 <span class="sd">    Выведите &quot;True&quot;, если строка состоит только из букв и цифр,</span>
 <span class="sd">    и &quot;False&quot; в противном случае.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -442,8 +500,10 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_6_4</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Допустимые идентификаторы</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка. Проверьте, является ли строка допустимым</span>
 <span class="sd">    идентификатором isidentifier().</span>
+
 <span class="sd">    Выходные данные: Выведите &quot;True&quot;, если строка является допустимым</span>
 <span class="sd">    идентификатором и &quot;False&quot; в противном случае.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -457,18 +517,19 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_6_5</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Определяем строку</span>
-<span class="sd">    На вход подаётся строка.</span>
-<span class="sd">    Определяем написана ли строка исключительно в верхнем регистре isupper(),</span>
-<span class="sd">    либо написана исключительно в нижнем регистре islower(),</span>
-<span class="sd">    либо начинается ли каждое слово с заглавной буквы istitle().</span>
+<span class="sd">    -------------------------------------</span>
+<span class="sd">    На вход подаётся строка. Определяем написана ли строка</span>
+<span class="sd">        - исключительно в верхнем регистре isupper(),</span>
+<span class="sd">        - либо написана исключительно в нижнем регистре islower(),</span>
+<span class="sd">        - либо начинается ли каждое слово с заглавной буквы istitle().</span>
 <span class="sd">    Выводим следующим образом:</span>
-<span class="sd">        Если строка исключительно в верхнем регистре:</span>
+<span class="sd">        - Если строка исключительно в верхнем регистре:</span>
 <span class="sd">            &quot;Строка в верхнем регистре&quot;</span>
-<span class="sd">        Если строка исключительно в нижнем регистре:</span>
+<span class="sd">        - Если строка исключительно в нижнем регистре:</span>
 <span class="sd">            &quot;Строка в нижнем регистре&quot;</span>
-<span class="sd">        Если начинается каждое слово с заглавной буквы:</span>
+<span class="sd">        - Если начинается каждое слово с заглавной буквы:</span>
 <span class="sd">            &quot;У строки каждое слово начинается с заглавной буквы&quot;</span>
-<span class="sd">        Иначе:</span>
+<span class="sd">        - Иначе:</span>
 <span class="sd">            &quot;Не удалось определить&quot;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
@@ -492,8 +553,9 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_7_1</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    По центру</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    Написать программу, которая принимает на вход строку</span>
-<span class="sd">    и выводит ее центрированную версию с символами &#39;_&#39;,</span>
+<span class="sd">    и выводит ее центрированную версию с символами «_»,</span>
 <span class="sd">    чтобы ширина строки была 30 символов.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
@@ -506,8 +568,9 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_7_2</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    По левому краю</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    Написать программу, которая принимает на вход строку</span>
-<span class="sd">    и выводит ее по левому краю с символами &#39;_&#39;,</span>
+<span class="sd">    и выводит ее по левому краю с символами «_»,</span>
 <span class="sd">    чтобы ширина строки была 30 символов.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
@@ -520,8 +583,9 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_7_3</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    По правому краю</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    Написать программу, которая принимает на вход строку</span>
-<span class="sd">    и выводит ее по правому краю с символами &#39;_&#39;,</span>
+<span class="sd">    и выводит ее по правому краю с символами «_»,</span>
 <span class="sd">    чтобы ширина строки была 30 символов.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
@@ -534,23 +598,29 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_7_4</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Заполняем импровизированную таблицу</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход программе поступают 3 строки: Фамилия, Имя, Отчество.</span>
+
 <span class="sd">    Наша задача создать таблицу следующего вида.</span>
-<span class="sd">    Сверху у нас 64 символа &quot;_&quot;,</span>
-<span class="sd">    Потом заполняем шапку таблицы со следующей строки идёт</span>
-<span class="sd">        - символ &quot;|&quot; далее выравненное по центру строка</span>
-<span class="sd">          &quot;Фамилия&quot; с заполнением в 20 символов по центру,</span>
-<span class="sd">        - далее снова символ &quot;|&quot; далее выравненное по центру строка</span>
-<span class="sd">          &quot;Имя&quot; с заполнением в 20 символов,</span>
-<span class="sd">        - далее снова символ &quot;|&quot; далее выравненное по центру строка</span>
-<span class="sd">          &quot;Отчество&quot; с заполнением в 20 символов</span>
-<span class="sd">        - далее снова символ &quot;|&quot;.</span>
+
+<span class="sd">        - Сверху у нас 64 символа &quot;_&quot;,</span>
+<span class="sd">        - Потом заполняем шапку таблицы со следующей строки идёт</span>
+<span class="sd">            - символ «|» далее выравненное по центру строка</span>
+<span class="sd">                &quot;Фамилия&quot; с заполнением в 20 символов по центру,</span>
+<span class="sd">            - далее снова символ «|» далее выравненное по центру строка</span>
+<span class="sd">                &quot;Имя&quot; с заполнением в 20 символов,</span>
+<span class="sd">            - далее снова символ «|» далее выравненное по центру строка</span>
+<span class="sd">                &quot;Отчество&quot; с заполнением в 20 символов</span>
+<span class="sd">            - далее снова символ «|».</span>
+
 <span class="sd">    Это мы заполним шапку таблицы.</span>
-<span class="sd">    Далее нам нужно закрыть нижним подчёркиванием первую строку,</span>
-<span class="sd">        поэтому снова печатаем 64 символа &quot;_&quot;.</span>
-<span class="sd">    Далее мы заполняем вторую строку нашей таблицы. Снова как с Фамилией,</span>
-<span class="sd">    Именем и Отчеством, только уже входящие данные.</span>
-<span class="sd">    Далее снова печатаем 64 символа &quot;_&quot;.</span>
+
+<span class="sd">    Далее нам нужно закрыть нижним подчёркиванием первую строку, поэтому</span>
+<span class="sd">        - снова печатаем 64 символа &quot;_&quot;.</span>
+
+<span class="sd">    Далее мы заполняем вторую строку нашей таблицы.</span>
+<span class="sd">        - Снова как с Фамилией, Именем и Отчеством, только уже входящие данные.</span>
+<span class="sd">        - Далее снова печатаем 64 символа &quot;_&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="nb">input</span><span class="p">(),</span> <span class="nb">input</span><span class="p">(),</span> <span class="nb">input</span><span class="p">())</span>
     <span class="n">header</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Фамилия&quot;</span><span class="p">,</span> <span class="s2">&quot;Имя&quot;</span><span class="p">,</span> <span class="s2">&quot;Отчество&quot;</span><span class="p">)</span>
@@ -569,6 +639,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_8_1</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Список покупок</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка, список покупок, каждое наименование разделено при</span>
 <span class="sd">    помощи запятой и пробела после &quot;, &quot;. Нам необходимо создать лист (list)</span>
 <span class="sd">    с наименованиями из списка покупок и вывести его на печать.</span>
@@ -583,6 +654,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_8_2</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Список покупок 2</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка, список покупок, каждое наименование разделено</span>
 <span class="sd">    при помощи запятой и пробела после &quot;, &quot;. Нам необходимо вывести</span>
 <span class="sd">    наименование каждой позиции с новой строки.</span>
@@ -600,6 +672,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_9_1</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Замена символов строки</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    Для защиты от ботов, собирающих с web-страниц адреса электронной почты для</span>
 <span class="sd">    рассылки спама, используются методы скрытия адреса электронной почты.</span>
 <span class="sd">    Рассмотрим самый простой метод скрытия: в адресе электронной почты</span>
@@ -620,6 +693,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_9_2</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Заметки путешественника</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    Нам необходимо помочь подготовить статью о приключениях путешественника</span>
 <span class="sd">    перед публикацией в журнале. Путешественник рассказывает о своих</span>
 <span class="sd">    незабываемых поездках в текстовом виде который содержит много лишних</span>
@@ -639,6 +713,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_9_3</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Список покупок</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка, список покупок, каждое наименование разделено</span>
 <span class="sd">    при помощи пробела &quot; &quot;. Нам необходимо вывести наименование каждой</span>
 <span class="sd">    позиции через запятую с пробелом &quot;, &quot;.</span>
@@ -653,6 +728,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_9_4</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Выводим дату</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаются три числа через пробел: день, месяц, год.</span>
 <span class="sd">    Наша задача вывести их в формате dd.mm.yyyy, то есть двухзначное число дня</span>
 <span class="sd">    и месяца и год в четырёхзначном формате. Если число меньше по разрядности</span>
@@ -674,6 +750,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_11_1</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Количество слов</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка, состоящая из слов, разделенных пробелами</span>
 <span class="sd">    (один пробел). Определите, сколько в ней слов.</span>
 <span class="sd">    Используйте для решения задачи метод count</span>
@@ -688,6 +765,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_11_2</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Количество слов 2</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка, состоящая из слов, разделенных пробелами</span>
 <span class="sd">    (один и более пробелов). Согласитесь, что в жизни может встречаться</span>
 <span class="sd">    и не один пробел, а больше. Определите, сколько в ней слов.</span>
@@ -703,6 +781,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_11_3</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Меняем цифры на слова</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка. Необходимо заменить &quot;1&quot; на &quot;один&quot;, &quot;2&quot; на &quot;два&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
@@ -716,6 +795,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_11_4</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Количество гласных букв в слове</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка. Определите, сколько в строке* гласных букв</span>
 <span class="sd">    &quot;аеёиоуэюя&quot;. Используйте для решения задачи оператор in.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -732,6 +812,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_11_5</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Количество символов в строке</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка string, затем подаётся символ char.</span>
 <span class="sd">    Ваша задача перевести строку в нижний регистр (подробно было здесь)</span>
 <span class="sd">    и посчитать, сколько раз встречается символ char в строке string.</span>
@@ -747,12 +828,13 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_11_6</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Второе вхождение буквы</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка. Необходимо перевести её в нижний регистр и</span>
 <span class="sd">    определить второе вхождение буквы и, и выведите индекс этого вхождения.</span>
 <span class="sd">    Если буква и в данной строке встречается только один раз,</span>
-<span class="sd">        выведите число -1,</span>
+<span class="sd">    выведите число -1,</span>
 <span class="sd">    а если не встречается ни разу,</span>
-<span class="sd">        выведите число -2.</span>
+<span class="sd">    выведите число -2.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">target_char</span> <span class="o">=</span> <span class="s2">&quot;и&quot;</span>
@@ -768,8 +850,8 @@
 <div class="viewcode-block" id="m_6_11_7">
 <a class="viewcode-back" href="../../modules/module_6.html#src.module_6.m_6_11_7">[документация]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_11_7</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Режем строку по первому и последнему вхождению</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Режем строку по первому и последнему вхождению</span>
+<span class="sd">    --------------------------------------------------</span>
 <span class="sd">    На вход подаётся строка, в которой буква и встречается минимум два раза.</span>
 <span class="sd">    Необходимо перевести её в нижний регистр и удалить из этой строки первое</span>
 <span class="sd">    и последнее вхождение буквы и, а также все символы, находящиеся между ними.</span>
@@ -787,6 +869,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_11_8</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Фамилия Имя Отчество</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход поступает строка, содержащая фамилию, имя и отчество человека</span>
 <span class="sd">    через пробел, например, Зубенко Михаил Петрович. В результате обработки</span>
 <span class="sd">    должна получиться новая строка, содержащая фамилию и инициалы:</span>
@@ -804,6 +887,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_11_9</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Слова в предложении</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка, состоящая из слов, разделенных пробелами</span>
 <span class="sd">    (один и более пробелов). Необходимо вывести все слова из предложения</span>
 <span class="sd">    в нижнем регистре, при этом удалить знаки припенания &quot;.,!?:;&quot;.</span>
@@ -822,6 +906,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_11_10</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Работа с текстом</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка, содержащая некоторый текст с цифрами &quot;0123456789&quot;</span>
 <span class="sd">    и специальными символами &quot;@#$%^&quot;. Напишите программу, которая будет</span>
 <span class="sd">    обрабатывать этот текст и выводить итоговый текст без цифр и спецсимволов.</span>
@@ -838,6 +923,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_11_11</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Числа среди строк</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    На вход подаётся строка, состоящая из букв и цифр. Необходимо написать</span>
 <span class="sd">    программу, которая выведет все цифры среди букв с новой строки каждая.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -852,6 +938,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_11_12</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Определение времени ожидания</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    У всех же бывало такое, когда вам говорят по телефону:</span>
 <span class="sd">    &quot;Приеду через 30 минут&quot;, и вы начинаете грубо прикидывать,</span>
 <span class="sd">    когда это будет. Давайте напишем скрипт, допустим для нашего</span>
@@ -882,23 +969,25 @@
 <div class="viewcode-block" id="m_6_12_1">
 <a class="viewcode-back" href="../../modules/module_6.html#src.module_6.m_6_12_1">[документация]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_12_1</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Двоичная строка в ASCII или двоичный шутник</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Двоичная строка в ASCII или двоичный шутник</span>
+<span class="sd">    -----------------------------------------------</span>
 <span class="sd">    Представим ситуацию. Ваш друг Василий (любитель подшутить) отправил вам</span>
 <span class="sd">    одну строку из двоичных значений, символы которых разделены между собой</span>
 <span class="sd">    пробелами. Вам необходимо разбить эту строку на отдельные символы</span>
 <span class="sd">    (по пробелу) перевести их в десятичную систему и по коду номера</span>
 <span class="sd">    символа ASCII найти соответствующую букву.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+    <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
 
 
 
 <div class="viewcode-block" id="m_6_12_2">
 <a class="viewcode-back" href="../../modules/module_6.html#src.module_6.m_6_12_2">[документация]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_12_2</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Двоичная строка в ASCII или ответный удар возмездия</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Двоичная строка в ASCII или ответный удар возмездия</span>
+<span class="sd">    -------------------------------------------------------</span>
 <span class="sd">    Чтож, мы оценили шутку кота Василия, но теперь хотим, чтобы он тоже</span>
 <span class="sd">    почувствовал все прелести перевода на своей пушистой шкурке ;)</span>
 <span class="sd">    Нам необходимо произвести теперь обратный процесс, нам дана строка,</span>
@@ -912,15 +1001,17 @@
 <span class="sd">    полученную бинарную строку обрезать начиная с 2 символа [2:],</span>
 <span class="sd">    чтобы получить только 1 и 0.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+    <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">ch</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">string</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
 
 
 
 <div class="viewcode-block" id="m_6_12_3">
 <a class="viewcode-back" href="../../modules/module_6.html#src.module_6.m_6_12_3">[документация]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_12_3</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Двоичная строка в ASCII или двоичный шутник 2</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Двоичная строка в ASCII или двоичный шутник 2</span>
+<span class="sd">    --------------------------------------------------</span>
 <span class="sd">    Наш друг Василий (любитель подшутить) снова в деле, на этот раз этот</span>
 <span class="sd">    засранец решил окончательно порофлить над нами. Он отправил вам строку</span>
 <span class="sd">    из двоичных значений, символы которых уже не разделены между собой</span>
@@ -930,15 +1021,18 @@
 <span class="sd">    затем используя код символа ASCII, найти соответствующие символы,</span>
 <span class="sd">    соеденив их и получим послание от нашего пушистого друга.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+    <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">chrs</span> <span class="o">=</span> <span class="p">[</span><span class="n">string</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">16</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">),</span> <span class="mi">16</span><span class="p">)]</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">chrs</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
 
 
 
 <div class="viewcode-block" id="m_6_12_4">
 <a class="viewcode-back" href="../../modules/module_6.html#src.module_6.m_6_12_4">[документация]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_12_4</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Двоичная строка в ASCII или ответный удар возмездия 2</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Двоичная строка в ASCII или ответный удар возмездия 2</span>
+<span class="sd">    ---------------------------------------------------------</span>
 <span class="sd">    Ну и негодник, наш верный пушистый друг Василий. Ну ничего, наша ответка</span>
 <span class="sd">    не оставит себя долго ждать. Мы снова его проучим, заставив сделать</span>
 <span class="sd">    обратный процесс. Как же нам это сделать? Тут есть один нюанс, который</span>
@@ -954,7 +1048,9 @@
 <span class="sd">    каждый символ до 16, сделав одну слитную строку, ровно такую же,</span>
 <span class="sd">    как нам присылал Василий. Давайте проучим эту наглую пушистую мордочку ;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+    <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">ch</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">string</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
 
 
 
@@ -963,23 +1059,35 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_12_5</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Заполняем импровизированную таблицу 2</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    Мы с вами уже заполняли таблицу здесь. Давайте теперь с вами усложним</span>
 <span class="sd">    задачу. На вход поступает целочисленное значение числа строк, которые</span>
-<span class="sd">    необходимо считать. Каждая строка это Фамилия Имя Отчество. Три значения</span>
-<span class="sd">    разделены между собой пробелами. Наша задача создать таблицу следующего</span>
-<span class="sd">    вида. Сверху у нас 64 символа &quot;_&quot;*, Потом заполняем шапку таблицы со</span>
-<span class="sd">    следующей строки идёт символ &quot;|&quot; далее выравненное по центру строка</span>
-<span class="sd">    &quot;Фамилия&quot; с заполнением в 20 символов, далее снова символ &quot;|&quot; далее</span>
-<span class="sd">    выравненное по центру строка &quot;Имя&quot; с заполнением в 20 символов, далее</span>
-<span class="sd">    снова символ &quot;|&quot; далее выравненное по центру строка &quot;Отчество&quot; с</span>
-<span class="sd">    заполнением в 20 символов и далее снова символ &quot;|&quot;. Это мы заполним шапку</span>
-<span class="sd">    таблицы. Далее нам нужно закрыть нижним подчёркиванием первую строку,</span>
-<span class="sd">    поэтому снова печатаем 64 символа &quot;_&quot;*. Далее мы заполняем последующие</span>
-<span class="sd">    строки нашей таблицы. Снова как с Фамилией, Именем и Отчеством, только уже</span>
-<span class="sd">    входящие данные. Далее снова печатаем 64 символа &quot;_&quot;*.</span>
-<span class="sd">    И так на все входящие данные.</span>
+<span class="sd">    необходимо считать.</span>
+<span class="sd">    - Каждая строка это Фамилия Имя Отчество.</span>
+<span class="sd">    - Три значения разделены между собой пробелами.</span>
+<span class="sd">    Наша задача создать таблицу следующег овида.</span>
+<span class="sd">    - Сверху у нас 64 символа &quot;_&quot;,</span>
+<span class="sd">    - Потом заполняем шапку таблицы со следующей строки идёт символ «|»</span>
+<span class="sd">    - далее выравненное по центру строка &quot;Фамилия&quot; с заполнением в 20 символов,</span>
+<span class="sd">    - далее снова символ «|»</span>
+<span class="sd">    - далее выравненное по центру строка &quot;Имя&quot; с заполнением в 20 символов,</span>
+<span class="sd">    - далее снова символ «|»</span>
+<span class="sd">    - далее выравненное по центру строка &quot;Отчество&quot; с заполнением в 20 символов</span>
+<span class="sd">    - и далее снова символ «|».</span>
+<span class="sd">    Это мы заполним шапку таблицы.</span>
+<span class="sd">    - Далее нам нужно закрыть нижним подчёркиванием первую строку,</span>
+<span class="sd">    поэтому снова печатаем 64 символа &quot;_&quot;.</span>
+<span class="sd">    Далее мы заполняем последующие строки нашей таблицы.</span>
+<span class="sd">    Снова как с Фамилией, Именем и Отчеством, только уже входящие данные.</span>
+<span class="sd">    Далее снова печатаем 64 символа &quot;_&quot;. И так на все входящие данные.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Фамилия&quot;</span><span class="p">,</span> <span class="s2">&quot;Имя&quot;</span><span class="p">,</span> <span class="s2">&quot;Отчество&quot;</span><span class="p">]]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())):</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span> <span class="o">*</span> <span class="mi">64</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="s1">&#39;|&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="n">s</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="n">row</span><span class="p">))</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 
 
@@ -988,6 +1096,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_12_6</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Анализируем строку</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    Давайте я Вам дам задачу из практики, с которой я столкнулся.</span>
 <span class="sd">    Представьте у вас есть строка, где написаны нормативные документы</span>
 <span class="sd">    и его пункты и таблицы, нам нужно разбить строку на сам нормативные</span>
@@ -1011,7 +1120,12 @@
 <span class="sd">    с заполнением в 25 символов*, а уже следом будут идти данные,</span>
 <span class="sd">    которые мы вытащим из строк, спустя 25 символов.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+    <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">first_line</span> <span class="o">=</span> <span class="s2">&quot;Нормативный документ:&quot;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+    <span class="n">second_line</span> <span class="o">=</span> <span class="s2">&quot;Пункты:&quot;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">):</span>
+        <span class="n">document</span><span class="p">,</span> <span class="n">points</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">,</span> <span class="n">row</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first_line</span><span class="si">}{</span><span class="n">document</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">second_line</span><span class="si">}{</span><span class="n">points</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;( )&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 
 
@@ -1020,29 +1134,35 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_12_7</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Анализируем строку 2</span>
-<span class="sd">    Ещё одна задача из практики. Представьте у вас тысячи файлов,</span>
+<span class="sd">    -------------------------------------</span>
+<span class="sd">    *Ещё одна задача из практики. Представьте у вас тысячи файлов,</span>
 <span class="sd">    вы вытащили из них наименование (а как это сделать мы с вами обучимся</span>
 <span class="sd">    чуть позже, всему своё время), но вот незадача, нам нужно разложить</span>
 <span class="sd">    название на идентификатор самого чертежа, его название и компанию,</span>
-<span class="sd">    что его производит, удалив при этом расширение.</span>
+<span class="sd">    что его производит, удалив при этом расширение.*</span>
+
 <span class="sd">    Строка представлена следующим видом:</span>
 
-<span class="sd">    &lt;Идентификатор чертежа&gt; - &lt;Наименование&gt; &lt;Организация&gt;.&lt;Расширение&gt;</span>
+<span class="sd">    ``&lt;Идентификатор чертежа&gt; - &lt;Наименование&gt; &lt;Организация&gt;.&lt;Расширение&gt;``</span>
 
-<span class="sd">    Теперь небольшая ремарка. Расширение у нас будет всегда &quot;.pdf&quot;*.</span>
-<span class="sd">    А организация всегда будет начинаться с &quot;ООО&quot;.</span>
-<span class="sd">    А &lt;Идентификатор чертежа&gt; и &lt;Наименование&gt; разделены между собой &quot; - &quot;</span>
+<span class="sd">    Теперь небольшая ремарка:</span>
+<span class="sd">    - hасширение у нас будет всегда «.pdf».</span>
+<span class="sd">    - организация всегда будет начинаться с «ООО».</span>
+<span class="sd">    - &lt;Идентификатор чертежа&gt; и &lt;Наименование&gt; разделены между собой « - »</span>
 
-<span class="sd">    * Примечание: Нас по сути несильно волнует расширение,</span>
+<span class="sd">    Примечание: Нас по сути несильно волнует расширение,</span>
 <span class="sd">    важно сразу увидеть, что это крайняя точка справа ;)</span>
 
 <span class="sd">    Результатом программы будут являться три строчки:</span>
-
-<span class="sd">    &lt;Идентификатор чертежа&gt;</span>
-<span class="sd">    &lt;Наименование&gt;</span>
-<span class="sd">    &lt;Организация&gt;</span>
+<span class="sd">        - &lt;Идентификатор чертежа&gt;</span>
+<span class="sd">        - &lt;Наименование&gt;</span>
+<span class="sd">        - &lt;Организация&gt;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+    <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">drawing_id</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;.pdf&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; - &quot;</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s2">&quot;ООО&quot;</span><span class="p">)</span>
+    <span class="n">name</span><span class="p">,</span> <span class="n">organization</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">drawing_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">organization</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 
 
@@ -1051,28 +1171,51 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_6_12_8</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Анализируем строки и выводим таблицу</span>
-<span class="sd">    Задача такая же как в прошлой задаче, но с одним но ;)</span>
+<span class="sd">    -------------------------------------</span>
+<span class="sd">    *Задача такая же как в прошлой задаче, но с одним но ;)*</span>
+
 <span class="sd">    На вход подаётся целое число, количество строк, которые поступят</span>
 <span class="sd">    для обработки. А потом указанное количество строк в виде:</span>
-<span class="sd">    &lt;Идентификатор чертежа&gt; - &lt;Наименование&gt; &lt;Организация&gt;.&lt;Расширение&gt;</span>
-<span class="sd">    Нам теперь полученные значения</span>
-<span class="sd">    &lt;Идентификатор чертежа&gt; &lt;Наименование&gt; &lt;Организация&gt;</span>
+
+<span class="sd">    ``&lt;Идентификатор чертежа&gt; - &lt;Наименование&gt; &lt;Организация&gt;.&lt;Расширение&gt;``</span>
+
+<span class="sd">    Нам теперь полученные значения ``&lt;Идентификатор чертежа&gt;``</span>
+<span class="sd">    ``&lt;Наименование&gt;`` ``&lt;Организация&gt;``</span>
 <span class="sd">    на этот раз вывести в виде таблицы. Какие вводные данные?</span>
-<span class="sd">    Начнём с шапки. Сверху у нас 94 символа &quot;_&quot;*,</span>
-<span class="sd">    Потом заполняем шапку таблицы со следующей строки идёт символ &quot;|&quot;</span>
-<span class="sd">    далее выравненное по центру строка &quot;Идентификатор чертежа&quot; с заполнением</span>
-<span class="sd">    в 30 символов, далее снова символ &quot;|&quot; далее выравненное по центру строка</span>
-<span class="sd">    &quot;Наименование&quot; с заполнением в 30 символов, далее снова символ &quot;|&quot;</span>
-<span class="sd">    далее выравненное по центру строка &quot;Организация&quot; с заполнением</span>
-<span class="sd">    в 30 символов и далее снова символ &quot;|&quot;. Это мы заполним шапку таблицы.</span>
-<span class="sd">    Далее нам нужно закрыть нижним подчёркиванием первую строку,</span>
-<span class="sd">    поэтому снова печатаем 94 символа &quot;_&quot;*. Далее мы заполняем последующие</span>
-<span class="sd">    строки нашей таблицы.</span>
-<span class="sd">    Снова как с Идентификатор чертежа, Наименование и Организация,</span>
-<span class="sd">    только уже входящие данные. Далее снова печатаем 94 символа &quot;_&quot;*.</span>
+
+<span class="sd">    Начнём с шапки.</span>
+
+<span class="sd">    - Сверху у нас 94 символа «_»,</span>
+<span class="sd">    - Потом заполняем шапку таблицы</span>
+<span class="sd">        - со следующей строки идёт символ «|»</span>
+<span class="sd">        - далее выравненное по центру строка «Идентификатор чертежа» с заполнением в 30 символов,</span>
+<span class="sd">        - далее снова символ «|»</span>
+<span class="sd">        - далее выравненное по центру строка «Наименование» с заполнением в 30 символов,</span>
+<span class="sd">        - далее снова символ «|»</span>
+<span class="sd">        - далее выравненное по центру строка &quot;Организация&quot; с заполнением в 30 символов</span>
+<span class="sd">        - далее снова символ «|».</span>
+<span class="sd">    - Далее нам нужно закрыть нижним подчёркиванием первую строку,</span>
+<span class="sd">      поэтому снова печатаем 94 символа «_».</span>
+
+<span class="sd">    Это мы заполним шапку таблицы.</span>
+
+<span class="sd">    Далее мы заполняем последующие строки нашей таблицы.</span>
+<span class="sd">        Снова как с Идентификатор чертежа, Наименование и Организация,</span>
+<span class="sd">        только уже входящие данные. Далее снова печатаем 94 символа «_».</span>
+
 <span class="sd">    И так на все входящие данные.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Идентификатор чертежа&quot;</span><span class="p">,</span> <span class="s2">&quot;Наименование&quot;</span><span class="p">,</span> <span class="s2">&quot;Организация&quot;</span><span class="p">]]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.pdf&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; - &quot;</span><span class="p">)</span>
+        <span class="n">drawing_id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">ooo</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;ООО&quot;</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="n">ooo</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">organization</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">ooo</span><span class="p">:]</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">drawing_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">organization</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span> <span class="o">:=</span> <span class="s2">&quot;_&quot;</span> <span class="o">*</span> <span class="mi">94</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="s1">&#39;|&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="n">s</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span><span class="w"> </span><span class="n">row</span><span class="p">))</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 </pre></div>
 
@@ -1108,6 +1251,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../modules/module_4.html">Модуль 4: Циклы</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules/module_5.html">Модуль 5: Числовые данные</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules/module_6.html">Модуль 6: Строки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/module_7.html">Модуль 7: Списки</a></li>
 </ul>
 
 <div class="relations">

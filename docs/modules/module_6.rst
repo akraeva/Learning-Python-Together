@@ -1,7 +1,7 @@
 Модуль 6: Строки
 ================
 
-Решения задач из модуля 6 курса Learning Python Together.
+Решения задач из Модуля 6 «Строки» курса Learning Python Together.
 
 .. contents::
    :local:

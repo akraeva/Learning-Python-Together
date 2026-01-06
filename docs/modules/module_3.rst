@@ -1,7 +1,7 @@
 Модуль 3: Ветвления
 ===================
 
-Решения задач из модуля 3 курса Learning Python Together.
+Решения задач из Модуля 3 «Ветвления» курса Learning Python Together.
 
 .. contents::
    :local:
@@ -33,3 +33,7 @@
 .. autofunction:: src.module_3.m_3_5_2()
 .. autofunction:: src.module_3.m_3_5_3()
 .. autofunction:: src.module_3.m_3_5_4()
+.. autofunction:: src.module_3.m_3_5_5()
+.. autofunction:: src.module_3.m_3_5_6()
+.. autofunction:: src.module_3.m_3_5_7()
+.. autofunction:: src.module_3.m_3_5_8()

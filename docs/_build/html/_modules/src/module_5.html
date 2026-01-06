@@ -35,8 +35,6 @@
 <span></span><span class="c1"># Stepick.org — Learning Python Together</span>
 <span class="c1"># 5. Числовые данные</span>
 
-<span class="c1"># pylint: disable=W0105</span>
-
 
 <span class="c1"># === 5.3 Задачи ===</span>
 
@@ -46,8 +44,11 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_5_3_1</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Значение по модулю</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    Пользователь вводит два числа (x, y), а программа должна определить</span>
-<span class="sd">    разницу между этими числами по модулю. Программа должна использовать</span>
+<span class="sd">    разницу между этими числами по модулю.</span>
+
+<span class="sd">    Программа должна использовать</span>
 <span class="sd">    функцию abs, чтобы вернуть абсолютное значение разницы.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
@@ -61,9 +62,9 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_5_3_2</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Вычисляем значение</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    Пользователь вводит три числа (x, y, z), а программа должна вывести</span>
-<span class="sd">    результат вычисления следующего выражения:</span>
-<span class="sd">    (x ** y) % z</span>
+<span class="sd">    результат вычисления следующего выражения: ``(x ** y) % z``</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
     <span class="n">res</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
@@ -76,6 +77,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_5_3_3</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Идеальная фигура</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    Анжела следит за своей формой, как мы уже поняли по прошлым задачам.</span>
 <span class="sd">    Теперь она хочет узнать, насколько ее фигура отклоняется от идеальных</span>
 <span class="sd">    пропорций 90-60-90. Для этого необходимо определить разницу между</span>
@@ -83,15 +85,17 @@
 
 <span class="sd">    На вход подаются три значения, целые числа:</span>
 <span class="sd">    ширина плеч, обхват талии и обхват бедер.</span>
+
 <span class="sd">    Вывести нужно три значения:</span>
 <span class="sd">        - разницу между шириной плеч Анжелы и идеальными 90 см,</span>
 <span class="sd">        - разницу между обхватом талии Анжелы и идеальными 60 см,</span>
 <span class="sd">        - а также разницу между обхватом бедер Анжелы и идеальными 90 см.</span>
-<span class="sd">    Ответ должен иметь следующий вид:</span>
 
-<span class="sd">        В плечах &lt;больше/меньше&gt; на |x| см.</span>
-<span class="sd">        Обхват талии &lt;больше/меньше&gt; на |y| см.</span>
-<span class="sd">        Обхват бедер &lt;больше/меньше&gt; на |z| см.</span>
+<span class="sd">    Ответ должен иметь следующий вид:</span>
+<span class="sd">        - В плечах &lt;больше/меньше&gt; на x см.</span>
+<span class="sd">        - Обхват талии &lt;больше/меньше&gt; на y см.</span>
+<span class="sd">        - Обхват бедер &lt;больше/меньше&gt; на z см.</span>
+
 <span class="sd">    Следовательно нам нужно вывести больше или меньше в зависимости от разницы</span>
 <span class="sd">    амеренной и идеальной фигурой.</span>
 <span class="sd">    А само число итого вывести в виде числа, взятого по модулю.</span>
@@ -112,14 +116,19 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_5_3_4</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Шифруемся</span>
-<span class="sd">    Вы - тайный шифровальщик, чьей задачей является либо шифрование,</span>
+<span class="sd">    -------------------------------------</span>
+<span class="sd">    *Вы - тайный шифровальщик, чьей задачей является либо шифрование,</span>
 <span class="sd">    либо расшифровка чисел. Вам подается число в двоичной или десятичной</span>
-<span class="sd">    системе, а также инструкция &#39;зашифруй&#39; или &#39;расшифруй&#39;. Если инструкция</span>
-<span class="sd">    &#39;зашифруй&#39;, значит перед вами десятичное число, которое необходимо</span>
-<span class="sd">    перевести в двоичную форму. В случае &#39;расшифруй&#39;, вам сообщают двоичную</span>
-<span class="sd">    строку, которую нужно вернуть в числовом формате. Проявите свои умения</span>
-<span class="sd">    в шифровании и дешифровке, исследуя данные секретных сообщений.</span>
-<span class="sd">    Приступайте к работе, агент!</span>
+<span class="sd">    системе, а также инструкция «зашифруй» или «расшифруй».*</span>
+
+<span class="sd">    Если инструкция «зашифруй», значит перед вами десятичное число,</span>
+<span class="sd">    которое необходимо перевести в двоичную форму.</span>
+
+<span class="sd">    В случае «расшифруй», вам сообщают двоичную строку,</span>
+<span class="sd">    которую нужно вернуть в числовом формате.</span>
+<span class="sd">    Проявите свои умения в шифровании и дешифровке, исследуя данные</span>
+<span class="sd">    секретных сообщений. Приступайте к работе, агент!</span>
+
 <span class="sd">    Примечание: При переводе в двоичную систему не забываем, что нам нужно</span>
 <span class="sd">    избавиться от первых двух символов, указывающих на кодировку.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -134,20 +143,27 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_5_3_5</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Шифруемся 2</span>
-<span class="sd">    Вернувшись к агенту Джони Инглишу, мы обнаружили, что он снова перепутал</span>
+<span class="sd">    -------------------------------------</span>
+<span class="sd">    *Вернувшись к агенту Джони Инглишу, мы обнаружили, что он снова перепутал</span>
 <span class="sd">    все инструкции. На этот раз перед нами стоит задача шифрования и</span>
 <span class="sd">    дешифрования чисел не из и в двоичную, а из и в восьмеричную систему</span>
 <span class="sd">    счисления. Ваши навыки необходимы нам теперь для проведения подобных</span>
-<span class="sd">    операций. Вам подается число в восьмеричной или десятичной системе,</span>
-<span class="sd">    а также инструкция &#39;зашифруй&#39; или &#39;расшифруй&#39;. Если инструкция &#39;зашифруй&#39;,</span>
-<span class="sd">    значит перед вами десятичное число, которое необходимо перевести</span>
-<span class="sd">    в восьмеричную форму. В случае &#39;расшифруй&#39;, вам сообщают число</span>
-<span class="sd">    в восьмеричной системе исчисления, которое нужно вернуть в десятичный</span>
-<span class="sd">    формат. Приготовьтесь вести операции по шифрованию и дешифрованию чисел</span>
+<span class="sd">    операций.*</span>
+
+<span class="sd">    Вам подается число в восьмеричной или десятичной системе,</span>
+<span class="sd">    а также инструкция «зашифруй» или «расшифруй».</span>
+
+<span class="sd">    Если инструкция «зашифруй», значит перед вами десятичное число,</span>
+<span class="sd">    которое необходимо перевести в восьмеричную форму.</span>
+
+<span class="sd">    В случае «расшифруй», вам сообщают число в восьмеричной системе</span>
+<span class="sd">    исчисления, которое нужно вернуть в десятичный формат.</span>
+
+<span class="sd">    *Приготовьтесь вести операции по шифрованию и дешифрованию чисел</span>
 <span class="sd">    из и в восьмеричной систему и помочь агенту решить новую задачу!</span>
-<span class="sd">    Успеха в работе, шифровальщик!&quot;</span>
-<span class="sd">    Проявите свои умения в шифровании и дешифровке, исследуя данные секретных</span>
-<span class="sd">    сообщений. Приступайте к работе, агент!</span>
+<span class="sd">    Успеха в работе, шифровальщик! Проявите свои умения в шифровании</span>
+<span class="sd">    и дешифровке, исследуя данные секретных сообщений.</span>
+<span class="sd">    Приступайте к работе, агент!*</span>
 
 <span class="sd">    Примечание: При переводе в восьмеричную систему не забываем, что нам</span>
 <span class="sd">    нужно избавиться от первых двух символов, указывающих на кодировку.</span>
@@ -163,13 +179,18 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">m_5_3_6</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Цветовая головоломка</span>
+<span class="sd">    -------------------------------------</span>
 <span class="sd">    Давайте с вами решим такую головоломку. Нам даны два пикселя.</span>
 <span class="sd">    Каждый пиксель представляется тремя значением в формате (R, G, B),</span>
 <span class="sd">    где каждая составляющая представлена в 16-ричной системе.</span>
+
 <span class="sd">    Итого у нас 6 входящих строк RGB первого пикселя и RGB второго пикселя.</span>
+
 <span class="sd">    Необходимо найти средний цвет между двумя пикселями,</span>
 <span class="sd">    с усреднением значений R, G, B для каждого пикселя.</span>
+
 <span class="sd">    Находим средний пиксель через целочисленное деление.</span>
+
 <span class="sd">    Примечание: При переводе в шестнадцатеричную систему не забываем,</span>
 <span class="sd">    что нам нужно избавиться от первых двух символов, указывающих на кодировку.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -211,6 +232,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../modules/module_4.html">Модуль 4: Циклы</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules/module_5.html">Модуль 5: Числовые данные</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules/module_6.html">Модуль 6: Строки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/module_7.html">Модуль 7: Списки</a></li>
 </ul>
 
 <div class="relations">

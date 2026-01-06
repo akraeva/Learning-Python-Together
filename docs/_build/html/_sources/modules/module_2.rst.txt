@@ -1,7 +1,7 @@
 Модуль 2: Переменные и типы данных
 ==================================
 
-Решения задач из модуля 2 курса Learning Python Together.
+Решения задач из Модуля 2 «Переменные и типы данных» курса Learning Python Together.
 
 .. contents::
    :local:
@@ -28,6 +28,10 @@
 .. autofunction:: src.module_2.m_2_10_3()
 .. autofunction:: src.module_2.m_2_10_4()
 .. autofunction:: src.module_2.m_2_10_5()
+.. autofunction:: src.module_2.m_2_10_6()
+.. autofunction:: src.module_2.m_2_10_7()
+.. autofunction:: src.module_2.m_2_10_8()
+.. autofunction:: src.module_2.m_2_10_9()
 .. autofunction:: src.module_2.m_2_10_10()
 .. autofunction:: src.module_2.m_2_10_11()
 .. autofunction:: src.module_2.m_2_10_12()

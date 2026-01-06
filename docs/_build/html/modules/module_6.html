@@ -15,6 +15,7 @@
     <script src="../_static/translations.js?v=cd1d70c9"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Модуль 7: Списки" href="module_7.html" />
     <link rel="prev" title="Модуль 5: Числовые данные" href="module_5.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -35,108 +36,120 @@
             
   <section id="id1">
 <h1>Модуль 6: Строки<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
-<p>Решения задач из модуля 6 курса Learning Python Together.</p>
+<p>Решения задач из Модуля 6 «Строки» курса Learning Python Together.</p>
 <nav class="contents local" id="id2">
 <ul class="simple">
-<li><p><a class="reference internal" href="#id3" id="id17">Форматирование строк (6.1)</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id18">Функции строк (6.2)</a></p></li>
-<li><p><a class="reference internal" href="#id5" id="id19">Преобразование регистра (6.4)</a></p></li>
-<li><p><a class="reference internal" href="#id6" id="id20">Поиск и сравнение (6.5)</a></p></li>
-<li><p><a class="reference internal" href="#id7" id="id21">Проверка содержимого (6.6)</a></p></li>
-<li><p><a class="reference internal" href="#id8" id="id22">Выравнивание (6.7)</a></p></li>
-<li><p><a class="reference internal" href="#id9" id="id23">Разделение (6.8)</a></p></li>
-<li><p><a class="reference internal" href="#id10" id="id24">Обработка (6.9)</a></p></li>
-<li><p><a class="reference internal" href="#i-6-11" id="id25">Задачи I (6.11)</a></p></li>
-<li><p><a class="reference internal" href="#ii-6-12" id="id26">Задачи II (6.12)</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id58">Форматирование строк (6.1)</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id59">Функции строк (6.2)</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id60">Преобразование регистра (6.4)</a></p></li>
+<li><p><a class="reference internal" href="#id14" id="id61">Поиск и сравнение (6.5)</a></p></li>
+<li><p><a class="reference internal" href="#id21" id="id62">Проверка содержимого (6.6)</a></p></li>
+<li><p><a class="reference internal" href="#id27" id="id63">Выравнивание (6.7)</a></p></li>
+<li><p><a class="reference internal" href="#id32" id="id64">Разделение (6.8)</a></p></li>
+<li><p><a class="reference internal" href="#id35" id="id65">Обработка (6.9)</a></p></li>
+<li><p><a class="reference internal" href="#i-6-11" id="id66">Задачи I (6.11)</a></p></li>
+<li><p><a class="reference internal" href="#ii-6-12" id="id67">Задачи II (6.12)</a></p></li>
 </ul>
 </nav>
 <section id="id3">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">Форматирование строк (6.1)</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id58" role="doc-backlink">Форматирование строк (6.1)</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_1_1">
 <span class="sig-name descname"><span class="pre">m_6_1_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_1_1"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_1_1" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Приветствие
-На вход подаётся строка с именем name и пол (мужской - м; женский - ж).
-Давайте поприветствуем пользователя следующим образом.
-Если пол мужской (м):</p>
-<blockquote>
-<div><p>«Привет, уважаемый name, рады снова видеть!»</p>
-</div></blockquote>
+<dd><section id="id4">
+<h3>Приветствие<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка с именем name и пол (мужской - м; женский - ж).</p>
 <dl class="simple">
-<dt>Если пол женский (ж):</dt><dd><p>«Привет, уважаемая name, рады снова видеть!»</p>
+<dt>Давайте поприветствуем пользователя следующим образом.</dt><dd><p>Если пол мужской (м): «Привет, уважаемый name, рады снова видеть!»
+Если пол женский (ж): «Привет, уважаемая name, рады снова видеть!»</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_1_2">
 <span class="sig-name descname"><span class="pre">m_6_1_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_1_2"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_1_2" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Тренируемся с выравниванием
-На вход подаётся строка. Ваша задача выравнять* текст по левому краю,
-центру и по правому краю. Каждое выравнивание по 20 символов.
-* Примечание: воспользуйтесь спецификаторами {:&lt;20}, {:^20}, {:&gt;20}.</p>
+<dd><section id="id5">
+<h3>Тренируемся с выравниванием<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка. Ваша задача выравнять* текст по левому краю,
+центру и по правому краю. Каждое выравнивание по 20 символов.</p>
+<p>Примечание: воспользуйтесь спецификаторами {:&lt;20}, {:^20}, {:&gt;20}.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_1_3">
 <span class="sig-name descname"><span class="pre">m_6_1_3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_1_3"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_1_3" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Информационное сообщение
-На вход подаётся строка с наименованием товара item и следующей строкой
-его стоимость price (вещественное число)*,
-Вам необходимо вывести следующее сообщение:
-Наименование позиции: item
-Цена за единицу товара: price
-* Примечание: округлите цену товара price до одного знака после
+<dd><section id="id6">
+<h3>Информационное сообщение<a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка с наименованием товара item и следующей строкой
+его стоимость price (вещественное число),
+Вам необходимо вывести следующее сообщение:</p>
+<blockquote>
+<div><p>Наименование позиции: <code class="docutils literal notranslate"><span class="pre">item</span></code>
+Цена за единицу товара: <code class="docutils literal notranslate"><span class="pre">price</span></code></p>
+</div></blockquote>
+<p>Примечание: округлите цену товара price до одного знака после
 запятой спецификатором .1f.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_1_4">
 <span class="sig-name descname"><span class="pre">m_6_1_4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_1_4"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_1_4" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Информационное сообщение 2
-Вот мы довольные показали наше творение заказчику, а он говорит, хммм,
+<dd><section id="id7">
+<h3>Информационное сообщение 2<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Вот мы довольные показали наше творение заказчику, а он говорит, хммм,
 как то смотрится что ли не так, а давай ты  отобразишь ещё два варианта,
 а мы потом выберем, какой оставить в финале. И вот идёт вещание
 «гениальной мысли», как, по субъективному мнению заказчика,
-это выглядело бы просто «пушка, гонка»
-На вход подаётся строка с наименованием товара item и следующей строкой
-его стоимость price (вещественное число)*, Вам необходимо вывести
+это выглядело бы просто «пушка, гонка»</em></p>
+<p>На вход подаётся строка с наименованием товара item и следующей строкой
+его стоимость price (вещественное число), Вам необходимо вывести
 следующее сообщение:</p>
 <blockquote>
-<div><p>Наименование позиции: item
-Цена за единицу товара: price</p>
+<div><p><code class="docutils literal notranslate"><span class="pre">Наименование</span> <span class="pre">позиции:</span> <span class="pre">item</span>
+<span class="pre">Цена</span> <span class="pre">за</span> <span class="pre">единицу</span> <span class="pre">товара:</span> <span class="pre">price</span></code></p>
 </div></blockquote>
 <p>После вывода основного сообщения необходимо вывести то же сообщение
-с использованием дополнительного форматирования:
-Для выравнивания наименования товара по правому краю и цены по левому краю
-используйте {:&gt;10} и {:&lt;10}** соответственно.
-* Примечание: Округлите цену товара price до одного знака после запятой
-спецификатором .1f.
-** Примечание: Для применения одновременно и округления и спецификатора
-вариванивания, допустим, по левому краю достаточно прописать price:&lt;10.1f</p>
+с использованием дополнительного форматирования:</p>
+<blockquote>
+<div><p>Для выравнивания наименования товара по правому краю и
+цены по левому краю используйте {:&gt;10} и {:&lt;10} соответственно.</p>
+</div></blockquote>
+<p>Примечание: Округлите цену товара price до одного знака после запятой
+спецификатором .1f. Для применения одновременно и округления и
+спецификатора вариванивания, достаточно прописать price:&lt;10.1f</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_1_5">
 <span class="sig-name descname"><span class="pre">m_6_1_5</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_1_5"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_1_5" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Cмотреть продолжение в источнике
-Натыкались же на смешные новости, где пишут что то интересное, далее идёт
-троеточее и написано смотреть продолжение в источнике.
-Давайте с вами также реализуем ;) Дадим 55 символов обрежем строку при
-помощи спецификатора {:.55s} пропишем пробел далее … потом снова пробел
+<dd><section id="c">
+<h3>Cмотреть продолжение в источнике<a class="headerlink" href="#c" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Натыкались же на смешные новости, где пишут что то интересное, далее идёт
+троеточее и написано смотреть продолжение в источнике.</p>
+<p>Давайте с вами также реализуем ;)</p>
+<p>Дадим 55 символов обрежем строку при помощи спецификатора {:.55s}
+пропишем пробел далее … потом снова пробел
 и напишем фразу «Смотреть продолжение в источнике!»</p>
+</section>
 </dd></dl>
 
 </section>
-<section id="id4">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">Функции строк (6.2)</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<section id="id8">
+<h2><a class="toc-backref" href="#id59" role="doc-backlink">Функции строк (6.2)</a><a class="headerlink" href="#id8" title="Ссылка на этот заголовок">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_2_1">
 <span class="sig-name descname"><span class="pre">m_6_2_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_2_1"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_2_1" title="Ссылка на это определение">¶</a></dt>
 <dd><p>Напишите программу, которая принимает строку от пользователя
-и выводит количество букв в ней.
-Входные данные: Строка (например, «Hello world»).
-Выходные данные: Количество букв в строке*.</p>
+и выводит количество букв в ней.</p>
+<blockquote>
+<div><p>Входные данные: Строка (например, «Hello world»).</p>
+<p>Выходные данные: Количество букв в строке.</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py function">
@@ -151,44 +164,54 @@
 <dt class="sig sig-object py" id="src.module_6.m_6_2_3">
 <span class="sig-name descname"><span class="pre">m_6_2_3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_2_3"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_2_3" title="Ссылка на это определение">¶</a></dt>
 <dd><p>Напишите программу, которая принимает символ от пользователя и
-выводит его код в кодировке Unicode.
-Входные данные: Символ (например, „A“).
-Выходные данные: Числовое представление символа в кодировке Unicode*.</p>
+выводит его код в кодировке Unicode.</p>
+<blockquote>
+<div><p>Входные данные: Символ (например, „A“).</p>
+<p>Выходные данные: Числовое представление символа в кодировке Unicode.</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_2_4">
 <span class="sig-name descname"><span class="pre">m_6_2_4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_2_4"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_2_4" title="Ссылка на это определение">¶</a></dt>
 <dd><p>Напишите программу, которая принимает целое число от пользователя
-и выводит символ Unicode с таким кодом.
-Входные данные: Целое число (например, 65).
-Выходные данные: Символ с заданным числовым представлением*.</p>
+и выводит символ Unicode с таким кодом.</p>
+<blockquote>
+<div><p>Входные данные: Целое число (например, 65).</p>
+<p>Выходные данные: Символ с заданным числовым представлением*.</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_2_5">
 <span class="sig-name descname"><span class="pre">m_6_2_5</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_2_5"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_2_5" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Строка в Unicode
-Вам подаются на вход числа, считывайте их, пока не получите число 0.
+<dd><section id="unicode">
+<h3>Строка в Unicode<a class="headerlink" href="#unicode" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Вам подаются на вход числа, считывайте их, пока не получите число 0.
 Каждое полученное число через функцию chr() получите символ и
 сложите все символы в одну строку.</p>
+</section>
 </dd></dl>
 
 </section>
-<section id="id5">
-<h2><a class="toc-backref" href="#id19" role="doc-backlink">Преобразование регистра (6.4)</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<section id="id9">
+<h2><a class="toc-backref" href="#id60" role="doc-backlink">Преобразование регистра (6.4)</a><a class="headerlink" href="#id9" title="Ссылка на этот заголовок">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_4_1">
 <span class="sig-name descname"><span class="pre">m_6_4_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_4_1"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_4_1" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Перевод строки в нижний регистр
-На вход подаётся строка. Ваша задача вывести всю строку в нижнем регистре.</p>
+<dd><section id="id10">
+<h3>Перевод строки в нижний регистр<a class="headerlink" href="#id10" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка. Ваша задача вывести всю строку в нижнем регистре.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_4_2">
 <span class="sig-name descname"><span class="pre">m_6_4_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_4_2"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_4_2" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Перевод строки в верхний регистр
-На вход подаётся строка. Ваша задача вывести всю строку в верхний регистр.</p>
+<dd><section id="id11">
+<h3>Перевод строки в верхний регистр<a class="headerlink" href="#id11" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка. Ваша задача вывести всю строку в верхний регистр.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -202,275 +225,346 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_4_4">
 <span class="sig-name descname"><span class="pre">m_6_4_4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_4_4"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_4_4" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Замени каждый символ на противоположный
-На вход подаётся строка. Ваша задача вывести строку,
+<dd><section id="id12">
+<h3>Замени каждый символ на противоположный<a class="headerlink" href="#id12" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка. Ваша задача вывести строку,
 в которой регистр каждого символа заменен на противоположный.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_4_5">
 <span class="sig-name descname"><span class="pre">m_6_4_5</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_4_5"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_4_5" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Выведи строку в «заголовочном» формате
-На вход подаётся строка. Ваша задача вывести строку в «заголовочном»
+<dd><section id="id13">
+<h3>Выведи строку в «заголовочном» формате<a class="headerlink" href="#id13" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка. Ваша задача вывести строку в «заголовочном»
 формате, где первая буква каждого слова написана заглавной.</p>
+</section>
 </dd></dl>
 
 </section>
-<section id="id6">
-<h2><a class="toc-backref" href="#id20" role="doc-backlink">Поиск и сравнение (6.5)</a><a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h2>
+<section id="id14">
+<h2><a class="toc-backref" href="#id61" role="doc-backlink">Поиск и сравнение (6.5)</a><a class="headerlink" href="#id14" title="Ссылка на этот заголовок">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_5_1">
 <span class="sig-name descname"><span class="pre">m_6_5_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_5_1"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_5_1" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Найди количество вхождений
-На вход подаётся подстрока и строка. Предварительно строку необходимо
-перевести в нижний регистр. Напишите программу, которая выводит число
-вхождений подстроки в исходной строке.</p>
+<dd><section id="id15">
+<h3>Найди количество вхождений<a class="headerlink" href="#id15" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся подстрока и строка. Предварительно строку необходимо
+перевести в нижний регистр.</p>
+<p>Напишите программу, которая выводит число вхождений подстроки
+в исходной строке.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_5_2">
 <span class="sig-name descname"><span class="pre">m_6_5_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_5_2"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_5_2" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Спор
-Вася и Петя поспорили, при решении важного вопроса, кто пойдёт в магазин.
+<dd><section id="id16">
+<h3>Спор<a class="headerlink" href="#id16" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Вася и Петя поспорили, при решении важного вопроса, кто пойдёт в магазин.
 Они решили прибегнуть к взрослому способу решения вопросов и решили
 подкинуть 10 раз монету, и какая сторона выпадет чаще, то тот кто её
 выбрал, победил. Вася выбрал орла (ведь он у мамы тот ещё орёл),
-ну а Петя, соответственно выбрал решку. На вход подаётся строка,
-состоящая из 10 символов О и Р (подряд без пробелов в виде одной строки),
-соответствующие О - Орёл, Р - Решка. Необходимо посчитать число вхождений
-двух букв и определить какая сторона монеты выпала чаще и вывести:</p>
-<blockquote>
-<div><p>Если победил Вася: Победил Вася
-Если победил Петя: Победил Петя
-Если ничья: Выпала ничья, перебрасываем!</p>
-</div></blockquote>
+ну а Петя, соответственно выбрал решку.</em></p>
+<p>На вход подаётся строка, состоящая из 10 символов О и Р
+(подряд без пробелов в виде одной строки),
+соответствующие О - Орёл, Р - Решка.</p>
+<p>Необходимо посчитать число вхождений двух букв и определить,
+какая сторона монеты выпала чаще и вывести:</p>
+<ul class="simple">
+<li><p>Если победил Вася: Победил Вася</p></li>
+<li><p>Если победил Петя: Победил Петя</p></li>
+<li><p>Если ничья: Выпала ничья, перебрасываем!</p></li>
+</ul>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_5_3">
 <span class="sig-name descname"><span class="pre">m_6_5_3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_5_3"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_5_3" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Начинается ли строка с подстроки?
-На вход подаётся подстрока и строка.
-Предварительно строку необходимо перевести в нижний регистр.
-Напишите программу, которая выводит, если строка начинается с подстроки:</p>
-<blockquote>
-<div><p>«Строка &lt;строка&gt; начинается с подстроки &lt;подстрока&gt;»</p>
-</div></blockquote>
+<dd><section id="id17">
+<h3>Начинается ли строка с подстроки?<a class="headerlink" href="#id17" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся подстрока и строка.
+Предварительно строку необходимо перевести в нижний регистр.</p>
 <dl class="simple">
+<dt>Напишите программу, которая выводит, если строка начинается с подстроки:</dt><dd><p>«Строка &lt;строка&gt; начинается с подстроки &lt;подстрока&gt;»</p>
+</dd>
 <dt>В противном случае выведите:</dt><dd><p>«Строка &lt;строка&gt; не начинается с подстроки &lt;подстрока&gt;»</p>
 </dd>
 </dl>
 <p>Примечание: Строку &lt;строка&gt; вывести уже переведённую в нижний регистр.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_5_4">
 <span class="sig-name descname"><span class="pre">m_6_5_4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_5_4"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_5_4" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Проверка расширения файла
-На вход подаётся искомое расширение с точкой и имя файла с расширением.
+<dd><section id="id18">
+<h3>Проверка расширения файла<a class="headerlink" href="#id18" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся искомое расширение с точкой и имя файла с расширением.
 Предварительно  имя файла с расширением необходимо перевести в нижний
-регистр. Напишите программу, которая будет проверять, является ли
-расширение файла искомым расширением, если является то вывести «True»,
-в противном случае вывести «False».</p>
+регистр.</p>
+<p>Напишите программу, которая будет проверять, является ли
+расширение файла искомым расширением,</p>
+<ul class="simple">
+<li><p>если является то вывести «True»,</p></li>
+<li><p>в противном случае вывести «False».</p></li>
+</ul>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_5_5">
 <span class="sig-name descname"><span class="pre">m_6_5_5</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_5_5"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_5_5" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Нахождение индекса с начала строки
-На вход подаётся подстрока и строка.
-Предварительно строку необходимо перевести в нижний регистр.
-Напишите программу, которая находит индекс начала первого вхождения
-подстроки в исходной строке.
-Если подстрока не найдена, вывести -1.</p>
+<dd><section id="id19">
+<h3>Нахождение индекса с начала строки<a class="headerlink" href="#id19" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся подстрока и строка.
+Предварительно строку необходимо перевести в нижний регистр.</p>
+<p>Напишите программу, которая находит индекс начала первого вхождения
+подстроки в исходной строке. Если подстрока не найдена, вывести -1.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_5_6">
 <span class="sig-name descname"><span class="pre">m_6_5_6</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_5_6"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_5_6" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Нахождение индекса с конца строки
-На вход подаётся подстрока и строка.
-Предварительно строку необходимо перевести в нижний регистр.
-Напишите программу, которая находит индекс последнего вхождения
+<dd><section id="id20">
+<h3>Нахождение индекса с конца строки<a class="headerlink" href="#id20" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся подстрока и строка.
+Предварительно строку необходимо перевести в нижний регистр.</p>
+<p>Напишите программу, которая находит индекс последнего вхождения
 подстроки в строке. Если подстрока не найдена, вывести -1.</p>
+</section>
 </dd></dl>
 
 </section>
-<section id="id7">
-<h2><a class="toc-backref" href="#id21" role="doc-backlink">Проверка содержимого (6.6)</a><a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h2>
+<section id="id21">
+<h2><a class="toc-backref" href="#id62" role="doc-backlink">Проверка содержимого (6.6)</a><a class="headerlink" href="#id21" title="Ссылка на этот заголовок">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_6_1">
 <span class="sig-name descname"><span class="pre">m_6_6_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_6_1"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_6_1" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Только буквы
-На вход подаётся строка, состоящая из букв и, возможно, цифр и символов.
-Проверьте, состоит ли содержимое строки только из букв,</p>
-<blockquote>
-<div><p>используя метод isalpha().</p>
-</div></blockquote>
+<dd><section id="id22">
+<h3>Только буквы<a class="headerlink" href="#id22" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка, состоящая из букв и, возможно, цифр и символов.</p>
+<p>Проверьте, состоит ли содержимое строки только из букв,
+используя метод isalpha().</p>
 <p>Выведите «True», если строка состоит только из букв,
 и «False» в противном случае.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_6_2">
 <span class="sig-name descname"><span class="pre">m_6_6_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_6_2"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_6_2" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Только цифры
-На вход подаётся строка, состоящая из цифр и, возможно, букв и символов.
-Проверьте, состоит ли содержимое строки только из цифр,</p>
-<blockquote>
-<div><p>используя метод isdigit().</p>
-</div></blockquote>
+<dd><section id="id23">
+<h3>Только цифры<a class="headerlink" href="#id23" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка, состоящая из цифр и, возможно, букв и символов.</p>
+<p>Проверьте, состоит ли содержимое строки только из цифр,
+используя метод isdigit().</p>
 <p>Выведите «True», если строка состоит только из цифр,
 и «False» в противном случае.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_6_3">
 <span class="sig-name descname"><span class="pre">m_6_6_3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_6_3"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_6_3" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Только буквы и цифры
-На вход подаётся строка, состоящая из букв и цифр и, возможно, символов.
-Проверьте, является ли содержимое строки только буквами и цифрами,</p>
-<blockquote>
-<div><p>используя метод isalnum().</p>
-</div></blockquote>
+<dd><section id="id24">
+<h3>Только буквы и цифры<a class="headerlink" href="#id24" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка, состоящая из букв и цифр и, возможно, символов.</p>
+<p>Проверьте, является ли содержимое строки только буквами и цифрами,
+используя метод isalnum().</p>
 <p>Выведите «True», если строка состоит только из букв и цифр,
 и «False» в противном случае.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_6_4">
 <span class="sig-name descname"><span class="pre">m_6_6_4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_6_4"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_6_4" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Допустимые идентификаторы
-На вход подаётся строка. Проверьте, является ли строка допустимым
-идентификатором isidentifier().
-Выходные данные: Выведите «True», если строка является допустимым
+<dd><section id="id25">
+<h3>Допустимые идентификаторы<a class="headerlink" href="#id25" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка. Проверьте, является ли строка допустимым
+идентификатором isidentifier().</p>
+<p>Выходные данные: Выведите «True», если строка является допустимым
 идентификатором и «False» в противном случае.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_6_5">
 <span class="sig-name descname"><span class="pre">m_6_6_5</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_6_5"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_6_5" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Определяем строку
-На вход подаётся строка.
-Определяем написана ли строка исключительно в верхнем регистре isupper(),
-либо написана исключительно в нижнем регистре islower(),
-либо начинается ли каждое слово с заглавной буквы istitle().
-Выводим следующим образом:</p>
-<blockquote>
-<div><dl class="simple">
+<dd><section id="id26">
+<h3>Определяем строку<a class="headerlink" href="#id26" title="Ссылка на этот заголовок">¶</a></h3>
+<dl class="simple">
+<dt>На вход подаётся строка. Определяем написана ли строка</dt><dd><ul class="simple">
+<li><p>исключительно в верхнем регистре isupper(),</p></li>
+<li><p>либо написана исключительно в нижнем регистре islower(),</p></li>
+<li><p>либо начинается ли каждое слово с заглавной буквы istitle().</p></li>
+</ul>
+</dd>
+<dt>Выводим следующим образом:</dt><dd><ul class="simple">
+<li><dl class="simple">
 <dt>Если строка исключительно в верхнем регистре:</dt><dd><p>«Строка в верхнем регистре»</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Если строка исключительно в нижнем регистре:</dt><dd><p>«Строка в нижнем регистре»</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Если начинается каждое слово с заглавной буквы:</dt><dd><p>«У строки каждое слово начинается с заглавной буквы»</p>
 </dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt>Иначе:</dt><dd><p>«Не удалось определить»</p>
 </dd>
 </dl>
-</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 </section>
-<section id="id8">
-<h2><a class="toc-backref" href="#id22" role="doc-backlink">Выравнивание (6.7)</a><a class="headerlink" href="#id8" title="Ссылка на этот заголовок">¶</a></h2>
+<section id="id27">
+<h2><a class="toc-backref" href="#id63" role="doc-backlink">Выравнивание (6.7)</a><a class="headerlink" href="#id27" title="Ссылка на этот заголовок">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_7_1">
 <span class="sig-name descname"><span class="pre">m_6_7_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_7_1"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_7_1" title="Ссылка на это определение">¶</a></dt>
-<dd><p>По центру
-Написать программу, которая принимает на вход строку
-и выводит ее центрированную версию с символами „_“,
+<dd><section id="id28">
+<h3>По центру<a class="headerlink" href="#id28" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Написать программу, которая принимает на вход строку
+и выводит ее центрированную версию с символами «_»,
 чтобы ширина строки была 30 символов.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_7_2">
 <span class="sig-name descname"><span class="pre">m_6_7_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_7_2"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_7_2" title="Ссылка на это определение">¶</a></dt>
-<dd><p>По левому краю
-Написать программу, которая принимает на вход строку
-и выводит ее по левому краю с символами „_“,
+<dd><section id="id29">
+<h3>По левому краю<a class="headerlink" href="#id29" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Написать программу, которая принимает на вход строку
+и выводит ее по левому краю с символами «_»,
 чтобы ширина строки была 30 символов.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_7_3">
 <span class="sig-name descname"><span class="pre">m_6_7_3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_7_3"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_7_3" title="Ссылка на это определение">¶</a></dt>
-<dd><p>По правому краю
-Написать программу, которая принимает на вход строку
-и выводит ее по правому краю с символами „_“,
+<dd><section id="id30">
+<h3>По правому краю<a class="headerlink" href="#id30" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Написать программу, которая принимает на вход строку
+и выводит ее по правому краю с символами «_»,
 чтобы ширина строки была 30 символов.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_7_4">
 <span class="sig-name descname"><span class="pre">m_6_7_4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_7_4"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_7_4" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Заполняем импровизированную таблицу
-На вход программе поступают 3 строки: Фамилия, Имя, Отчество.
-Наша задача создать таблицу следующего вида.
-Сверху у нас 64 символа «_»,
-Потом заполняем шапку таблицы со следующей строки идёт</p>
+<dd><section id="id31">
+<h3>Заполняем импровизированную таблицу<a class="headerlink" href="#id31" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход программе поступают 3 строки: Фамилия, Имя, Отчество.</p>
+<p>Наша задача создать таблицу следующего вида.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>символ «|» далее выравненное по центру строка
-«Фамилия» с заполнением в 20 символов по центру,</p></li>
-<li><p>далее снова символ «|» далее выравненное по центру строка
-«Имя» с заполнением в 20 символов,</p></li>
-<li><p>далее снова символ «|» далее выравненное по центру строка
-«Отчество» с заполнением в 20 символов</p></li>
+<li><p>Сверху у нас 64 символа «_»,</p></li>
+<li><dl class="simple">
+<dt>Потом заполняем шапку таблицы со следующей строки идёт</dt><dd><ul>
+<li><dl class="simple">
+<dt>символ «|» далее выравненное по центру строка</dt><dd><p>«Фамилия» с заполнением в 20 символов по центру,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>далее снова символ «|» далее выравненное по центру строка</dt><dd><p>«Имя» с заполнением в 20 символов,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>далее снова символ «|» далее выравненное по центру строка</dt><dd><p>«Отчество» с заполнением в 20 символов</p>
+</dd>
+</dl>
+</li>
 <li><p>далее снова символ «|».</p></li>
 </ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div></blockquote>
-<p>Это мы заполним шапку таблицы.
-Далее нам нужно закрыть нижним подчёркиванием первую строку,</p>
-<blockquote>
-<div><p>поэтому снова печатаем 64 символа «_».</p>
-</div></blockquote>
-<p>Далее мы заполняем вторую строку нашей таблицы. Снова как с Фамилией,
-Именем и Отчеством, только уже входящие данные.
-Далее снова печатаем 64 символа «_».</p>
+<p>Это мы заполним шапку таблицы.</p>
+<dl class="simple">
+<dt>Далее нам нужно закрыть нижним подчёркиванием первую строку, поэтому</dt><dd><ul class="simple">
+<li><p>снова печатаем 64 символа «_».</p></li>
+</ul>
+</dd>
+<dt>Далее мы заполняем вторую строку нашей таблицы.</dt><dd><ul class="simple">
+<li><p>Снова как с Фамилией, Именем и Отчеством, только уже входящие данные.</p></li>
+<li><p>Далее снова печатаем 64 символа «_».</p></li>
+</ul>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 </section>
-<section id="id9">
-<h2><a class="toc-backref" href="#id23" role="doc-backlink">Разделение (6.8)</a><a class="headerlink" href="#id9" title="Ссылка на этот заголовок">¶</a></h2>
+<section id="id32">
+<h2><a class="toc-backref" href="#id64" role="doc-backlink">Разделение (6.8)</a><a class="headerlink" href="#id32" title="Ссылка на этот заголовок">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_8_1">
 <span class="sig-name descname"><span class="pre">m_6_8_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_8_1"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_8_1" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Список покупок
-На вход подаётся строка, список покупок, каждое наименование разделено при
+<dd><section id="id33">
+<h3>Список покупок<a class="headerlink" href="#id33" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка, список покупок, каждое наименование разделено при
 помощи запятой и пробела после «, «. Нам необходимо создать лист (list)
 с наименованиями из списка покупок и вывести его на печать.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_8_2">
 <span class="sig-name descname"><span class="pre">m_6_8_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_8_2"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_8_2" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Список покупок 2
-На вход подаётся строка, список покупок, каждое наименование разделено
+<dd><section id="id34">
+<h3>Список покупок 2<a class="headerlink" href="#id34" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка, список покупок, каждое наименование разделено
 при помощи запятой и пробела после «, «. Нам необходимо вывести
 наименование каждой позиции с новой строки.</p>
+</section>
 </dd></dl>
 
 </section>
-<section id="id10">
-<h2><a class="toc-backref" href="#id24" role="doc-backlink">Обработка (6.9)</a><a class="headerlink" href="#id10" title="Ссылка на этот заголовок">¶</a></h2>
+<section id="id35">
+<h2><a class="toc-backref" href="#id65" role="doc-backlink">Обработка (6.9)</a><a class="headerlink" href="#id35" title="Ссылка на этот заголовок">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_9_1">
 <span class="sig-name descname"><span class="pre">m_6_9_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_9_1"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_9_1" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Замена символов строки
-Для защиты от ботов, собирающих с web-страниц адреса электронной почты для
+<dd><section id="id36">
+<h3>Замена символов строки<a class="headerlink" href="#id36" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Для защиты от ботов, собирающих с web-страниц адреса электронной почты для
 рассылки спама, используются методы скрытия адреса электронной почты.
 Рассмотрим самый простой метод скрытия: в адресе электронной почты
 символы «.» меняются на «(dot)», символ «&#64;» меняется на «(at)».</p>
 <p>На вход подаётся строка - адрес электронной почты
 (он содержит один символ «&#64;» и символы «.»).
 В адресе электронной почты выполните указанные замены.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_9_2">
 <span class="sig-name descname"><span class="pre">m_6_9_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_9_2"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_9_2" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Заметки путешественника
-Нам необходимо помочь подготовить статью о приключениях путешественника
+<dd><section id="id37">
+<h3>Заметки путешественника<a class="headerlink" href="#id37" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Нам необходимо помочь подготовить статью о приключениях путешественника
 перед публикацией в журнале. Путешественник рассказывает о своих
 незабываемых поездках в текстовом виде который содержит много лишних
 пробелов и знаков препинания (» ?!.,:;»). В начале и в конце каждого
@@ -478,146 +572,170 @@
 чтобы помочь путешественнику составить свою статью.
 Примечание: На вход подаётся строка (предложение), в которой нужно убрать
 пробелы и символы препинания. Используйте метод strip().</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_9_3">
 <span class="sig-name descname"><span class="pre">m_6_9_3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_9_3"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_9_3" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Список покупок
-На вход подаётся строка, список покупок, каждое наименование разделено
+<dd><section id="id38">
+<h3>Список покупок<a class="headerlink" href="#id38" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка, список покупок, каждое наименование разделено
 при помощи пробела « «. Нам необходимо вывести наименование каждой
 позиции через запятую с пробелом «, «.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_9_4">
 <span class="sig-name descname"><span class="pre">m_6_9_4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_9_4"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_9_4" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Выводим дату
-На вход подаются три числа через пробел: день, месяц, год.
+<dd><section id="id39">
+<h3>Выводим дату<a class="headerlink" href="#id39" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаются три числа через пробел: день, месяц, год.
 Наша задача вывести их в формате dd.mm.yyyy, то есть двухзначное число дня
 и месяца и год в четырёхзначном формате. Если число меньше по разрядности
 добавить незначащие нули слева.
 Примечание: Предлагаю воспользоваться методом zfill(width) для этого нам
 не нужно переводить значения из строчного представления в целочисленное.</p>
+</section>
 </dd></dl>
 
 </section>
 <section id="i-6-11">
-<h2><a class="toc-backref" href="#id25" role="doc-backlink">Задачи I (6.11)</a><a class="headerlink" href="#i-6-11" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id66" role="doc-backlink">Задачи I (6.11)</a><a class="headerlink" href="#i-6-11" title="Ссылка на этот заголовок">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_11_1">
 <span class="sig-name descname"><span class="pre">m_6_11_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_11_1"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_11_1" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Количество слов
-На вход подаётся строка, состоящая из слов, разделенных пробелами
+<dd><section id="id40">
+<h3>Количество слов<a class="headerlink" href="#id40" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка, состоящая из слов, разделенных пробелами
 (один пробел). Определите, сколько в ней слов.
 Используйте для решения задачи метод count</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_11_2">
 <span class="sig-name descname"><span class="pre">m_6_11_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_11_2"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_11_2" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Количество слов 2
-На вход подаётся строка, состоящая из слов, разделенных пробелами
+<dd><section id="id41">
+<h3>Количество слов 2<a class="headerlink" href="#id41" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка, состоящая из слов, разделенных пробелами
 (один и более пробелов). Согласитесь, что в жизни может встречаться
 и не один пробел, а больше. Определите, сколько в ней слов.
 Используйте для решения задачи метод split()</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_11_3">
 <span class="sig-name descname"><span class="pre">m_6_11_3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_11_3"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_11_3" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Меняем цифры на слова
-На вход подаётся строка. Необходимо заменить «1» на «один», «2» на «два».</p>
+<dd><section id="id42">
+<h3>Меняем цифры на слова<a class="headerlink" href="#id42" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка. Необходимо заменить «1» на «один», «2» на «два».</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_11_4">
 <span class="sig-name descname"><span class="pre">m_6_11_4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_11_4"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_11_4" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Количество гласных букв в слове
-На вход подаётся строка. Определите, сколько в строке* гласных букв
+<dd><section id="id43">
+<h3>Количество гласных букв в слове<a class="headerlink" href="#id43" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка. Определите, сколько в строке* гласных букв
 «аеёиоуэюя». Используйте для решения задачи оператор in.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_11_5">
 <span class="sig-name descname"><span class="pre">m_6_11_5</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_11_5"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_11_5" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Количество символов в строке
-На вход подаётся строка string, затем подаётся символ char.
+<dd><section id="id44">
+<h3>Количество символов в строке<a class="headerlink" href="#id44" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка string, затем подаётся символ char.
 Ваша задача перевести строку в нижний регистр (подробно было здесь)
 и посчитать, сколько раз встречается символ char в строке string.
 Используйте для решения задачи метод count</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_11_6">
 <span class="sig-name descname"><span class="pre">m_6_11_6</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_11_6"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_11_6" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Второе вхождение буквы
-На вход подаётся строка. Необходимо перевести её в нижний регистр и
+<dd><section id="id45">
+<h3>Второе вхождение буквы<a class="headerlink" href="#id45" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка. Необходимо перевести её в нижний регистр и
 определить второе вхождение буквы и, и выведите индекс этого вхождения.
-Если буква и в данной строке встречается только один раз,</p>
-<blockquote>
-<div><p>выведите число -1,</p>
-</div></blockquote>
-<dl class="simple">
-<dt>а если не встречается ни разу,</dt><dd><p>выведите число -2.</p>
-</dd>
-</dl>
+Если буква и в данной строке встречается только один раз,
+выведите число -1,
+а если не встречается ни разу,
+выведите число -2.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_11_7">
 <span class="sig-name descname"><span class="pre">m_6_11_7</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_11_7"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_11_7" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Режем строку по первому и последнему вхождению
-На вход подаётся строка, в которой буква и встречается минимум два раза.
+<dd><section id="id46">
+<h3>Режем строку по первому и последнему вхождению<a class="headerlink" href="#id46" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка, в которой буква и встречается минимум два раза.
 Необходимо перевести её в нижний регистр и удалить из этой строки первое
 и последнее вхождение буквы и, а также все символы, находящиеся между ними.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_11_8">
 <span class="sig-name descname"><span class="pre">m_6_11_8</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_11_8"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_11_8" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Фамилия Имя Отчество
-На вход поступает строка, содержащая фамилию, имя и отчество человека
+<dd><section id="id47">
+<h3>Фамилия Имя Отчество<a class="headerlink" href="#id47" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход поступает строка, содержащая фамилию, имя и отчество человека
 через пробел, например, Зубенко Михаил Петрович. В результате обработки
 должна получиться новая строка, содержащая фамилию и инициалы:
 Зубенко М.П.=&gt; То есть сначала идёт фамилия целиком, после пробел,
 потом первая буква имени, точка, после пробел и после сразу же
 первая буква отчества, следом сразу точка.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_11_9">
 <span class="sig-name descname"><span class="pre">m_6_11_9</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_11_9"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_11_9" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Слова в предложении
-На вход подаётся строка, состоящая из слов, разделенных пробелами
+<dd><section id="id48">
+<h3>Слова в предложении<a class="headerlink" href="#id48" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка, состоящая из слов, разделенных пробелами
 (один и более пробелов). Необходимо вывести все слова из предложения
 в нижнем регистре, при этом удалить знаки припенания «.,!?:;».
 Используйте для решения задачи метод split() (подробно было здесь),
 lower() (подробно было здесь) и метод strip()</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_11_10">
 <span class="sig-name descname"><span class="pre">m_6_11_10</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_11_10"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_11_10" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Работа с текстом
-На вход подаётся строка, содержащая некоторый текст с цифрами «0123456789»
+<dd><section id="id49">
+<h3>Работа с текстом<a class="headerlink" href="#id49" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка, содержащая некоторый текст с цифрами «0123456789»
 и специальными символами «&#64;#$%^». Напишите программу, которая будет
 обрабатывать этот текст и выводить итоговый текст без цифр и спецсимволов.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_11_11">
 <span class="sig-name descname"><span class="pre">m_6_11_11</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_11_11"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_11_11" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Числа среди строк
-На вход подаётся строка, состоящая из букв и цифр. Необходимо написать
+<dd><section id="id50">
+<h3>Числа среди строк<a class="headerlink" href="#id50" title="Ссылка на этот заголовок">¶</a></h3>
+<p>На вход подаётся строка, состоящая из букв и цифр. Необходимо написать
 программу, которая выведет все цифры среди букв с новой строки каждая.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_11_12">
 <span class="sig-name descname"><span class="pre">m_6_11_12</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_11_12"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_11_12" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Определение времени ожидания
-У всех же бывало такое, когда вам говорят по телефону:
+<dd><section id="id51">
+<h3>Определение времени ожидания<a class="headerlink" href="#id51" title="Ссылка на этот заголовок">¶</a></h3>
+<p>У всех же бывало такое, когда вам говорят по телефону:
 «Приеду через 30 минут», и вы начинаете грубо прикидывать,
 когда это будет. Давайте напишем скрипт, допустим для нашего
 будущего бота, который бы по времени и сколько должно пройти,
@@ -629,27 +747,31 @@ lower() (подробно было здесь) и метод strip()</p>
 а затем длительность ожидания в минутах. После этого программа должна
 выводить точное время вашего ожидаемого прибытия на место назначения,
 учитывая возможность изменения календарного дня.</p>
+</section>
 </dd></dl>
 
 </section>
 <section id="ii-6-12">
-<h2><a class="toc-backref" href="#id26" role="doc-backlink">Задачи II (6.12)</a><a class="headerlink" href="#ii-6-12" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id67" role="doc-backlink">Задачи II (6.12)</a><a class="headerlink" href="#ii-6-12" title="Ссылка на этот заголовок">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_12_1">
 <span class="sig-name descname"><span class="pre">m_6_12_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_12_1"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_12_1" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Двоичная строка в ASCII или двоичный шутник
-Представим ситуацию. Ваш друг Василий (любитель подшутить) отправил вам
+<dd><section id="ascii">
+<h3>Двоичная строка в ASCII или двоичный шутник<a class="headerlink" href="#ascii" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Представим ситуацию. Ваш друг Василий (любитель подшутить) отправил вам
 одну строку из двоичных значений, символы которых разделены между собой
 пробелами. Вам необходимо разбить эту строку на отдельные символы
 (по пробелу) перевести их в десятичную систему и по коду номера
 символа ASCII найти соответствующую букву.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_12_2">
 <span class="sig-name descname"><span class="pre">m_6_12_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_12_2"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_12_2" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Двоичная строка в ASCII или ответный удар возмездия
-Чтож, мы оценили шутку кота Василия, но теперь хотим, чтобы он тоже
+<dd><section id="id52">
+<h3>Двоичная строка в ASCII или ответный удар возмездия<a class="headerlink" href="#id52" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Чтож, мы оценили шутку кота Василия, но теперь хотим, чтобы он тоже
 почувствовал все прелести перевода на своей пушистой шкурке ;)
 Нам необходимо произвести теперь обратный процесс, нам дана строка,
 мы должны для каждого символа узнать его номер по таблице ASCII
@@ -661,13 +783,15 @@ lower() (подробно было здесь) и метод strip()</p>
 нам они совершенно ни к чему в нашем послании, потому предлагаю
 полученную бинарную строку обрезать начиная с 2 символа [2:],
 чтобы получить только 1 и 0.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_12_3">
 <span class="sig-name descname"><span class="pre">m_6_12_3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_12_3"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_12_3" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Двоичная строка в ASCII или двоичный шутник 2
-Наш друг Василий (любитель подшутить) снова в деле, на этот раз этот
+<dd><section id="ascii-2">
+<h3>Двоичная строка в ASCII или двоичный шутник 2<a class="headerlink" href="#ascii-2" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Наш друг Василий (любитель подшутить) снова в деле, на этот раз этот
 засранец решил окончательно порофлить над нами. Он отправил вам строку
 из двоичных значений, символы которых уже не разделены между собой
 пробелами. Но он дал нам подсказку, что эту строку можно разбить на группы
@@ -675,13 +799,15 @@ lower() (подробно было здесь) и метод strip()</p>
 группы из 16 символов, перевести каждую группу в десятичную систему,
 затем используя код символа ASCII, найти соответствующие символы,
 соеденив их и получим послание от нашего пушистого друга.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_12_4">
 <span class="sig-name descname"><span class="pre">m_6_12_4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_12_4"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_12_4" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Двоичная строка в ASCII или ответный удар возмездия 2
-Ну и негодник, наш верный пушистый друг Василий. Ну ничего, наша ответка
+<dd><section id="id53">
+<h3>Двоичная строка в ASCII или ответный удар возмездия 2<a class="headerlink" href="#id53" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Ну и негодник, наш верный пушистый друг Василий. Ну ничего, наша ответка
 не оставит себя долго ждать. Мы снова его проучим, заставив сделать
 обратный процесс. Как же нам это сделать? Тут есть один нюанс, который
 кот Василий кажется не на все 100 %, но вроде как решил, дело в том,
@@ -695,34 +821,43 @@ zfill(width) кажется, так, нужно срочно вспомнить 
 виду добавим незначащие нули слева, так чтобы довести значение на
 каждый символ до 16, сделав одну слитную строку, ровно такую же,
 как нам присылал Василий. Давайте проучим эту наглую пушистую мордочку ;)</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_12_5">
 <span class="sig-name descname"><span class="pre">m_6_12_5</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_12_5"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_12_5" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Заполняем импровизированную таблицу 2
-Мы с вами уже заполняли таблицу здесь. Давайте теперь с вами усложним
+<dd><section id="id54">
+<h3>Заполняем импровизированную таблицу 2<a class="headerlink" href="#id54" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Мы с вами уже заполняли таблицу здесь. Давайте теперь с вами усложним
 задачу. На вход поступает целочисленное значение числа строк, которые
-необходимо считать. Каждая строка это Фамилия Имя Отчество. Три значения
-разделены между собой пробелами. Наша задача создать таблицу следующего
-вида. Сверху у нас 64 символа «_»<em>, Потом заполняем шапку таблицы со
-следующей строки идёт символ «|» далее выравненное по центру строка
-«Фамилия» с заполнением в 20 символов, далее снова символ «|» далее
-выравненное по центру строка «Имя» с заполнением в 20 символов, далее
-снова символ «|» далее выравненное по центру строка «Отчество» с
-заполнением в 20 символов и далее снова символ «|». Это мы заполним шапку
-таблицы. Далее нам нужно закрыть нижним подчёркиванием первую строку,
-поэтому снова печатаем 64 символа «_»</em>. Далее мы заполняем последующие
-строки нашей таблицы. Снова как с Фамилией, Именем и Отчеством, только уже
-входящие данные. Далее снова печатаем 64 символа «_»<a href="#id11"><span class="problematic" id="id12">*</span></a>.
-И так на все входящие данные.</p>
+необходимо считать.
+- Каждая строка это Фамилия Имя Отчество.
+- Три значения разделены между собой пробелами.
+Наша задача создать таблицу следующег овида.
+- Сверху у нас 64 символа «_»,
+- Потом заполняем шапку таблицы со следующей строки идёт символ «|»
+- далее выравненное по центру строка «Фамилия» с заполнением в 20 символов,
+- далее снова символ «|»
+- далее выравненное по центру строка «Имя» с заполнением в 20 символов,
+- далее снова символ «|»
+- далее выравненное по центру строка «Отчество» с заполнением в 20 символов
+- и далее снова символ «|».
+Это мы заполним шапку таблицы.
+- Далее нам нужно закрыть нижним подчёркиванием первую строку,
+поэтому снова печатаем 64 символа «_».
+Далее мы заполняем последующие строки нашей таблицы.
+Снова как с Фамилией, Именем и Отчеством, только уже входящие данные.
+Далее снова печатаем 64 символа «_». И так на все входящие данные.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_12_6">
 <span class="sig-name descname"><span class="pre">m_6_12_6</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_12_6"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_12_6" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Анализируем строку
-Давайте я Вам дам задачу из практики, с которой я столкнулся.
+<dd><section id="id55">
+<h3>Анализируем строку<a class="headerlink" href="#id55" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Давайте я Вам дам задачу из практики, с которой я столкнулся.
 Представьте у вас есть строка, где написаны нормативные документы
 и его пункты и таблицы, нам нужно разбить строку на сам нормативные
 документ и его пункты, таблицы, но ещё и отделить между собой
@@ -740,56 +875,77 @@ zfill(width) кажется, так, нужно срочно вспомнить 
 «Нормативный документ:» и «Пункты:» сделаем выравнивание по левому краю
 с заполнением в 25 символов*, а уже следом будут идти данные,
 которые мы вытащим из строк, спустя 25 символов.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_12_7">
 <span class="sig-name descname"><span class="pre">m_6_12_7</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_12_7"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_12_7" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Анализируем строку 2
-Ещё одна задача из практики. Представьте у вас тысячи файлов,
+<dd><section id="id56">
+<h3>Анализируем строку 2<a class="headerlink" href="#id56" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Ещё одна задача из практики. Представьте у вас тысячи файлов,
 вы вытащили из них наименование (а как это сделать мы с вами обучимся
 чуть позже, всему своё время), но вот незадача, нам нужно разложить
 название на идентификатор самого чертежа, его название и компанию,
-что его производит, удалив при этом расширение.
-Строка представлена следующим видом:</p>
-<p>&lt;Идентификатор чертежа&gt; - &lt;Наименование&gt; &lt;Организация&gt;.&lt;Расширение&gt;</p>
-<p>Теперь небольшая ремарка. Расширение у нас будет всегда «.pdf»<a href="#id13"><span class="problematic" id="id14">*</span></a>.
-А организация всегда будет начинаться с «ООО».
-А &lt;Идентификатор чертежа&gt; и &lt;Наименование&gt; разделены между собой « - «</p>
-<ul class="simple">
-<li><p>Примечание: Нас по сути несильно волнует расширение,</p></li>
+что его производит, удалив при этом расширение.</em></p>
+<p>Строка представлена следующим видом:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;Идентификатор</span> <span class="pre">чертежа&gt;</span> <span class="pre">-</span> <span class="pre">&lt;Наименование&gt;</span> <span class="pre">&lt;Организация&gt;.&lt;Расширение&gt;</span></code></p>
+<p>Теперь небольшая ремарка:
+- hасширение у нас будет всегда «.pdf».
+- организация всегда будет начинаться с «ООО».
+- &lt;Идентификатор чертежа&gt; и &lt;Наименование&gt; разделены между собой « - »</p>
+<p>Примечание: Нас по сути несильно волнует расширение,
+важно сразу увидеть, что это крайняя точка справа ;)</p>
+<dl class="simple">
+<dt>Результатом программы будут являться три строчки:</dt><dd><ul class="simple">
+<li><p>&lt;Идентификатор чертежа&gt;</p></li>
+<li><p>&lt;Наименование&gt;</p></li>
+<li><p>&lt;Организация&gt;</p></li>
 </ul>
-<p>важно сразу увидеть, что это крайняя точка справа ;)</p>
-<p>Результатом программы будут являться три строчки:</p>
-<p>&lt;Идентификатор чертежа&gt;
-&lt;Наименование&gt;
-&lt;Организация&gt;</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.module_6.m_6_12_8">
 <span class="sig-name descname"><span class="pre">m_6_12_8</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/module_6.html#m_6_12_8"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#src.module_6.m_6_12_8" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Анализируем строки и выводим таблицу
-Задача такая же как в прошлой задаче, но с одним но ;)
-На вход подаётся целое число, количество строк, которые поступят
-для обработки. А потом указанное количество строк в виде:
-&lt;Идентификатор чертежа&gt; - &lt;Наименование&gt; &lt;Организация&gt;.&lt;Расширение&gt;
-Нам теперь полученные значения
-&lt;Идентификатор чертежа&gt; &lt;Наименование&gt; &lt;Организация&gt;
-на этот раз вывести в виде таблицы. Какие вводные данные?
-Начнём с шапки. Сверху у нас 94 символа «_»<em>,
-Потом заполняем шапку таблицы со следующей строки идёт символ «|»
-далее выравненное по центру строка «Идентификатор чертежа» с заполнением
-в 30 символов, далее снова символ «|» далее выравненное по центру строка
-«Наименование» с заполнением в 30 символов, далее снова символ «|»
-далее выравненное по центру строка «Организация» с заполнением
-в 30 символов и далее снова символ «|». Это мы заполним шапку таблицы.
-Далее нам нужно закрыть нижним подчёркиванием первую строку,
-поэтому снова печатаем 94 символа «_»</em>. Далее мы заполняем последующие
-строки нашей таблицы.
-Снова как с Идентификатор чертежа, Наименование и Организация,
-только уже входящие данные. Далее снова печатаем 94 символа «_»<a href="#id15"><span class="problematic" id="id16">*</span></a>.
-И так на все входящие данные.</p>
+<dd><section id="id57">
+<h3>Анализируем строки и выводим таблицу<a class="headerlink" href="#id57" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Задача такая же как в прошлой задаче, но с одним но ;)</em></p>
+<p>На вход подаётся целое число, количество строк, которые поступят
+для обработки. А потом указанное количество строк в виде:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;Идентификатор</span> <span class="pre">чертежа&gt;</span> <span class="pre">-</span> <span class="pre">&lt;Наименование&gt;</span> <span class="pre">&lt;Организация&gt;.&lt;Расширение&gt;</span></code></p>
+<p>Нам теперь полученные значения <code class="docutils literal notranslate"><span class="pre">&lt;Идентификатор</span> <span class="pre">чертежа&gt;</span></code>
+<code class="docutils literal notranslate"><span class="pre">&lt;Наименование&gt;</span></code> <code class="docutils literal notranslate"><span class="pre">&lt;Организация&gt;</span></code>
+на этот раз вывести в виде таблицы. Какие вводные данные?</p>
+<p>Начнём с шапки.</p>
+<ul class="simple">
+<li><p>Сверху у нас 94 символа «_»,</p></li>
+<li><dl class="simple">
+<dt>Потом заполняем шапку таблицы</dt><dd><ul>
+<li><p>со следующей строки идёт символ «|»</p></li>
+<li><p>далее выравненное по центру строка «Идентификатор чертежа» с заполнением в 30 символов,</p></li>
+<li><p>далее снова символ «|»</p></li>
+<li><p>далее выравненное по центру строка «Наименование» с заполнением в 30 символов,</p></li>
+<li><p>далее снова символ «|»</p></li>
+<li><p>далее выравненное по центру строка «Организация» с заполнением в 30 символов</p></li>
+<li><p>далее снова символ «|».</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Далее нам нужно закрыть нижним подчёркиванием первую строку,
+поэтому снова печатаем 94 символа «_».</p></li>
+</ul>
+<p>Это мы заполним шапку таблицы.</p>
+<dl class="simple">
+<dt>Далее мы заполняем последующие строки нашей таблицы.</dt><dd><p>Снова как с Идентификатор чертежа, Наименование и Организация,
+только уже входящие данные. Далее снова печатаем 94 символа «_».</p>
+</dd>
+</dl>
+<p>И так на все входящие данные.</p>
+</section>
 </dd></dl>
 
 </section>
@@ -829,17 +985,18 @@ zfill(width) кажется, так, нужно срочно вспомнить 
 <li class="toctree-l1"><a class="reference internal" href="module_5.html">Модуль 5: Числовые данные</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Модуль 6: Строки</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id3">Форматирование строк (6.1)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">Функции строк (6.2)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">Преобразование регистра (6.4)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">Поиск и сравнение (6.5)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">Проверка содержимого (6.6)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">Выравнивание (6.7)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">Разделение (6.8)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id10">Обработка (6.9)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Функции строк (6.2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">Преобразование регистра (6.4)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">Поиск и сравнение (6.5)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">Проверка содержимого (6.6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id27">Выравнивание (6.7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id32">Разделение (6.8)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id35">Обработка (6.9)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#i-6-11">Задачи I (6.11)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ii-6-12">Задачи II (6.12)</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="module_7.html">Модуль 7: Списки</a></li>
 </ul>
 
 <div class="relations">
@@ -847,6 +1004,7 @@ zfill(width) кажется, так, нужно срочно вспомнить 
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="module_5.html" title="предыдущая глава">Модуль 5: Числовые данные</a></li>
+      <li>Next: <a href="module_7.html" title="следующая глава">Модуль 7: Списки</a></li>
   </ul></li>
 </ul>
 </div>

@@ -1,7 +1,7 @@
 Модуль 4: Циклы
 ===============
 
-Решения задач из модуля 4 курса Learning Python Together.
+Решения задач из Модуля 4 «Циклы» курса Learning Python Together.
 
 .. contents::
    :local:
