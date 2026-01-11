@@ -43,7 +43,6 @@ napoleon_numpy_docstring = True
 
 # -- Options for HTML output -------------------------------------------------
 html_theme = "alabaster"
-html_static_path = ["_static"]
 html_show_sourcelink = False
 add_module_names = False
 

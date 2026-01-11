@@ -6,6 +6,7 @@
 .. contents::
    :local:
    :depth: 2
+   :backlinks: top
 
 Задачи (5.3)
 ------------

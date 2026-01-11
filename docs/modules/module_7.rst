@@ -1,10 +1,43 @@
-Модуль 7: 
+Модуль 7: Списки
 ======================================
 
-Решения задач из модуля 7.
+Решения задач из Модуля 7 «Списки» курса Learning Python Together.
 
-.. automodule:: src.module_7
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :noindex:
+.. contents::
+   :local:
+   :depth: 2
+   :backlinks: top
+
+Создание списков (7.1)
+--------------------------
+
+.. autofunction:: src.module_7.m_7_1_1()
+.. autofunction:: src.module_7.m_7_1_2()
+.. autofunction:: src.module_7.m_7_1_3()
+.. autofunction:: src.module_7.m_7_1_4()
+
+
+Индексация и срезы (7.2)
+--------------------------
+
+.. autofunction:: src.module_7.m_7_2_1()
+.. autofunction:: src.module_7.m_7_2_2()
+
+
+Операции со списками (7.3)
+----------------------------
+
+.. autofunction:: src.module_7.m_7_3_1()
+.. autofunction:: src.module_7.m_7_3_2()
+.. autofunction:: src.module_7.m_7_3_3()
+
+
+Списковые включения (7.7)
+----------------------------
+
+.. autofunction:: src.module_7.m_7_7_1()
+.. autofunction:: src.module_7.m_7_7_2()
+.. autofunction:: src.module_7.m_7_7_3()
+.. autofunction:: src.module_7.m_7_7_4()
+.. autofunction:: src.module_7.m_7_7_5()
+.. autofunction:: src.module_7.m_7_7_6()

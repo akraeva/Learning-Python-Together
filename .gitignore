@@ -1,4 +1,4 @@
-__pycache__/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -44,3 +44,21 @@ dist/
 
 # templates 
 *x.py
+
+# Sphinx документация
+docs/_build/
+docs/doctrees/
+docs/source/.doctrees/
+
+# Sphinx временные файлы
+*.rst.txt
+*.doctree
+.doctrees
+
+# Python кэш в docs
+docs/**/*.pyc
+docs/**/__pycache__/
+
+# IDE файлы в docs (по желанию)
+docs/.vscode/
+docs/.idea/
