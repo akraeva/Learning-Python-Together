@@ -41,3 +41,11 @@
 .. autofunction:: src.module_7.m_7_7_4()
 .. autofunction:: src.module_7.m_7_7_5()
 .. autofunction:: src.module_7.m_7_7_6()
+
+
+Вложенные списки (7.8)
+----------------------------
+.. autofunction:: src.module_7.m_7_8_1()
+.. autofunction:: src.module_7.m_7_8_2()
+.. autofunction:: src.module_7.m_7_8_3()
+.. autofunction:: src.module_7.m_7_8_4()
