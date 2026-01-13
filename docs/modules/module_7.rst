@@ -32,6 +32,26 @@
 .. autofunction:: src.module_7.m_7_3_3()
 
 
+Задачи I (7.6)
+----------------------------
+.. autofunction:: src.module_7.m_7_6_1()
+.. autofunction:: src.module_7.m_7_6_2()
+.. autofunction:: src.module_7.m_7_6_3()
+.. autofunction:: src.module_7.m_7_6_4()
+.. autofunction:: src.module_7.m_7_6_5()
+.. autofunction:: src.module_7.m_7_6_6()
+.. autofunction:: src.module_7.m_7_6_7()
+.. autofunction:: src.module_7.m_7_6_8()
+.. autofunction:: src.module_7.m_7_6_9()
+.. autofunction:: src.module_7.m_7_6_10()
+.. autofunction:: src.module_7.m_7_6_11()
+.. autofunction:: src.module_7.m_7_6_12()
+.. autofunction:: src.module_7.m_7_6_13()
+.. autofunction:: src.module_7.m_7_6_14()
+.. autofunction:: src.module_7.m_7_6_15()
+.. autofunction:: src.module_7.m_7_6_16()
+
+
 Списковые включения (7.7)
 ----------------------------
 

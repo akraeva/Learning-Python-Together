@@ -47,7 +47,6 @@ dist/
 
 # Sphinx документация
 docs/_build/
-docs/doctrees/
 docs/source/.doctrees/
 
 # Sphinx временные файлы
