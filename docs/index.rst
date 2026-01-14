@@ -14,6 +14,7 @@ __ https://stepik.org/course/215335
    modules/module_4
    modules/module_5
    modules/module_6
+   modules/module_7
 
 ********************
 
@@ -219,6 +220,7 @@ __ https://stepik.org/course/215335
 - module_4.py - решение задач "Модуль 4. Циклы"
 - module_5.py - решение задач "Модуль 5. Числовые данные"
 - module_6.py - решение задач "Модуль 6. Строки"
+- module_6.py - решение задач "Модуль 7. Списки"
 
 ********************
 

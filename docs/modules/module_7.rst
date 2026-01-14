@@ -69,3 +69,20 @@
 .. autofunction:: src.module_7.m_7_8_2()
 .. autofunction:: src.module_7.m_7_8_3()
 .. autofunction:: src.module_7.m_7_8_4()
+
+
+Задачи II (7.9)
+----------------------------
+.. autofunction:: src.module_7.m_7_9_1()
+.. autofunction:: src.module_7.m_7_9_2()
+.. autofunction:: src.module_7.m_7_9_3()
+.. autofunction:: src.module_7.m_7_9_4()
+.. autofunction:: src.module_7.m_7_9_5()
+.. autofunction:: src.module_7.m_7_9_6()
+.. autofunction:: src.module_7.m_7_9_7()
+.. autofunction:: src.module_7.m_7_9_8()
+.. autofunction:: src.module_7.m_7_9_9()
+.. autofunction:: src.module_7.m_7_9_10()
+.. autofunction:: src.module_7.m_7_9_11()
+.. autofunction:: src.module_7.m_7_9_12()
+   
