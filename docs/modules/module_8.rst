@@ -14,3 +14,10 @@
 .. autofunction:: src.module_8.m_8_1_1()
 .. autofunction:: src.module_8.m_8_1_2()
 
+
+Операции с кортежами (8.2)
+--------------------------
+.. autofunction:: src.module_8.m_8_2_1()
+.. autofunction:: src.module_8.m_8_2_2()
+.. autofunction:: src.module_8.m_8_2_3()
+   
