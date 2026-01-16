@@ -15,6 +15,7 @@ __ https://stepik.org/course/215335
    modules/module_5
    modules/module_6
    modules/module_7
+   modules/module_8
 
 ********************
 

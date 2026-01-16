@@ -637,9 +637,12 @@ def m_7_9_3():
     """
     nums = list(map(int, input().split()))
     num = int(input())
-    while num in nums:
-        nums.remove(num)
-    print(nums)
+    if num in nums:
+        while num in nums:
+            nums.remove(num)
+        print(nums)
+    else:
+        print(f"Элемент {num} не обнаружен")
 
 
 def m_7_9_4():
