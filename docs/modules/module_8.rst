@@ -20,4 +20,9 @@
 .. autofunction:: src.module_8.m_8_2_1()
 .. autofunction:: src.module_8.m_8_2_2()
 .. autofunction:: src.module_8.m_8_2_3()
-   
+
+
+Методы кортежей (8.3)
+--------------------------
+.. autofunction:: src.module_8.m_8_3_1()
+.. autofunction:: src.module_8.m_8_3_2()
