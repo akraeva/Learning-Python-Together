@@ -3,9 +3,8 @@
 
 # -- Project information -----------------------------------------------------
 project = "Learning Python Together"
-copyright = "2025, nia"
+copyright = "2026, nia"
 author = "Anna"
-release = "1.0"
 
 # -- General configuration ---------------------------------------------------
 extensions = [
@@ -15,6 +14,7 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.todo",
     "sphinx.ext.intersphinx",
+    "sphinx_toggleprompt",
 ]
 
 templates_path = ["_templates"]
