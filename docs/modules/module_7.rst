@@ -85,4 +85,9 @@
 .. autofunction:: src.module_7.m_7_9_10()
 .. autofunction:: src.module_7.m_7_9_11()
 .. autofunction:: src.module_7.m_7_9_12()
-   
+
+
+Тесты к модулю
+--------------------------
+
+   `Тесты к Модулю 7 <tests_7.html>`__ 

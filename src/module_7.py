@@ -753,9 +753,13 @@ def m_7_9_9():
     в строю. Если в строю есть студенты с тем же ростом, что у Васи,
     его место будет перед ними (ну хотя бы здесь он смог продвинуться xD).
     """
-    heights = list(map(int, input().split()))
+    heights = sorted(list(map(int, input().split())), reverse=True)
     height_vasya = int(input())
-    idx = next(i for i, h in enumerate(heights) if h <= height_vasya)
+    idx = (
+        len(heights)
+        if height_vasya < heights[-1]
+        else next(i for i, h in enumerate(heights) if h <= height_vasya)
+    )
     heights.insert(idx, height_vasya)
     print(idx + 1)
 
