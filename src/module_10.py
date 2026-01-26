@@ -108,3 +108,123 @@ def m_10_2_5():
     for _ in range(n):
         name = input()
         print(contacts[name] if name in contacts else "Не найдено")
+
+
+# === 10.5 Вложенные словари ===
+
+
+def m_10_5_1():
+    """
+    Вычисляем средний бал студента
+    -------------------------------------
+    На вход поступает имя студента student.
+    У вас есть словарь с информацией о студентах.
+
+    Воспользуйтесь им, чтобы найти средний балл студента,
+    округлите его при помощи round до одного знака после запятой.
+    Ответ выведите на экран.
+
+    Если студент в словаре не найден, то выведите сообщение:
+
+        ``Студент <имя> в словаре не найден``
+    """
+    students = {
+        "Alice": {
+            "age": 20,
+            "major": "Computer Science",
+            "grades": [85, 90, 88, 92, 85],
+        },
+        "Arthur": {"age": 21, "major": "Engineering", "grades": [78, 85, 90, 79, 88]},
+        "Anna": {"age": 19, "major": "Mathematics", "grades": [92, 88, 95, 90, 91]},
+        "Anastasia": {
+            "age": 22,
+            "major": "Computer Science",
+            "grades": [75, 82, 79, 88, 90],
+        },
+        "Artem": {"age": 20, "major": "Economics", "grades": [89, 84, 92, 87, 90]},
+        "Maxim": {
+            "age": 21,
+            "major": "Computer Science",
+            "grades": [85, 88, 86, 92, 89],
+        },
+        "Alexander": {
+            "age": 20,
+            "major": "Computer Science",
+            "grades": [80, 85, 87, 89, 84],
+        },
+        "Victor": {
+            "age": 22,
+            "major": "Computer Science",
+            "grades": [78, 82, 87, 88, 85],
+        },
+        "Elena": {"age": 21, "major": "Art", "grades": [88, 92, 85, 90, 87]},
+        "Stepan": {"age": 20, "major": "Physics", "grades": [85, 88, 90, 92, 89]},
+    }
+    student = input()
+    if student in students:
+        grades = students[student]["grades"]
+        res = round(sum(grades) / len(grades), 1)
+    else:
+        res = f"Студент {student} в словаре не найден"
+    print(res)
+
+
+def m_10_5_2():
+    """
+    Запрашиваем данные из базы
+    -------------------------------------
+    На вход поступает имя студента student, а затем с новой строки
+    запрашиваемый параметр студента parameter. У вас есть словарь
+    с информацией о студентах.
+
+    Воспользуйтесь им, чтобы найти студента и у него запрашиваемый
+    параметр. Но есть нюанс. Может так случиться, что либо студента
+    в словаре не окажется, либо параметра такого у студента нет,
+    в этом случае предлагаю выводить следующее.
+
+        - Если не найден студент:
+          ``Запрашиваемый студент <student> не найден``
+        - Если студент есть, но параметра такого нет:
+          ``Запрашиваемый параметр <parameter> у студента <student> не найден``
+    """
+    students = {
+        "Alice": {
+            "age": 20,
+            "major": "Computer Science",
+            "grades": [85, 90, 88, 92, 85],
+        },
+        "Arthur": {"age": 21, "major": "Engineering", "grades": [78, 85, 90, 79, 88]},
+        "Anna": {"age": 19, "major": "Mathematics", "grades": [92, 88, 95, 90, 91]},
+        "Anastasia": {
+            "age": 22,
+            "major": "Computer Science",
+            "grades": [75, 82, 79, 88, 90],
+        },
+        "Artem": {"age": 20, "major": "Economics", "grades": [89, 84, 92, 87, 90]},
+        "Maxim": {
+            "age": 21,
+            "major": "Computer Science",
+            "grades": [85, 88, 86, 92, 89],
+        },
+        "Alexander": {
+            "age": 20,
+            "major": "Computer Science",
+            "grades": [80, 85, 87, 89, 84],
+        },
+        "Victor": {
+            "age": 22,
+            "major": "Computer Science",
+            "grades": [78, 82, 87, 88, 85],
+        },
+        "Elena": {"age": 21, "major": "Art", "grades": [88, 92, 85, 90, 87]},
+        "Stepan": {"age": 20, "major": "Physics", "grades": [85, 88, 90, 92, 89]},
+    }
+    student, parameter = input(), input()
+    if student in students:
+        res = students[student].get(
+            parameter,
+            f"Запрашиваемый параметр {parameter} у студента {student} не найден",
+        )
+    else:
+        res = f"Запрашиваемый студент {student} не найден"
+    print(res)
