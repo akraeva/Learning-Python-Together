@@ -27,3 +27,14 @@
 
 **Запуск:** ``pytest tests/test_10_5.py``
 
+
+Задачи I (10.6)
+-----------------------------
+
+Файл: ``tests/test_10_6.py``
+
+.. literalinclude:: ../../tests/test_10_6.py
+    :language: python
+    :linenos:
+
+**Запуск:** ``pytest tests/test_10_6.py``
