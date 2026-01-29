@@ -1,28 +1,70 @@
-import os
 from pathlib import Path
+
+
+def t_len(title, base=28):
+    """Вычисляет длину почерка заголовка для docs"""
+    length = len(title.strip())
+    return (length // base + 1) * base
+
+
+def new_module(module, name):
+    """Создаёт файлы для нового учебного модуля"""
+    data = {
+        "module_file": {
+            "name": f"src/module_{module}.py",
+            "title": "# Stepick.org — Learning Python Together",
+            "symbol": "",
+            "content": f"# {module}. {name}\n\n",
+            "message": "✅ Создан файл модуля: ",
+        },
+        "docs_file": {
+            "name": f"docs/modules/module_{module}.rst",
+            "title": f"Модуль {module}: {name}\n",
+            "symbol": "=",
+            "content": (
+                f"\nРешения задач из Модуля {module} «{name}» курса Learning Python Together.\n\n"
+                ".. contents::\n   :local:\n   :depth: 2\n   :backlinks: top\n\n\n"
+                "Тесты к модулю\n----------------------------\n\n"
+                f"   `Тесты к Модулю {module} <tests_{module}.html>`__ "
+            ),
+            "message": "✅ Создан файл доков: ",
+        },
+        "tests_doc_file": {
+            "name": f"docs/modules/tests_{module}.rst",
+            "title": f"Тесты к Модулю {module}: {name}\n",
+            "symbol": "=",
+            "content": "\n.. contents::\n    :local:\n",
+            "message": "✅ Создан файл доков тестов: ",
+        },
+    }
+
+    for _, file in data.items():
+        filename = file["name"]
+        path = Path(filename)
+        if not path.exists():
+            title = file["title"] + file["symbol"] * t_len(file["title"])
+            with open(filename, "w", encoding="utf-8") as f:
+                f.write(f"{title}\n")
+                f.write(file["content"])
+                print(f"{file["message"]} {filename}")
 
 
 def append_structure(module, step, name, count):
     "Генерирует структуру для решения задач главы модуля"
-    filename = f"../src/module_{module}.py"
-    path = Path(filename)
-
-    if not path.exists():
-        print(f"❌ {filename} не найден!")
-        return False
-
+    filename = f"src/module_{module}.py"
     with open(filename, "a", encoding="utf-8") as f:
-        f.write(f"\n\n# === {module}.{step} {name} ===\n")
+        f.write(f"\n# === {module}.{step} {name} ===\n\n")
         for i in range(1, count + 1):
             f.write(
                 f'''
-    def m_{module}_{step}_{i}():
+def m_{module}_{step}_{i}():
     """
     ...
-    {"-"*37}
+    {"-" * 37}
     ...
     """
     pass
+
 
 '''
             )
@@ -32,33 +74,20 @@ def append_structure(module, step, name, count):
 
 def append_docs(module, step, name, count):
     "Генерирует содержимое доков"
-    filename = f"../docs/modules/module_{module}.rst"
-    path = Path(filename)
-
-    if not path.exists():
-        print(f"❌ {filename} не найден!")
-        return False
-
+    filename = f"docs/modules/module_{module}.rst"
     with open(filename, "a", encoding="utf-8") as f:
         title = f"\n\n{name} ({module}.{step})"
-        length = max(26, (len(title) // 25 + 1) * 26)
-        f.write(f"{title}\n{'-' * length}\n")
+        f.write(f"{title}\n{'-' * t_len(title)}\n")
         for i in range(1, count + 1):
             line = f".. autofunction:: src.module_{module}.m_{module}_{step}_{i}()\n"
             f.write(line)
-
     print(f"✅ Описание добавлено в {filename}")
     return True
 
 
 def create_test_file(module, step, count):
     """Создаёт файл тестов с импортами"""
-    filename = f"../tests/test_{module}_{step}.py"
-    path = Path(filename)
-
-    if path.exists() and path.stat().st_size > 0:
-        print(f"⚠️ {filename} уже существует")
-        return True
+    filename = f"tests/test_{module}_{step}.py"
 
     imports = ",\n".join([f"    m_{module}_{step}_{i}" for i in range(1, count + 1)])
     content = f"import pytest\nfrom src.module_{module} import (\n{imports}\n)"
@@ -70,40 +99,17 @@ def create_test_file(module, step, count):
     return True
 
 
-def create_or_update_tests_docs(module, step, name):
-    """Создаёт/обновляет страницу доков с тестами к модулю"""
-    filename = f"../docs/modules/tests_{module}.rst"
-    path = Path(filename)
+def update_tests_docs(module, step, name):
+    """Обновляет страницу доков с тестами к модулю"""
+    filename = f"docs/modules/tests_{module}.rst"
 
-    if not path.exists():
-        title = f"Тесты к Модулю {module}: НАЗВАНИЕ"
-        length = 28
-        header_content = f"""
-Тесты к Модулю {module}: {name}
-{"=" * length}
-
-.. contents::
-    :local:
-
-"""
-        with open(filename, "w", encoding="utf-8") as f:
-            f.write(header_content)
-
-        print(f"✅ Создан файл: {filename}")
     title = f"{name} ({module}.{step})"
-    length = max(28, (len(title) // 28 + 1) * 28)
-    section_content = f"""
-{title}
-{"-" * 28}
-
-Файл: ``tests/test_{module}_{step}.py``
-
-.. literalinclude:: ../../tests/test_{module}_{step}.py
-    :language: python
-    :linenos:
-
-"""
-
+    section_content = (
+        f"\n{title}\n{"-" * t_len(title)}\n\n"
+        f"Файл: ``tests/test_{module}_{step}.py``\n\n"
+        f".. literalinclude:: ../../tests/test_{module}_{step}.py\n"
+        "    :language: python\n    :linenos:\n\n"
+    )
     with open(filename, "a", encoding="utf-8") as f:
         f.write(section_content)
 
@@ -117,11 +123,17 @@ def main():
     count = int(input("Количество задач: "))
     name = input("Название главы: ")
 
+    filename = f"src/module_{module}.py"
+    path = Path(filename)
+    if not path.exists():
+        module_name = input("Название модуля: ")
+        new_module(module, module_name)
+
     success = [
         append_structure(module, step, name, count),
-        create_test_file(module, step, count),
         append_docs(module, step, name, count),
-        create_or_update_tests_docs(module, step, name),
+        create_test_file(module, step, count),
+        update_tests_docs(module, step, name),
     ]
 
     if all(success):
