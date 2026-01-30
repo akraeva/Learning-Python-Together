@@ -13,8 +13,6 @@
     :language: python
     :linenos:
 
-**Запуск:** ``pytest tests/test_10_2.py``
-
 
 Вложенные словари (10.5)
 -----------------------------
@@ -24,8 +22,6 @@
 .. literalinclude:: ../../tests/test_10_5.py
     :language: python
     :linenos:
-
-**Запуск:** ``pytest tests/test_10_5.py``
 
 
 Задачи I (10.6)
@@ -37,4 +33,13 @@
     :language: python
     :linenos:
 
-**Запуск:** ``pytest tests/test_10_6.py``
+
+Задачи II (10.7)
+----------------------------
+
+Файл: ``tests/test_10_7.py``
+
+.. literalinclude:: ../../tests/test_10_7.py
+    :language: python
+    :linenos:
+
