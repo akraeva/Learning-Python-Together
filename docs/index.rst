@@ -20,6 +20,17 @@ __ https://stepik.org/course/215335
    modules/module_8
    modules/module_9 
    modules/module_10
+   modules/module_11
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   
+   modules/tests_7
+   modules/tests_8
+   modules/tests_9
+   modules/tests_10
+   modules/tests_11
 
 ********************
 

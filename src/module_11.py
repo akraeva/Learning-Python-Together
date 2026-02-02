@@ -1,6 +1,7 @@
 # Stepick.org — Learning Python Together
 # 11. Обработка исключений
 
+from json import loads
 
 # === 11.1 try-except блок ===
 
@@ -42,7 +43,12 @@ def m_11_3_1():
     число, если преобразование произошло успешно, то вывести целое число,
     если возникает ошибка (ValueError), то вывести "Ошибка ввода числа".
     """
-    pass
+    string = input()
+    try:
+        num = int(string)
+        print(num)
+    except ValueError:
+        print("Ошибка ввода числа")
 
 
 def m_11_3_2():
@@ -58,7 +64,11 @@ def m_11_3_2():
     Если будет ошибка, то выведите сообщение: "На ноль делить нельзя!",
     если не отработает исключение, то выведите результат деления.
     """
-    pass
+    n1, n2 = int(input()), int(input())
+    try:
+        print(n1 / n2)
+    except ZeroDivisionError:
+        print("На ноль делить нельзя!")
 
 
 def m_11_3_3():
@@ -78,7 +88,15 @@ def m_11_3_3():
         - num1 и/или num2 окажутся строкой из букв, тогда обработать ошибку
           ValueError и вывести сообщение "Должны быть числа, а не строки!"
     """
-    pass
+    str_num1, str_num2 = input(), input()
+
+    try:
+        num1, num2 = int(str_num1), int(str_num2)
+        print(num1 / num2)
+    except ValueError:
+        print("Должны быть числа, а не строки!")
+    except ZeroDivisionError:
+        print("На ноль делить нельзя!")
 
 
 def m_11_3_4():
@@ -95,7 +113,15 @@ def m_11_3_4():
 
     В итоге Вам предстоит суммировать только корректные числа.
     """
-    pass
+    summ = 0
+    while True:
+        try:
+            summ += int(input())
+        except ValueError:
+            continue
+        except EOFError:
+            break
+    print(summ)
 
 
 def m_11_3_5():
@@ -109,7 +135,12 @@ def m_11_3_5():
     Если индекс выходит за пределы списка (ошибка IndexError),
     выведите сообщение "Запрашиваемый индекс выходит на пределы списка!".
     """
-    pass
+    my_list = list(map(int, input().split()))
+    i = int(input())
+    try:
+        print(my_list[i])
+    except IndexError:
+        print("Запрашиваемый индекс выходит на пределы списка!")
 
 
 def m_11_3_6():
@@ -124,7 +155,13 @@ def m_11_3_6():
     перехватите ошибку (KeyError), выведите сообщение
     ``Запрашиваемый ключ <ключ> отсутствует у словаря!``
     """
-    pass
+    my_dict = loads(input())
+    key = input()
+
+    try:
+        print(my_dict[key])
+    except KeyError:
+        print(f"Запрашиваемый ключ {key} отсутствует у словаря!")
 
 
 def m_11_3_7():
@@ -141,4 +178,12 @@ def m_11_3_7():
 
     Выведите полученное целое число.
     """
-    pass
+    string = input()
+
+    try:
+        num = int(string)
+    except ValueError:
+        if "," in string:
+            string = string.replace(",", ".")
+        num = int(float(string))
+    print(num)
