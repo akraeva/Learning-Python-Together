@@ -13,3 +13,13 @@
     :language: python
     :linenos:
 
+
+Области видимости (12.3)
+----------------------------
+
+Файл: ``tests/test_12_3.py``
+
+.. literalinclude:: ../../tests/test_12_3.py
+    :language: python
+    :linenos:
+
