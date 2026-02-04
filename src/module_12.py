@@ -59,7 +59,11 @@ def m_12_2_3(name):
     def greet(name="unknown"):
         print(f"Hello, {name}!")
 
-    greet(name)
+    # for tests
+    if name is None:
+        greet()
+    else:
+        greet(name)
 
 
 def m_12_2_4(num1, num2):
@@ -73,7 +77,7 @@ def m_12_2_4(num1, num2):
     def sum_two_num(a, b):
         return a + b
 
-    sum_two_num(num1, num2)
+    return sum_two_num(num1, num2)
 
 
 def m_12_2_5(nums):
@@ -89,7 +93,7 @@ def m_12_2_5(nums):
     def sum_num(*args):
         return sum(args)
 
-    sum_num(*nums)
+    return sum_num(*nums)
 
 
 def m_12_2_6(num):
@@ -104,7 +108,7 @@ def m_12_2_6(num):
     def square(number):
         return number**2
 
-    square(num)
+    return square(num)
 
 
 def m_12_2_7(num1, num2):
@@ -119,7 +123,7 @@ def m_12_2_7(num1, num2):
     def max_two_num(a, b):
         return a if a > b else b
 
-    max_two_num(num1, num2)
+    return max_two_num(num1, num2)
 
 
 def m_12_2_8(num1, num2):
@@ -149,7 +153,7 @@ def m_12_2_8(num1, num2):
             start, end = end, start
         return sum(range(start, end + 1))
 
-    sum_range(num1, num2)
+    return sum_range(num1, num2)
 
 
 def m_12_2_9(num):
@@ -170,7 +174,7 @@ def m_12_2_9(num):
     def is_even(num):
         return num % 2 == 0
 
-    is_even(num)
+    return is_even(num)
 
 
 def m_12_2_10(year):
@@ -192,10 +196,10 @@ def m_12_2_10(year):
     """
 
     def is_leap_year(year):
-        res = (year % 4 == 0) or (year % 100 == 0 and year % 4 != 0)
+        res = (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
         return res
 
-    is_leap_year(year)
+    return is_leap_year(year)
 
 
 def m_12_2_11(len1, len2, len3):
@@ -230,7 +234,7 @@ def m_12_2_11(len1, len2, len3):
         res = a + b > c and a + c > b and b + c > a
         return res
 
-    is_triangle(len1, len2, len3)
+    return is_triangle(len1, len2, len3)
 
 
 def m_12_2_12(nums):
@@ -272,7 +276,7 @@ def m_12_2_12(nums):
                 max_num = num
         return max_num
 
-    max_num(*nums)
+    return max_num(*nums)
 
 
 def m_12_2_13(nums):
@@ -305,7 +309,7 @@ def m_12_2_13(nums):
             res *= num
         return res
 
-    multiply_numbers(*nums)
+    return multiply_numbers(*nums)
 
 
 def m_12_2_14(nums, num):
@@ -337,7 +341,7 @@ def m_12_2_14(nums, num):
             res *= num
         return res
 
-    multiply_numbers(*nums, num)
+    return multiply_numbers(*nums, num)
 
 
 def m_12_2_15(ch, shift):
@@ -373,15 +377,18 @@ def m_12_2_15(ch, shift):
     - Учтите граничные условия и случаи, когда символ находится
       за пределами алфавита.
     """
+    abc = 26
 
     def shift_char(char, shift_amount):
-        num = ord(char.lower()) + shift_amount
-        if num not in range(ord("a"), ord("z") + 1):
-            num -= (ord("z") + 1 - ord("a")) * (-1 if num < ord("a") else 1)
+        shift = shift_amount % abc
+        a, z = ord("a"), ord("z")
+        num = ord(char.lower()) + shift
+        if num not in range(a, z + 1):
+            num += abc * (1 if num < a else -1)
         res = chr(num) if char.islower() else chr(num).upper()
         return res
 
-    shift_char(ch, shift)
+    return shift_char(ch, shift)
 
 
 def m_12_2_16(data, num):
@@ -406,12 +413,14 @@ def m_12_2_16(data, num):
     Обратите внимание, что у нас есть символы не относящиеся к алфавиту, которые нужно оставить без изменений, а также нам нужно учесть регистр!
     """
 
-    def shift_char(char, shift):
-        abc_len = ord("z") + 1 - ord("a")
-        shift %= abc_len
+    abc = 26
+
+    def shift_char(char, shift_amount):
+        shift = shift_amount % abc
+        a, z = ord("a"), ord("z")
         num = ord(char.lower()) + shift
-        if num not in range(ord("a"), ord("z") + 1):
-            num -= abc_len * (-1 if num < ord("a") else 1)
+        if num not in range(a, z + 1):
+            num += abc * (1 if num < a else -1)
         res = chr(num) if char.islower() else chr(num).upper()
         return res
 
@@ -419,4 +428,4 @@ def m_12_2_16(data, num):
         res = "".join(shift_char(ch, shift) if ch.isalpha() else ch for ch in text)
         return res
 
-    caesar_cipher(data, num)
+    return caesar_cipher(data, num)
