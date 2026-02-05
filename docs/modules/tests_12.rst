@@ -23,3 +23,13 @@
     :language: python
     :linenos:
 
+
+Генераторы (12.4)
+----------------------------
+
+Файл: ``tests/test_12_4.py``
+
+.. literalinclude:: ../../tests/test_12_4.py
+    :language: python
+    :linenos:
+

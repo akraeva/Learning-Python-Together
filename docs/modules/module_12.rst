@@ -35,6 +35,14 @@
 .. autofunction:: src.module_12.m_12_3_2()
 
 
+Генераторы (12.4)
+----------------------------
+.. autofunction:: src.module_12.m_12_4_1()
+.. autofunction:: src.module_12.m_12_4_2()
+.. autofunction:: src.module_12.m_12_4_3()
+.. autofunction:: src.module_12.m_12_4_4()
+
+
 Тесты к модулю
 ----------------------------
 

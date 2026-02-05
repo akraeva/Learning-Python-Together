@@ -2,6 +2,7 @@ import pytest
 from src.module_12 import m_12_3_1, m_12_3_2
 
 
+# m_12_3_1: Меняем глобальную переменную
 @pytest.mark.parametrize(
     "num, expected_x",
     [
@@ -17,6 +18,7 @@ def test_m_12_3_1(num, expected_x):
     assert result == expected_x
 
 
+# m_12_3_2: Меняем локальную переменную
 @pytest.mark.parametrize(
     "num, expected",
     [
