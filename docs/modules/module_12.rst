@@ -43,6 +43,17 @@
 .. autofunction:: src.module_12.m_12_4_4()
 
 
+lambda функция (12.7)
+----------------------------
+.. autofunction:: src.module_12.m_12_7_1()
+.. autofunction:: src.module_12.m_12_7_2()
+.. autofunction:: src.module_12.m_12_7_3()
+.. autofunction:: src.module_12.m_12_7_4()
+.. autofunction:: src.module_12.m_12_7_5()
+.. autofunction:: src.module_12.m_12_7_6()
+.. autofunction:: src.module_12.m_12_7_7()
+
+
 Тесты к модулю
 ----------------------------
 

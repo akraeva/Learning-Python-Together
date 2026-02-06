@@ -33,3 +33,13 @@
     :language: python
     :linenos:
 
+
+lambda функция (12.7)
+----------------------------
+
+Файл: ``tests/test_12_7.py``
+
+.. literalinclude:: ../../tests/test_12_7.py
+    :language: python
+    :linenos:
+

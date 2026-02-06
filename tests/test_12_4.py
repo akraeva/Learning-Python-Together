@@ -12,7 +12,7 @@ from src.module_12 import m_12_4_1, m_12_4_2, m_12_4_3, m_12_4_4
         (5, 5, [5]),  # start == stop
     ],
 )
-def test_m_12_4_1(start, stop, expected):
+def test_12_4_1(start, stop, expected):
     gen = m_12_4_1(start, stop)
     assert list(gen) == expected
 
@@ -28,7 +28,7 @@ def test_m_12_4_1(start, stop, expected):
         (6, [0, 1, 4, 9, 16, 25]),  # Больше
     ],
 )
-def test_m_12_4_2(steps, expected):
+def test_12_4_2(steps, expected):
     gen = m_12_4_2()
     result = [next(gen) for _ in range(steps)]
     assert result == expected
@@ -45,15 +45,13 @@ def test_m_12_4_2(steps, expected):
         (7, [1, 2, 6, 24, 120, 720, 5040]),
     ],
 )
-def test_m_12_4_3(n, expected):
+def test_12_4_3(n, expected):
     gen = m_12_4_3()
     result = [next(gen) for _ in range(n)]
     assert result == expected
 
 
 # m_12_4_4: Генератор чисел Фибоначчи
-
-
 @pytest.mark.parametrize(
     "n, expected",
     [
@@ -64,7 +62,7 @@ def test_m_12_4_3(n, expected):
         (0, []),  # 0 итераций
     ],
 )
-def test_m_12_4_4(n, expected):
+def test_12_4_4(n, expected):
     gen = m_12_4_4()
     result = [next(gen) for _ in range(n)]
     assert result == expected
