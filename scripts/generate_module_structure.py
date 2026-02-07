@@ -65,7 +65,6 @@ def m_{module}_{step}_{i}():
     """
     pass
 
-
 '''
             )
     print(f"✅ Структура добавлена в {filename}")
@@ -118,6 +117,9 @@ def update_tests_docs(module, step, name):
 
 
 def main():
+    """Запрашивает данные и генерирует файловую
+    структуру для нового модуля и глав"""
+
     module = int(input("Номер модуля: "))
     step = int(input("Номер шага: "))
     count = int(input("Количество задач: "))
