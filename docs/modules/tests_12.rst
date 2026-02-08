@@ -43,3 +43,13 @@ lambda функция (12.7)
     :language: python
     :linenos:
 
+
+Рекурсия (12.8)
+----------------------------
+
+Файл: ``tests/test_12_8.py``
+
+.. literalinclude:: ../../tests/test_12_8.py
+    :language: python
+    :linenos:
+

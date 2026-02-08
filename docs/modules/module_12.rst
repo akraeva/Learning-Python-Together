@@ -54,7 +54,16 @@ lambda функция (12.7)
 .. autofunction:: src.module_12.m_12_7_7()
 
 
+Рекурсия (12.8)
+----------------------------
+.. autofunction:: src.module_12.m_12_8_1()
+.. autofunction:: src.module_12.m_12_8_2()
+.. autofunction:: src.module_12.m_12_8_3()
+.. autofunction:: src.module_12.m_12_8_4()
+
+
 Тесты к модулю
 ----------------------------
 
    `Тесты к Модулю 12 <tests_12.html>`__ 
+   
