@@ -60,10 +60,17 @@ lambda функция (12.7)
 .. autofunction:: src.module_12.m_12_8_2()
 .. autofunction:: src.module_12.m_12_8_3()
 .. autofunction:: src.module_12.m_12_8_4()
+   
+
+Замыкание (12.9)
+----------------------------
+.. autofunction:: src.module_12.m_12_9_1()
+.. autofunction:: src.module_12.m_12_9_2()
+.. autofunction:: src.module_12.m_12_9_3()
+.. autofunction:: src.module_12.m_12_9_4()
 
 
 Тесты к модулю
 ----------------------------
 
    `Тесты к Модулю 12 <tests_12.html>`__ 
-   

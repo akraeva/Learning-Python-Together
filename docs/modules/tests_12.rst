@@ -53,3 +53,13 @@ lambda функция (12.7)
     :language: python
     :linenos:
 
+
+Замыкание (12.9)
+----------------------------
+
+Файл: ``tests/test_12_9.py``
+
+.. literalinclude:: ../../tests/test_12_9.py
+    :language: python
+    :linenos:
+
