@@ -70,7 +70,15 @@ lambda функция (12.7)
 .. autofunction:: src.module_12.m_12_9_4()
 
 
+Декораторы (12.10)
+----------------------------
+.. autofunction:: src.module_12.m_12_10_1()
+.. autofunction:: src.module_12.m_12_10_2()
+.. autofunction:: src.module_12.m_12_10_3()
+
+
 Тесты к модулю
 ----------------------------
 
    `Тесты к Модулю 12 <tests_12.html>`__ 
+

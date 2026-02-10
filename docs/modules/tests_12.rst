@@ -63,3 +63,13 @@ lambda функция (12.7)
     :language: python
     :linenos:
 
+
+Декораторы (12.10)
+----------------------------
+
+Файл: ``tests/test_12_10.py``
+
+.. literalinclude:: ../../tests/test_12_10.py
+    :language: python
+    :linenos:
+
