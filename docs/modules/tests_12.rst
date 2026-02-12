@@ -73,3 +73,13 @@ lambda функция (12.7)
     :language: python
     :linenos:
 
+
+Задачи II (12.12)
+----------------------------
+
+Файл: ``tests/test_12_12.py``
+
+.. literalinclude:: ../../tests/test_12_12.py
+    :language: python
+    :linenos:
+

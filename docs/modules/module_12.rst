@@ -77,8 +77,27 @@ lambda функция (12.7)
 .. autofunction:: src.module_12.m_12_10_3()
 
 
+Задачи II (12.12)
+----------------------------
+.. autofunction:: src.module_12.m_12_12_1()
+.. autofunction:: src.module_12.m_12_12_2()
+.. autofunction:: src.module_12.m_12_12_3()
+.. autofunction:: src.module_12.m_12_12_4()
+.. autofunction:: src.module_12.m_12_12_5()
+.. autofunction:: src.module_12.m_12_12_6()
+.. autofunction:: src.module_12.m_12_12_7()
+.. autofunction:: src.module_12.m_12_12_8()
+.. autofunction:: src.module_12.m_12_12_9()
+.. autofunction:: src.module_12.m_12_12_10()
+.. autofunction:: src.module_12.m_12_12_11()
+.. autofunction:: src.module_12.m_12_12_12()
+.. autofunction:: src.module_12.m_12_12_13()
+.. autofunction:: src.module_12.m_12_12_14()
+.. autofunction:: src.module_12.m_12_12_15()
+.. autofunction:: src.module_12.m_12_12_16()
+
+
 Тесты к модулю
 ----------------------------
 
    `Тесты к Модулю 12 <tests_12.html>`__ 
-
