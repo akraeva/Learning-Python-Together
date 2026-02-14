@@ -229,21 +229,17 @@ def test_12_12_7(recipe, from_portions, to_portions, expected):
 @pytest.mark.parametrize(
     "days, people, kwargs, expected",
     [
-        # Sample Input: 7 дней × 2 чел. × (50+30+20+25)=250 → +15% = 2012.50
+        # Sample Input: 7 дней × 2 чел × (50+30+20+25) = 250 → +15% = 2012.50
         (
             7,
             2,
             {"hotel": 50, "food": 30, "transport": 20, "entertainment": 25},
             2012.50,
         ),
-        # Один день, один человек, одна категория
         (1, 1, {"food": 20}, 23.0),
-        # Много дней, много людей, много категорий
-        (3, 4, {"hotel": 100, "food": 50, "transport": 30}, 2190.0),
-        # Без entertainment, только базовые расходы
-        (5, 2, {"hotel": 40, "food": 25}, 645.0),
-        # Максимальный кейс: много всего
-        (10, 3, {"hotel": 60, "food": 40, "transport": 15, "excursions": 20}, 4455.0),
+        (3, 4, {"hotel": 100, "food": 50, "transport": 30}, 2484.0),
+        (5, 2, {"hotel": 40, "food": 25}, 747.5),
+        (10, 3, {"hotel": 60, "food": 40, "transport": 15, "excursions": 20}, 4657.5),
     ],
 )
 def test_12_12_8(days, people, kwargs, expected):
