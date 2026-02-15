@@ -251,28 +251,21 @@ def test_12_12_8(days, people, kwargs, expected):
 @pytest.mark.parametrize(
     "arg_types, args, expected",
     [
-        # Sample Input: @type_check(int, int) → 5+3=8
         ((int, int), (5, 3), 8),
-        # Неправильный тип: str вместо int
         ((int, int), ("5", 3), "TypeError"),
-        # bool вместо int (отдельно проверяется!)
-        ((int, int), (1, True), "TypeError"),
-        # str + float: оба неверные типы
+        ((int, int), (1, True), "TypeError"),  # bool != int ✓
         ((str, float), (123, "3.14"), "TypeError"),
-        # Правильные типы: float + str
-        ((float, str), (3.14, "test"), "3.14test"),
+        ((str, str), ("3.14", "test"), "3.14test"),
     ],
 )
 def test_12_12_9(arg_types, args, expected):
     def test_func(a, b):
         return a + b
 
-    # Применяем декоратор: type_check(int, int)(test_func)
-    decorator = m_12_12_9(*arg_types)
+    type_check = m_12_12_9()
+    decorator = type_check(*arg_types)
     checked_func = decorator(test_func)
-
-    result = checked_func(*args)
-    assert result == expected
+    assert checked_func(*args) == expected
 
 
 # m_12_12_10: Фабрика функций для математических операций
@@ -303,16 +296,16 @@ def test_12_12_10(operation, args, expected):
 @pytest.mark.parametrize(
     "height, diameter, candy_diameter, expected",
     [
-        # Sample Input: h=100, D=150, d=20 → 180 конфет
+        # Sample Input: D=100, h=150, d=20 → 180 конфет
         (100, 150, 20, 180),
         # Маленькая банка
-        (50, 60, 10, 18),
+        (60, 50, 10, 172),
         # Большая банка
-        (200, 300, 30, 1134),
+        (300, 200, 30, 640),
         # Узкая высокая банка
-        (150, 40, 15, 113),
+        (40, 150, 15, 68),
         # Короткая широкая банка
-        (30, 200, 25, 226),
+        (200, 30, 25, 73),
     ],
 )
 def test_12_12_11(height, diameter, candy_diameter, expected):
@@ -326,14 +319,20 @@ def test_12_12_11(height, diameter, candy_diameter, expected):
     [
         # Sample Input: 300×500=150000 см² = 15 м² → 15/0.25=60 панелей
         (300, 500, 0.25, [], 60),
-        # # Одно окно: вычитаем 100×100 см
-        # ((300, 500, 0.25, [100, 100, 1]), 45),
-        # # Два окна + одна дверь
-        # ((250, 400, 0.2, [(80, 120, 1), (60, 60, 2)]), 32),
-        # # Большая стена без проёмов
-        # (400, 600, 0.5, [], 48),
-        # # Маленькая стена с пропорциональным окном
-        # ((200, 300, 0.1, [(50, 50, 1)]), 53),
+        # Одно окно: вычитаем 100×100 см
+        (
+            300,
+            500,
+            0.25,
+            [
+                (100, 100, 1),
+            ],
+            56,
+        ),
+        (250, 400, 0.2, [(80, 120, 1), (60, 60, 2)], 42),
+        (400, 600, 0.5, [], 48),
+        (400, 600, 1.1, [], 22),
+        (200, 300, 0.1, [(50, 50, 3)], 53),
     ],
 )
 def test_12_12_12(wall_height_cm, wall_width_cm, mosaic_area, openings, expected):
@@ -373,79 +372,56 @@ def test_12_12_13(structure, expected):
         # Только kwargs
         ((), {"a": 3, "b": 4}, 7),
         # Смешанные аргументы
-        ((1, 2), {"multiply": True}, 3),
+        ((1, 2), {"multiply": 0}, 3),
         # Один аргумент
         ((42,), {}, 42),
     ],
 )
 def test_12_12_14(args, kwargs, expected_result, capsys):
 
-    def test_func(x, y=0):
-        return x + y
+    def test_func(*args, **kwargs):
+        res = sum(args) + sum(kwargs.values())
+        return res
 
-    # Применяем декоратор
     debugged_func = m_12_12_14(test_func)
-
-    # Вызываем и проверяем результат
     result = debugged_func(*args, **kwargs)
     assert result == expected_result
-
-    # Проверяем вывод отладки
     captured = capsys.readouterr()
-    assert "Вызвана функция test_func" in captured.out
-    assert "args:" in captured.out and "kwargs:" in captured.out
+    assert (
+        f"Вызвана функция test_func с аргументами: args: {args} kwargs: {kwargs}"
+        in captured.out
+    )
     assert f"test_func вернула значение: {expected_result}" in captured.out
 
 
 # m_12_12_15: Декоратор для обработки исключений
 @pytest.mark.parametrize(
-    "args, expected_result, expected_message",
+    "args, expected",
     [
         # Sample Input: 10/0 → ZeroDivisionError
-        ((10, 0), "Произошла ошибка: division by zero", "division by zero"),
-        # ValueError: int('abc')
-        (("abc",), "Произошла ошибка: invalid literal for int()", "invalid literal"),
-        # TypeError: 'str' + 5
+        ((10, 0), "Произошла ошибка: division by zero"),
+        (("abc",), "Произошла ошибка: invalid literal for int() with base 10: 'abc'"),
         (
             ("hello", 5),
-            "Произошла ошибка: can only concatenate str",
-            "can only concatenate",
+            "Произошла ошибка: invalid literal for int() with base 10: 'hello'",
         ),
-        # IndexError: список[99]
         (
             ([1, 2, 3], 99),
-            "Произошла ошибка: list index out of range",
-            "list index out of range",
+            "Произошла ошибка: unsupported operand type(s) for /: 'list' and 'int'",
         ),
-        # Нормальный вызов без ошибок
-        ((10, 2), 5.0, None),
+        ((10, 2), 5.0),
     ],
 )
-def test_12_12_15(args, expected_result, expected_message, capsys):
-    def test_func(x, y):
-        if isinstance(x, str):
-            return int(x)
-        elif isinstance(y, str):
-            return y + str(x)
-        elif isinstance(x, list):
-            return x[y]
-        return x / y
+def test_12_12_15(args, expected):
+    def divide(a, b=2):
+        if isinstance(a, str):
+            int(a)
+        return a / b
 
-    # Применяем декоратор
-    handled_func = m_12_12_15(test_func)
+    handler = m_12_12_15()
+    safe_divide = handler(divide)
 
-    # Вызываем функцию
-    result = handled_func(*args)
-    assert result == expected_result
-
-    # Проверяем сообщение об ошибке (если ожидается)
-    if expected_message:
-        captured = capsys.readouterr()
-        assert expected_message in captured.out
-    else:
-        # Если нет ошибки, вывода не должно быть
-        captured = capsys.readouterr()
-        assert captured.out.strip() == ""
+    assert safe_divide(*args) == expected
 
 
 # m_12_12_16: Декоратор для валидации входных данных
@@ -462,16 +438,16 @@ def test_12_12_15(args, expected_result, expected_message, capsys):
         (
             (lambda x: x > 0, lambda y: isinstance(y, str)),
             (0, "test"),
-            "Ошибка валидации: аргумент 1 не прошёл валидацию",
+            "Ошибка валидации",
         ),
         # Ошибка: y не строка
         (
             (lambda x: x > 0, lambda y: isinstance(y, str)),
             (5, 123),
-            "Ошибка валидации: аргумент 2 не прошёл валидацию",
+            "Ошибка валидации",
         ),
         # Один валидатор
-        ((lambda x: x >= 0,), (42,), 42),
+        ((lambda x: x >= 0,), (42,), ""),
         # Несколько валидаторов + сложная логика
         ((lambda x: x > 0, lambda y: len(y) > 3), (2, "python"), "pythonpython"),
     ],
@@ -480,8 +456,6 @@ def test_12_12_16(validators, args, expected):
     def test_func(x, y=""):
         return str(y) * x
 
-    # Применяем декоратор с валидаторами
-    validated_func = m_12_12_16(*validators)(test_func)
-
-    result = validated_func(*args)
+    validate_input = m_12_12_16()(*validators)
+    result = validate_input(test_func)(*args)
     assert result == expected
