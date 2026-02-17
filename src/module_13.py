@@ -25,7 +25,10 @@ def m_13_3_1():
     что для открытия файла достаточно указать только его имя
     с расширением (относительный путь).
     """
-    pass
+    file_name = input()
+    with open(file_name, "r", encoding="utf-8") as file:
+        for line in file:
+            print(line.strip())
 
 
 def m_13_3_2():
@@ -50,7 +53,15 @@ def m_13_3_2():
     Примечание: Если наименование файла будет неверно интерпретировано,
     то вы получите соответствующее уведомление и тест не будет пройден!
     """
-    pass
+    input_filename = input()
+    name, suffix = input_filename.rsplit(".", 1)
+    date = "19.11.2025"
+    backup_file = f"{name}_{date}.{suffix}"
+    with open(input_filename, "r", encoding="utf-8") as source, open(
+        backup_file, "w", encoding="utf-8"
+    ) as backup:
+        content = source.read()
+        backup.write(content)
 
 
 def m_13_3_3():
@@ -70,7 +81,19 @@ def m_13_3_3():
         - Самая длинная строка:
           <Строка целиком, которая считается самой длинной в документе по количеству символов>
     """
-    pass
+    file_name = input()
+    with open(file_name, "r", encoding="utf-8") as file:
+        data = file.readlines()
+    lines_count = len(data)
+    words_count = sum(len(line.split()) for line in data)
+    max_line = max(data, key=len).strip() if data else ""
+    res = [
+        f"Статистика файла {file_name}:",
+        f"Количество строк: {lines_count}",
+        f"Количество слов: {words_count}",
+        f"Самая длинная строка: {max_line}",
+    ]
+    print("\n".join(res))
 
 
 def m_13_3_4():
