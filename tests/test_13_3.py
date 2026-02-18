@@ -162,3 +162,120 @@ def test_13_3_3(
 
     assert captured.out == expected_output
     file_path.unlink(missing_ok=True)
+
+
+# m_13_3_4: Список покупок
+@pytest.mark.parametrize(
+    "filename, content, inputs, expected_content",
+    [
+        # Тест 1: Sample Input
+        (
+            "file_with_purchases1.txt",
+            "",
+            [
+                "file_with_purchases1.txt",
+                "  СЫР  ",
+                "колбаса:",
+                "  молоко  ",
+                "Хлеб,",
+                "Яйца.",
+                "бананы  ;  ",
+                "  апельсины.  ",
+                "0",
+            ],
+            "- Сыр\n- Колбаса\n- Молоко\n- Хлеб\n- Яйца\n- Бананы\n- Апельсины\n",
+        ),
+        # Тест 2: Пустой список (только 0)
+        ("empty_list.txt", "", ["empty_list.txt", "0"], ""),
+        # Тест 3: Один товар с лишними символами
+        (
+            "single_item.txt",
+            "",
+            ["single_item.txt", "  тестовый текст:  ", "0"],
+            "- Тестовый текст\n",
+        ),
+        # Тест 4: Смешанный регистр + пробелы
+        (
+            "mixed_case.txt",
+            "",
+            ["mixed_case.txt", "КОФЕ", "   ЧАЙ   ,,", "сахар.", "0"],
+            "- Кофе\n- Чай\n- Сахар\n",
+        ),
+        # Тест 5: Кириллица + латиница
+        (
+            "multilang.txt",
+            "",
+            ["multilang.txt", "Продукты ,", "Milk  ;", "Молоко:", "0"],
+            "- Продукты\n- Milk\n- Молоко\n",
+        ),
+    ],
+)
+def test_13_3_4(filename, inputs, expected_content, mocker, content):
+    mocker.patch("builtins.input", side_effect=inputs)
+    file_path = Path(".") / filename
+    file_path.write_text(content, encoding="utf-8")
+    m_13_3_4()
+    result_content = file_path.read_text(encoding="utf-8")
+    assert result_content == expected_content
+    file_path.unlink(missing_ok=True)
+
+
+# m_13_3_5: Список покупок, новые товары
+@pytest.mark.parametrize(
+    "filename, content, inputs, expected_content",
+    [
+        # Тест 1: Sample Input (дописываем к существующему содержимому)
+        (
+            "file_with_purchases1.txt",
+            "- Яблоки\n- Груши\n",  # ← ИСХОДНОЕ содержимое
+            [
+                "file_with_purchases1.txt",  # Имя файла
+                "  СЫР  ",
+                "колбаса:",
+                "  молоко  ",
+                "Хлеб,",
+                "Яйца.",
+                "бананы  ;  ",
+                "  апельсины.  ",
+                "0",
+            ],
+            "- Яблоки\n- Груши\n- Сыр\n- Колбаса\n- Молоко\n- Хлеб\n- Яйца\n- Бананы\n- Апельсины\n",
+        ),
+        # Тест 2: Пустой список (дописываем к существующему)
+        (
+            "empty_list.txt",
+            "Предыдущие покупки:\n- Хлеб\n",
+            ["empty_list.txt", "0"],
+            "Предыдущие покупки:\n- Хлеб\n",  # Ничего не добавилось
+        ),
+        # Тест 3: Один товар (дописываем к существующему)
+        (
+            "single_item.txt",
+            "",
+            ["single_item.txt", "  тестовый текст:  ", "0"],
+            "- Тестовый текст\n",
+        ),
+        # Тест 4: Смешанный регистр (дописываем многострочное содержимое)
+        (
+            "mixed_case.txt",
+            "- Масло\n- Соль\n",
+            ["mixed_case.txt", "КОФЕ", "   ЧАЙ   ,,", "сахар.", "0"],
+            "- Масло\n- Соль\n- Кофе\n- Чай\n- Сахар\n",
+        ),
+        # Тест 5: Кириллица + латиница (дописываем к файлу с кириллицей)
+        (
+            "multilang.txt",
+            "Мои продукты:\n- Картошка\n",
+            ["multilang.txt", "Продукты ,", "Milk  ;", "Молоко:", "0"],
+            "Мои продукты:\n- Картошка\n- Продукты\n- Milk\n- Молоко\n",
+        ),
+    ],
+)
+def test_13_3_5(filename, inputs, expected_content, mocker, content):
+    mocker.patch("builtins.input", side_effect=inputs)
+    file_path = Path(".") / filename
+    file_path.write_text(content, encoding="utf-8")
+    m_13_3_5()
+    result_content = file_path.read_text(encoding="utf-8")
+    assert result_content == expected_content
+    file_path.unlink(missing_ok=True)

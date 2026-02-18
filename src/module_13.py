@@ -128,7 +128,12 @@ def m_13_3_4():
 
     Важные моменты: Символ "0" - это сигнал окончания ввода, а не товар
     """
-    pass
+    filename = input()
+    shopping_list = []
+    while (line := input()) != "0":
+        shopping_list.append(f"- {line.strip(" ,.;:").capitalize()}\n")
+    with open(filename, "a", encoding="utf-8") as file:
+        file.writelines(shopping_list)
 
 
 def m_13_3_5():
@@ -172,7 +177,12 @@ def m_13_3_5():
         - Сохраняйте существующие записи - они уже в правильном формате
         - Символ "0" - это сигнал окончания ввода, а не товар
     """
-    pass
+    filename = input()
+    shopping_list = []
+    while (line := input()) != "0":
+        shopping_list.append(f"- {line.strip(" ,.;:").capitalize()}\n")
+    with open(filename, "a", encoding="utf-8") as file:
+        file.writelines(shopping_list)
 
 
 def m_13_3_6():
