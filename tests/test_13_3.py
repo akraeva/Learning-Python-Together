@@ -279,3 +279,134 @@ def test_13_3_5(filename, inputs, expected_content, mocker, content):
     result_content = file_path.read_text(encoding="utf-8")
     assert result_content == expected_content
     file_path.unlink(missing_ok=True)
+
+
+# m_13_3_6: Конвертер температур
+@pytest.mark.parametrize(
+    "input_filename, output_filename, input_content, inputs, expected_output_content",
+    [
+        # Тест 1: Sample Input
+        (
+            "celsius1.txt",
+            "fahrenheit1.txt",
+            "0.0\n7.3\n20.1\n37.3\n100\n",
+            ["celsius1.txt", "fahrenheit1.txt"],
+            "32.0\n45.1\n68.2\n99.1\n212.0\n",
+        ),
+        # Тест 2: Отрицательные температуры
+        (
+            "negative.txt",
+            "negative_f.txt",
+            "-17.8\n-40\n",
+            ["negative.txt", "negative_f.txt"],
+            "0.0\n-40.0\n",
+        ),
+        # Тест 3: Один элемент
+        (
+            "single.txt",
+            "single_f.txt",
+            "25\n",
+            ["single.txt", "single_f.txt"],
+            "77.0\n",
+        ),
+        # Тест 4: Десятичные дроби
+        (
+            "decimals.txt",
+            "decimals_f.txt",
+            "23.5\n-12.7\n36.6\n",
+            ["decimals.txt", "decimals_f.txt"],
+            "74.3\n9.1\n97.9\n",
+        ),
+        # Тест 5: Нулевые значения
+        (
+            "zeros.txt",
+            "zeros_f.txt",
+            "0\n0.0\n",
+            ["zeros.txt", "zeros_f.txt"],
+            "32.0\n32.0\n",
+        ),
+    ],
+)
+def test_13_3_6(
+    input_filename,
+    output_filename,
+    input_content,
+    inputs,
+    expected_output_content,
+    mocker,
+):
+    input_path = Path(".") / input_filename
+    input_path.write_text(input_content, encoding="utf-8")
+    mocker.patch("builtins.input", side_effect=inputs)
+    m_13_3_6()
+    output_path = Path(".") / output_filename
+    assert output_path.exists()
+
+    result_content = output_path.read_text(encoding="utf-8")
+    assert result_content == expected_output_content
+    input_path.unlink(missing_ok=True)
+    output_path.unlink(missing_ok=True)
+
+
+# m_13_3_7: Анализ успеваемости
+@pytest.mark.parametrize(
+    "input_filename, output_filename, input_content, expected_output",
+    [
+        # Тест 1: Sample Input (5 оценок → среднее 4.2)
+        (
+            "grades1.txt",
+            "grades_report1.txt",
+            "5\n3\n5\n4\n4\n",
+            "Статистика из файла grades1.txt:\n"
+            "Максимальная оценка: 5\n"
+            "Минимальная оценка: 3\n"
+            "Количество оценок: 5\n"
+            "Средний балл: 4.2\n",
+        ),
+        # Тест 2: Только минимальные оценки
+        (
+            "all_threes.txt",
+            "all_threes_report.txt",
+            "3\n3\n3\n",
+            "Статистика из файла all_threes.txt:\n"
+            "Максимальная оценка: 3\n"
+            "Минимальная оценка: 3\n"
+            "Количество оценок: 3\n"
+            "Средний балл: 3.0\n",
+        ),
+        # Тест 3: Максимальная разбросанность (2-5)
+        (
+            "spread_grades.txt",
+            "spread_report.txt",
+            "2\n5\n2\n5\n4\n3\n",
+            "Статистика из файла spread_grades.txt:\n"
+            "Максимальная оценка: 5\n"
+            "Минимальная оценка: 2\n"
+            "Количество оценок: 6\n"
+            "Средний балл: 3.5\n",
+        ),
+        # Тест 4: Одна оценка
+        (
+            "single_grade.txt",
+            "single_report.txt",
+            "4\n",
+            "Статистика из файла single_grade.txt:\n"
+            "Максимальная оценка: 4\n"
+            "Минимальная оценка: 4\n"
+            "Количество оценок: 1\n"
+            "Средний балл: 4.0\n",
+        ),
+    ],
+)
+def test_13_3_7(input_file, output_file, input_content, expected_output, mocker):
+    input_path = Path(".") / input_file
+    input_path.write_text(input_content, encoding="utf-8")
+
+    mocker.patch("builtins.input", side_effect=[input_file, output_file])
+    m_13_3_7()
+    output_path = Path(".") / output_file
+    assert output_path.exists()
+    result_content = output_path.read_text(encoding="utf-8")
+    assert result_content == expected_output
+    input_path.unlink(missing_ok=True)
+    output_path.unlink(missing_ok=True)

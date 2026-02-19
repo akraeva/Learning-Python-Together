@@ -207,7 +207,14 @@ def m_13_3_6():
     Примечание: Нужно только записать список переведённых температур в файл,
     система сама после запуска кода считает Ваш файл и проверит содержимое!
     """
-    pass
+    input_filename, output_filename = input(), input()
+    with open(input_filename, "r", encoding="utf-8") as file_in, open(
+        output_filename, "w", encoding="utf-8"
+    ) as file_out:
+        for line in file_in:
+            c = float(line.strip())
+            f = round(9 * c / 5 + 32, 1) + 0
+            print(f, file=file_out)
 
 
 def m_13_3_7():
@@ -240,7 +247,22 @@ def m_13_3_7():
     Примечание: Нужно только записать статистику оценок в файл, система сама
     после запуска кода считает Ваш файл и проверит содержимое!
     """
-    pass
+    input_filename, output_filename = input(), input()
+    with open(input_filename, "r", encoding="utf-8") as file:
+        grades = [int(line.strip()) for line in file]
+    if grades:
+        max_g, min_g = max(grades), min(grades)
+        g_count = len(grades)
+        average_g = round(sum(grades) / g_count, 1)
+    else:
+        max_g = min_g = g_count = average_g = 0
+    res = (
+        f"Статистика из файла {input_filename}:\n"
+        f"Максимальная оценка: {max_g}\nМинимальная оценка: {min_g}\n"
+        f"Количество оценок: {g_count}\nСредний балл: {average_g}\n"
+    )
+    with open(output_filename, "w", encoding="utf-8") as file:
+        file.write(res)
 
 
 def m_13_3_8():
