@@ -57,9 +57,10 @@ def m_13_3_2():
     name, suffix = input_filename.rsplit(".", 1)
     date = "19.11.2025"
     backup_file = f"{name}_{date}.{suffix}"
-    with open(input_filename, "r", encoding="utf-8") as source, open(
-        backup_file, "w", encoding="utf-8"
-    ) as backup:
+    with (
+        open(input_filename, "r", encoding="utf-8") as source,
+        open(backup_file, "w", encoding="utf-8") as backup,
+    ):
         content = source.read()
         backup.write(content)
 
@@ -208,9 +209,10 @@ def m_13_3_6():
     система сама после запуска кода считает Ваш файл и проверит содержимое!
     """
     input_filename, output_filename = input(), input()
-    with open(input_filename, "r", encoding="utf-8") as file_in, open(
-        output_filename, "w", encoding="utf-8"
-    ) as file_out:
+    with (
+        open(input_filename, "r", encoding="utf-8") as file_in,
+        open(output_filename, "w", encoding="utf-8") as file_out,
+    ):
         for line in file_in:
             c = float(line.strip())
             f = round(9 * c / 5 + 32, 1) + 0
@@ -239,7 +241,7 @@ def m_13_3_7():
         - Количество оценок:
           <Общее количество оценок в файле>
         - Средний балл:
-          <Средний балл по всем оценкам, округлённый до одного знака при помощи round>
+          <Средний балл, округлённый до одного знака при помощи round>
 
     Примечание: Изменять наименование переменной нельзя,
     иначе сломается проверка!
@@ -277,19 +279,24 @@ def m_13_3_8():
     На вход программа принимает:
 
         - input_filename - Имя файла для обработки вместе с расширением
-        - even_filename** - Имя файла для сохранения вместе с расширением для
-        - odd_filename** - Имя файла для сохранения вместе с расширением
+        - even_filename - Имя файла для сохранения вместе с расширением для
+        - odd_filename - Имя файла для сохранения вместе с расширением
 
     Примечание: Изменять наименование переменной нельзя,
     иначе сломается проверка!
 
     На выходе - Два файла: even_filename и odd_filename,
     которые содержат чётные и нечётные числа соответственно.
-
-    Примечание: Нужно только записать два файла с числами в файлы, система
-    сама после запуска кода считает Ваш файл и проверит содержимое!
     """
-    pass
+    input_filename, even_filename, odd_filename = input(), input(), input()
+    even_nums, odd_nums = [], []
+    with open(input_filename, "r", encoding="utf-8") as file:
+        for num in file:
+            n = int(num)
+            (even_nums if n % 2 == 0 else odd_nums).append(n)
+    for file_name, content in ((even_filename, even_nums), (odd_filename, odd_nums)):
+        with open(file_name, "w", encoding="utf-8") as file:
+            print(*content, sep="\n", file=file)
 
 
 def m_13_3_9():
@@ -328,7 +335,19 @@ def m_13_3_9():
 
     Гарантируется корректность данных (ровно 5 полей в каждой строке)
     """
-    pass
+    input_filename = input()
+    books = {}
+    with open(input_filename, "r", encoding="utf-8") as file:
+        for i, line in enumerate(file):
+            title, author, year, genre, pages = line.split(";")
+            books[i + 1] = {
+                "title": title,
+                "author": author,
+                "year": int(year),
+                "genre": genre,
+                "pages": int(pages),
+            }
+    print(books)
 
 
 def m_13_3_10():
@@ -358,7 +377,23 @@ def m_13_3_10():
     Примечание: Нужно только записать надёжные пароли в файл output_filename,
     система сама после запуска кода считает Ваш файл и проверит содержимое!
     """
-    pass
+    input_filename, output_filename = input(), input()
+    with (
+        open(input_filename, "r", encoding="utf-8") as input_f,
+        open(output_filename, "w", encoding="utf-8") as output_f,
+    ):
+        for password in input_f:
+            p = password.strip()
+            if all(
+                [
+                    len(p) >= 8,
+                    any(ch.isupper() for ch in p),
+                    any(ch.isdigit() for ch in p),
+                    any(ch in p for ch in "!@#$%^&*"),
+                ]
+            ):
+
+                print(p, file=output_f)
 
 
 def m_13_3_11():

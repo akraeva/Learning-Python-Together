@@ -350,7 +350,7 @@ def test_13_3_6(
 
 # m_13_3_7: Анализ успеваемости
 @pytest.mark.parametrize(
-    "input_filename, output_filename, input_content, expected_output",
+    "input_file, output_file, input_content, expected_output",
     [
         # Тест 1: Sample Input (5 оценок → среднее 4.2)
         (
@@ -408,5 +408,177 @@ def test_13_3_7(input_file, output_file, input_content, expected_output, mocker)
     assert output_path.exists()
     result_content = output_path.read_text(encoding="utf-8")
     assert result_content == expected_output
+    input_path.unlink(missing_ok=True)
+    output_path.unlink(missing_ok=True)
+
+
+# m_13_3_8: Разделитель чисел
+@pytest.mark.parametrize(
+    "input_filename, even_filename, odd_filename, input_content, expected_even, expected_odd",
+    [
+        # Тест 1: Sample Input
+        (
+            "numbers1.txt",
+            "even1.txt",
+            "odd1.txt",
+            "1\n2\n3\n4\n5\n",
+            "2\n4\n",
+            "1\n3\n5\n",
+        ),
+        # Тест 2: Только четные числа
+        (
+            "only_even.txt",
+            "even_only.txt",
+            "odd_only.txt",
+            "10\n2\n100\n4\n",
+            "10\n2\n100\n4\n",
+            "",
+        ),
+        # Тест 3: Только нечетные + пустой файл
+        (
+            "only_odd.txt",
+            "even_empty.txt",
+            "odd_result.txt",
+            "1\n3\n5\n7\n9\n",
+            "",
+            "1\n3\n5\n7\n9\n",
+        ),
+    ],
+)
+def test_13_3_8(
+    input_filename,
+    even_filename,
+    odd_filename,
+    input_content,
+    expected_even,
+    expected_odd,
+    mocker,
+):
+    input_path = Path(".") / input_filename
+    input_path.write_text(input_content, encoding="utf-8")
+    mocker.patch(
+        "builtins.input", side_effect=[input_filename, even_filename, odd_filename]
+    )
+    m_13_3_8()
+    even_path = Path(".") / even_filename
+    odd_path = Path(".") / odd_filename
+
+    assert even_path.exists()
+    assert odd_path.exists()
+
+    even_content = even_path.read_text(encoding="utf-8")
+    odd_content = odd_path.read_text(encoding="utf-8")
+
+    assert even_content.rstrip() == expected_even.rstrip()
+    assert odd_content.rstrip() == expected_odd.rstrip()
+
+    input_path.unlink(missing_ok=True)
+    even_path.unlink(missing_ok=True)
+    odd_path.unlink(missing_ok=True)
+
+
+# m_13_3_9: Библиотечный каталог
+@pytest.mark.parametrize(
+    "input_filename, input_content, expected_output",
+    [
+        # Тест 1: Sample Input
+        (
+            "books1.txt",
+            "Мастер и Маргарита;Булгаков Михаил;1966;Роман;480\n"
+            "Преступление и наказание;Достоевский Фёдор;1866;Роман;608\n"
+            "Герой нашего времени;Лермонтов Михаил;1840;Роман;224\n",
+            "{1: {'title': 'Мастер и Маргарита', 'author': 'Булгаков Михаил',"
+            " 'year': 1966, 'genre': 'Роман', 'pages': 480}, "
+            "2: {'title': 'Преступление и наказание', 'author': 'Достоевский"
+            " Фёдор', 'year': 1866, 'genre': 'Роман', 'pages': 608}, "
+            "3: {'title': 'Герой нашего времени', 'author': 'Лермонтов"
+            " Михаил', 'year': 1840, 'genre': 'Роман', 'pages': 224}}\n",
+        ),
+        # Тест 2: Одна книга
+        (
+            "single_book.txt",
+            "Война и мир;Толстой Лев;1869;Роман;1225\n",
+            "{1: {'title': 'Война и мир', 'author': 'Толстой Лев', 'year':"
+            " 1869, 'genre': 'Роман', 'pages': 1225}}\n",
+        ),
+        # Тест 3: Разные жанры + короткие названия
+        (
+            "mixed_genres.txt",
+            "1984;Оруэлл Джордж;1949;Антиутопия;328\n"
+            "Алхимик;Коэльо Пауло;1988;Философия;208\n"
+            "Шерлок Холмс;Дойл Артур;1892;Детектив;288\n",
+            "{1: {'title': '1984', 'author': 'Оруэлл Джордж', 'year': 1949,"
+            " 'genre': 'Антиутопия', 'pages': 328}, "
+            "2: {'title': 'Алхимик', 'author': 'Коэльо Пауло', 'year': 1988,"
+            " 'genre': 'Философия', 'pages': 208}, "
+            "3: {'title': 'Шерлок Холмс', 'author': 'Дойл Артур', 'year': 1892"
+            ", 'genre': 'Детектив', 'pages': 288}}\n",
+        ),
+    ],
+)
+def test_13_3_9(input_filename, input_content, expected_output, mocker, capsys):
+    mocker.patch("builtins.input", return_value=input_filename)
+
+    file_path = Path(".") / input_filename
+    file_path.write_text(input_content, encoding="utf-8")
+
+    m_13_3_9()
+    captured = capsys.readouterr()
+    assert captured.out == expected_output
+    file_path.unlink(missing_ok=True)
+
+
+# m_13_3_10: Валидатор паролей
+@pytest.mark.parametrize(
+    "input_filename, output_filename, input_content, expected_output_content",
+    [
+        # Тест 1: Sample Input (3 надежных из 5)
+        (
+            "pass1.txt",
+            "valid_pass1.txt",
+            "Password1!nqwertyn\n"  # ✅ Надежный (все 4 правила)
+            "qwerty123\n"  # ❌ Нет заглавной, нет спецсимвола
+            "Qwerty123!\n"  # ✅ Надежный
+            "A1!aaaaa\n"  # ✅ Надежный (длина 8)
+            "pass\n",  # ❌ Короткий
+            "Password1!nqwertyn\nQwerty123!\nA1!aaaaa\n",
+        ),
+        # Тест 2: Ни одного надежного пароля
+        (
+            "weak_passwords.txt",
+            "valid_weak.txt",
+            "abc\n"  # ❌ Короткий
+            "Abcdefgh\n"  # ❌ Нет цифры, нет спецсимвола
+            "12345678\n"  # ❌ Нет заглавной, нет спецсимвола
+            "Abcdef12\n",  # ❌ Нет спецсимвола
+            "",
+        ),
+        # Тест 3: Русские символы + спецсимволы
+        (
+            "russian_pass.txt",
+            "valid_russian.txt",
+            "Пароль123!\n"  # ✅ Надежный (кириллица + все правила)
+            "ПаРоЛЬ12\n"  # ❌ Нет спецсимвола
+            "Abc@Рус123Аа\n"  # ✅ Надежный (смешанный текст)
+            "short!\n",  # ❌ Короткий
+            "Пароль123!\nAbc@Рус123Аа\n",
+        ),
+    ],
+)
+def test_13_3_10(
+    input_filename,
+    output_filename,
+    input_content,
+    expected_output_content,
+    mocker,
+):
+    input_path = Path(".") / input_filename
+    input_path.write_text(input_content, encoding="utf-8")
+    mocker.patch("builtins.input", side_effect=[input_filename, output_filename])
+
+    m_13_3_10()
+    output_path = Path(".") / output_filename
+    result_content = output_path.read_text(encoding="utf-8")
+    assert result_content == expected_output_content
     input_path.unlink(missing_ok=True)
     output_path.unlink(missing_ok=True)
