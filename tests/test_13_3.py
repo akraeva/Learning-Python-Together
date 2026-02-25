@@ -582,3 +582,74 @@ def test_13_3_10(
     assert result_content == expected_output_content
     input_path.unlink(missing_ok=True)
     output_path.unlink(missing_ok=True)
+
+
+# m_13_3_11: Космический сканер
+@pytest.mark.parametrize(
+    "coords_filename, input_filename, output_filename, coords_content, map_content, expected_message, expected_output_map",
+    [
+        # Тест 1: Sample Input (попадание в астероид)
+        (
+            "coords_test1.txt",
+            "field_test1.txt",
+            "new_field_test1.txt",
+            "3,2\n",
+            "- * - - -\n" "- - * - -\n" "- * - * -\n" "- - - - *\n" "* - * - -\n",
+            "Цель поражена\n",
+            "- * - - -\n" "- - * - -\n" "- X - * -\n" "- - - - *\n" "* - * - -\n",
+        ),
+        # Тест 2: Промах (пустое место)
+        (
+            "coords_miss.txt",
+            "field_miss.txt",
+            "new_field_miss.txt",
+            "2,3\n",
+            "* - - *\n" "- * - -\n",
+            "Промах\n",
+            "* - - *\n" "- * . -\n",
+        ),
+        # Тест 3: Угловые координаты (попадание)
+        (
+            "coords_corner.txt",
+            "field_corner.txt",
+            "new_field_corner.txt",
+            "3,1\n",
+            "- - -\n* * *\n* - -\n",
+            "Цель поражена\n",
+            "- - -\n" "* * *\n" "X - -\n",
+        ),
+    ],
+)
+def test_13_3_11(
+    coords_filename,
+    input_filename,
+    output_filename,
+    coords_content,
+    map_content,
+    expected_message,
+    expected_output_map,
+    mocker,
+    capsys,
+):
+    """Тест для m_13_3_11: космический сканер астероидов."""
+    # Создаем файлы в текущей директории
+    coords_path = Path(".") / coords_filename
+    map_path = Path(".") / input_filename
+    output_path = Path(".") / output_filename
+
+    coords_path.write_text(coords_content, encoding="utf-8")
+    map_path.write_text(map_content, encoding="utf-8")
+
+    # Мокаем 3 input()
+    mocker.patch(
+        "builtins.input", side_effect=[coords_filename, input_filename, output_filename]
+    )
+
+    m_13_3_11()
+    captured = capsys.readouterr()
+    assert captured.out == expected_message
+    result_map = output_path.read_text(encoding="utf-8")
+    assert result_map == expected_output_map
+    coords_path.unlink(missing_ok=True)
+    map_path.unlink(missing_ok=True)
+    output_path.unlink(missing_ok=True)

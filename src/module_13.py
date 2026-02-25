@@ -449,7 +449,21 @@ def m_13_3_11():
     И только записать обновлённую карту в файл output_filename, система
     сама после запуска кода считает Ваш файл и проверит содержимое!
     """
-    pass
+    coords_filename, input_filename, output_filename = input(), input(), input()
+    with open(coords_filename, "r", encoding="utf-8") as file:
+        row, col = map(int, file.read().strip().split(","))
+    with open(input_filename, "r", encoding="utf-8") as file:
+        asteroid_map = [line.strip().split() for line in file]
+    result, mark = (
+        ("Цель поражена", "X")
+        if asteroid_map[row - 1][col - 1] == "*"
+        else ("Промах", ".")
+    )
+    print(result)
+    asteroid_map[row - 1][col - 1] = mark
+    with open(output_filename, "w", encoding="utf-8") as file:
+        for line in asteroid_map:
+            print(*line, file=file)
 
 
 def m_13_3_12():
