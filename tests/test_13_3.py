@@ -653,3 +653,369 @@ def test_13_3_11(
     coords_path.unlink(missing_ok=True)
     map_path.unlink(missing_ok=True)
     output_path.unlink(missing_ok=True)
+
+
+# m_13_3_12: Шифр Цезаря
+@pytest.mark.parametrize(
+    "mode, shift, input_filename, output_filename, input_content, expected_output",
+    [
+        # Тест 1: Sample Input — шифрование со сдвигом 9
+        (
+            1,
+            9,
+            "original_text1.txt",
+            "de_text1.txt",
+            "Hello, World!",
+            "Qnuux, Fxaum!",
+        ),
+        # Тест 2: Дешифрование предыдущего текста
+        (
+            2,
+            9,
+            "encrypted.txt",
+            "decrypted.txt",
+            "Qnuux, Fxaum!",
+            "Hello, World!",
+        ),
+        # Тест 3: Сдвиг 0 (текст не меняется)
+        (
+            1,
+            0,
+            "zero_shift.txt",
+            "zero_result.txt",
+            "Python 3.12",
+            "Python 3.12",
+        ),
+        # Тест 4: Полный алфавит (проверка перехода через Z и z)
+        (
+            1,
+            1,
+            "alphabet.txt",
+            "alphabet_enc.txt",
+            "XYZ xyz",
+            "YZA yza",
+        ),
+        # Тест 5: Только цифры и знаки препинания (не должны измениться)
+        (
+            1,
+            5,
+            "symbols.txt",
+            "symbols_enc.txt",
+            "12345!?,.;:-",
+            "12345!?,.;:-",
+        ),
+        # Тест 6: Пустой файл
+        (
+            1,
+            7,
+            "empty.txt",
+            "empty_enc.txt",
+            "",
+            "",
+        ),
+        # Тест 7: Сдвиг больше алфавита
+        (
+            1,
+            27,
+            "large_shift.txt",
+            "large_shift_enc.txt",
+            "abc XYZ",
+            "bcd YZA",
+        ),
+    ],
+)
+def test_13_3_12(
+    mode,
+    shift,
+    input_filename,
+    output_filename,
+    input_content,
+    expected_output,
+    mocker,
+):
+    input_path = Path(".") / input_filename
+    input_path.write_text(input_content, encoding="utf-8")
+
+    mocker.patch(
+        "builtins.input",
+        side_effect=[
+            str(mode),
+            str(shift),
+            input_filename,
+            output_filename,
+        ],
+    )
+
+    m_13_3_12()
+
+    output_path = Path(".") / output_filename
+    assert output_path.exists()
+
+    result = output_path.read_text(encoding="utf-8")
+    assert result == expected_output
+
+    input_path.unlink(missing_ok=True)
+    output_path.unlink(missing_ok=True)
+
+
+# m_13_3_13: Анализ продаж
+@pytest.mark.parametrize(
+    "input_filename, input_content, expected_output",
+    [
+        # Тест 1: Sample Input
+        (
+            "product1.txt",
+            "2024-01-15;Ноутбук;2;45000.50\n"
+            "2024-01-16;Мышь;10;1500.00\n"
+            "2024-01-17;Клавиатура;5;3200.75\n"
+            "2024-01-18;Монитор;3;25000.00\n"
+            "2024-01-19;Наушники;8;4500.25\n",
+            "Ноутбук: 90001.0\n" "46401.3\n" "2024-01-16: 10\n",
+        ),
+        # Тест 2: Один заказ
+        (
+            "single_sale.txt",
+            "2024-06-01;Книга;1;500.00\n",
+            "Книга: 500.0\n" "500.0\n" "2024-06-01: 1\n",
+        ),
+        # Тест 3: Один товар продается несколько раз
+        (
+            "repeat_products.txt",
+            "2024-06-01;Телефон;1;50000\n"
+            "2024-06-02;Телефон;2;50000\n"
+            "2024-06-03;Планшет;1;70000\n",
+            "Телефон: 150000.0\n" "73333.3\n" "2024-06-02: 2\n",
+        ),
+        # Тест 4: Максимальное количество товаров продано в последний день
+        (
+            "many_items.txt",
+            "2024-01-01;A;2;100\n" "2024-01-02;B;3;200\n" "2024-01-03;C;7;50\n",
+            "B: 600.0\n" "383.3\n" "2024-01-03: 7\n",
+        ),
+        # Тест 5: Дробные цены
+        (
+            "decimal_prices.txt",
+            "2024-05-10;Чай;3;99.99\n" "2024-05-11;Кофе;2;199.95\n",
+            "Кофе: 399.9\n" "349.9\n" "2024-05-10: 3\n",
+        ),
+    ],
+)
+def test_13_3_13(input_filename, input_content, expected_output, mocker, capsys):
+    input_path = Path(".") / input_filename
+    input_path.write_text(input_content, encoding="utf-8")
+
+    mocker.patch("builtins.input", return_value=input_filename)
+
+    m_13_3_13()
+
+    captured = capsys.readouterr()
+    assert captured.out == expected_output
+
+    input_path.unlink(missing_ok=True)
+
+
+def test_13_3_13_file_not_found(mocker, capsys):
+    filename = "missing_file.txt"
+
+    mocker.patch("builtins.input", return_value=filename)
+
+    m_13_3_13()
+
+    captured = capsys.readouterr()
+    assert captured.out == f"Файл {filename} не найден!\n"
+
+
+# m_13_3_14: Валидатор пользователей
+@pytest.mark.parametrize(
+    "input_filename, output_filename, input_content, expected_output",
+    [
+        # Тест 1: Sample Input (все записи корректны)
+        (
+            "persons1.txt",
+            "valid_persons1.txt",
+            "Иванов;Иван;ivanov@mail.ru;25;79123456789\n"
+            "Сидоров;Сидор;sidorov@yandex.ru;30;79345678901\n"
+            "Смирнов;Мария;smirnova@domain.com;28;79567890123\n"
+            "Новиков;Дмитрий;novikov@gmail.com;99;79789012345\n",
+            "Иванов;Иван;ivanov@mail.ru;25;79123456789\n"
+            "Сидоров;Сидор;sidorov@yandex.ru;30;79345678901\n"
+            "Смирнов;Мария;smirnova@domain.com;28;79567890123\n"
+            "Новиков;Дмитрий;novikov@gmail.com;99;79789012345\n",
+        ),
+        # Тест 2: Все записи некорректны
+        (
+            "invalid_all.txt",
+            "valid_invalid_all.txt",
+            "иванов;Иван;ivanov@mail.ru;25;79123456789\n"
+            "Петров;петр;petrov@mail.ru;30;79123456789\n"
+            "Сидоров;Сидор;sidorovmail.ru;20;79123456789\n"
+            "Иванов;Иван;ivanov@mail.ru;17;79123456789\n"
+            "Иванов;Иван;ivanov@mail.ru;25;7912345678\n",
+            "",
+        ),
+        # Тест 3: Проверка граничных возрастов
+        (
+            "ages.txt",
+            "valid_ages.txt",
+            "Иванов;Иван;ivanov@mail.ru;18;79123456789\n"
+            "Петров;Петр;petrov@mail.ru;100;79234567890\n"
+            "Сидоров;Сидор;sidorov@mail.ru;101;79345678901\n",
+            "Иванов;Иван;ivanov@mail.ru;18;79123456789\n"
+            "Петров;Петр;petrov@mail.ru;100;79234567890\n",
+        ),
+        # Тест 4: Проверка различных ошибок email
+        (
+            "emails.txt",
+            "valid_emails.txt",
+            "Иванов;Иван;ivanov@mail;25;79123456789\n"
+            "Петров;Петр;petrovmail.ru;25;79234567890\n"
+            "Сидоров;Сидор;sidorov@mail.ru;25;79345678901\n",
+            "Сидоров;Сидор;sidorov@mail.ru;25;79345678901\n",
+        ),
+        # Тест 5: Смешанный набор данных
+        (
+            "mixed.txt",
+            "valid_mixed.txt",
+            "Иванов;Иван;ivanov@mail.ru;25;79123456789\n"
+            "петров;Петр;petrov@mail.ru;30;79234567890\n"
+            "Сидоров;Сидор;sidorov@mail.ru;17;79345678901\n"
+            "Кузнецов;Илья;kuz@mail.com;45;79001234567\n"
+            "Орлова;Анна;orlova@mail;20;79111111111\n",
+            "Иванов;Иван;ivanov@mail.ru;25;79123456789\n"
+            "Кузнецов;Илья;kuz@mail.com;45;79001234567\n",
+        ),
+    ],
+)
+def test_13_3_14(
+    input_filename,
+    output_filename,
+    input_content,
+    expected_output,
+    mocker,
+):
+    input_path = Path(".") / input_filename
+    output_path = Path(".") / output_filename
+
+    input_path.write_text(input_content, encoding="utf-8")
+
+    mocker.patch(
+        "builtins.input",
+        side_effect=[input_filename, output_filename],
+    )
+
+    m_13_3_14()
+
+    assert output_path.exists()
+    assert output_path.read_text(encoding="utf-8") == expected_output
+
+    input_path.unlink(missing_ok=True)
+    output_path.unlink(missing_ok=True)
+
+
+# m_13_3_15: Поиск и замена слов
+@pytest.mark.parametrize(
+    (
+        "old_word, new_word, input_filename, output_filename, "
+        "input_content, expected_content, expected_stdout"
+    ),
+    [
+        # Тест 1: Sample Input
+        (
+            "кот",
+            "пёс",
+            "old_doc1.txt",
+            "new_doc1.txt",
+            "кот котёнок котовский\n" "кот сидел на ковре\n" "котёнок играл с котом\n",
+            "пёс котёнок котовский\n" "пёс сидел на ковре\n" "котёнок играл с котом\n",
+            "",
+        ),
+        # Тест 2: Несколько отдельных совпадений
+        (
+            "apple",
+            "orange",
+            "fruits.txt",
+            "new_fruits.txt",
+            "apple banana apple\n" "banana apple\n",
+            "orange banana orange\n" "banana orange\n",
+            "",
+        ),
+        # Тест 3: Совпадение с учетом регистра
+        (
+            "cat",
+            "dog",
+            "case.txt",
+            "case_new.txt",
+            "cat Cat CAT cat\n",
+            "dog Cat CAT dog\n",
+            "",
+        ),
+        # Тест 4: Слово отсутствует
+        (
+            "python",
+            "java",
+            "languages.txt",
+            "languages_new.txt",
+            "C++ Java Pascal\n",
+            "C++ Java Pascal\n",
+            "",
+        ),
+        # Тест 6: Пустой файл
+        (
+            "кот",
+            "пёс",
+            "empty.txt",
+            "empty_new.txt",
+            "",
+            "",
+            "",
+        ),
+        # Тест 7: Исходный файл отсутствует
+        (
+            "кот",
+            "пёс",
+            "missing.txt",
+            "result.txt",
+            None,
+            None,
+            "Файл missing.txt не найден!\n",
+        ),
+    ],
+)
+def test_13_3_15(
+    old_word,
+    new_word,
+    input_filename,
+    output_filename,
+    input_content,
+    expected_content,
+    expected_stdout,
+    mocker,
+    capsys,
+):
+    mocker.patch(
+        "builtins.input",
+        side_effect=[
+            old_word,
+            new_word,
+            input_filename,
+            output_filename,
+        ],
+    )
+
+    input_path = Path(input_filename)
+    output_path = Path(output_filename)
+
+    if input_content is not None:
+        input_path.write_text(input_content, encoding="utf-8")
+
+    m_13_3_15()
+
+    captured = capsys.readouterr()
+    assert captured.out == expected_stdout
+
+    if expected_content is not None:
+        assert output_path.exists()
+        assert output_path.read_text(encoding="utf-8") == expected_content
+        output_path.unlink(missing_ok=True)
+
+    input_path.unlink(missing_ok=True)

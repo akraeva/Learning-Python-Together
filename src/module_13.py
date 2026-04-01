@@ -472,7 +472,6 @@ def m_13_3_12():
     -------------------------------------
     Нам нужно отправлять секретные сообщения! Создайте программу для
     шифрования и дешифрования текста.
-    Функцию по написанию шифра Цезаря мы писали вот здесь.
 
     На вход программа принимает:
 
@@ -495,7 +494,32 @@ def m_13_3_12():
     текст в файл, система сама после запуска кода считает Ваш файл
     и проверит содержимое!
     """
-    pass
+    operating_mode, shift = int(input()), int(input())
+    input_filename, output_filename = input(), input()
+
+    def caesar_cypher(data: str, shift: int, mode: int):
+        abc = 26
+        res = []
+        shift_value = (shift if mode == 1 else -shift) % abc
+        for ch in data:
+            encrypted_ch = ch
+            if ch.isalpha():
+                encrypted_ch = chr(ord(ch) + shift_value)
+                if (ch.islower() and not "a" <= encrypted_ch <= "z") or (
+                    ch.isupper() and not "A" <= encrypted_ch <= "Z"
+                ):
+                    encrypted_ch = chr(
+                        ord(encrypted_ch) + (abc if shift_value < 0 else -abc)
+                    )
+            res.append(encrypted_ch)
+        return "".join(res)
+
+    with (
+        open(input_filename, "r", encoding="UTF-8") as f_in,
+        open(output_filename, "w", encoding="utf-8") as f_out,
+    ):
+        for line in f_in:
+            f_out.write(caesar_cypher(line, shift, operating_mode))
 
 
 def m_13_3_13():
@@ -547,7 +571,40 @@ def m_13_3_13():
     а вывести следующий текст:
     ``Файл <Наименование_файла_вместе_с_расширением> не найден!``
     """
-    pass
+    input_filename = input()
+    sales = []
+    try:
+        with open(input_filename, "r", encoding="UTF-8") as f:
+            for line in f:
+                date, goods, quantity, price = line.split(";")
+                sales.append(
+                    {
+                        "date": date,
+                        "goods": goods,
+                        "quantity": int(quantity),
+                        "price": float(price),
+                        "revenue": int(quantity) * float(price),
+                    }
+                )
+        goods_revenue = {}
+        for x in sales:
+            goods = x["goods"]
+            goods_revenue[goods] = goods_revenue.get(goods, 0) + x["revenue"]
+        goods_max_revenue = max(goods_revenue, key=goods_revenue.get)
+        average_cost = sum(x["revenue"] for x in sales) / len(sales)
+        days_sold = {}
+        for x in sales:
+            date = x["date"]
+            days_sold[date] = days_sold.get(date, 0) + x["quantity"]
+        most_sold_day = max(days_sold, key=days_sold.get)
+        print(
+            f"{goods_max_revenue}: {round(goods_revenue[goods_max_revenue], 1)}",
+            round(average_cost, 1),
+            f"{most_sold_day}: {days_sold[most_sold_day]}",
+            sep="\n",
+        )
+    except FileNotFoundError:
+        print(f"Файл {input_filename} не найден!")
 
 
 def m_13_3_14():
@@ -570,9 +627,6 @@ def m_13_3_14():
         - input_filename - Имя файла для обработки вместе с расширением
         - output_filename** - Имя файла для записи вместе с расширением
 
-    Примечание: Изменять наименование переменной нельзя,
-    иначе сломается проверка!
-
     На выходе - новый файл output_filename с данными пользователей,
     которые являются корректными*.
 
@@ -586,7 +640,56 @@ def m_13_3_14():
     Примечание: Нужно только записать надёжные пароли в файл output_filename,
     система сама после запуска кода считает Ваш файл и проверит содержимое!
     """
-    pass
+    input_filename, output_filename = input(), input()
+
+    def name_check(name: str):
+        if name.isalpha() and name.istitle():
+            return True
+        return False
+
+    def email_check(email: str):
+        try:
+            name, domain = email.split("@")
+            host, zone = domain.split(".")
+            if name and host and zone and " " not in email:
+                return True
+        except ValueError:
+            return False
+        return False
+
+    def age_check(age: str):
+        try:
+            if int(age) in range(18, 101):
+                return True
+        except (TypeError, ValueError):
+            return False
+        return False
+
+    def phone_check(phone: str):
+        try:
+            int(phone)
+            if len(phone) == 11 and phone[0] == "7":
+                return True
+        except (TypeError, ValueError):
+            return False
+        return False
+
+    with (
+        open(input_filename, "r", encoding="utf-8") as f_in,
+        open(output_filename, "w", encoding="utf-8") as f_out,
+    ):
+        for line in f_in:
+            last_name, name, email, age, phone = line.strip().split(";")
+            if all(
+                (
+                    name_check(name),
+                    name_check(last_name),
+                    email_check(email),
+                    age_check(age),
+                    phone_check(phone),
+                )
+            ):
+                f_out.write(line)
 
 
 def m_13_3_15():
@@ -624,4 +727,29 @@ def m_13_3_15():
     а вывести следующий текст:
     Файл <Наименование_файла_вместе_с_расширением> не найден!
     """
-    pass
+    old_word, new_word = input(), input()
+    input_filename, output_filename = input(), input()
+
+    def replaced_word(word: str):
+        w_start, w_end = word.split(old_word)
+        if (not w_start or not w_start[-1].isalpha()) and (
+            not w_end or not w_end[0].isalpha()
+        ):
+            return word.replace(old_word, new_word)
+        return word
+
+    def replacement(line: str):
+        words = []
+        for word in line.split(" "):
+            words.append(replaced_word(word) if old_word in word else word)
+        return " ".join(words)
+
+    try:
+        with (
+            open(input_filename, "r", encoding="utf-8") as f_in,
+            open(output_filename, "w", encoding="utf-8") as f_out,
+        ):
+            for line in f_in:
+                f_out.write(replacement(line) if old_word in line else line)
+    except FileNotFoundError:
+        print(f"Файл {input_filename} не найден!")
