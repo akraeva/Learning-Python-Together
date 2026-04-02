@@ -13,3 +13,13 @@
     :language: python
     :linenos:
 
+
+Задачи II (13.5)
+----------------------------
+
+Файл: ``tests/test_13_5.py``
+
+.. literalinclude:: ../../tests/test_13_5.py
+    :language: python
+    :linenos:
+

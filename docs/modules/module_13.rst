@@ -26,6 +26,18 @@
 .. autofunction:: src.module_13.m_13_3_14()
 .. autofunction:: src.module_13.m_13_3_15()
 
+Задачи II (13.5)
+----------------------------
+.. autofunction:: src.module_13.m_13_5_1()
+.. autofunction:: src.module_13.m_13_5_2()
+.. autofunction:: src.module_13.m_13_5_3()
+.. autofunction:: src.module_13.m_13_5_4()
+.. autofunction:: src.module_13.m_13_5_5()
+.. autofunction:: src.module_13.m_13_5_6()
+.. autofunction:: src.module_13.m_13_5_7()
+.. autofunction:: src.module_13.m_13_5_8()
+.. autofunction:: src.module_13.m_13_5_9()
+
 
 Тесты к модулю
 ----------------------------
