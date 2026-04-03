@@ -850,7 +850,7 @@ def m_13_5_2():
 
     fieldnames = data[0]
     with open(output_filename, "w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, quoting=csv.QUOTE_NONNUMERIC)
         writer.writeheader()
         writer.writerows(data)
 
@@ -895,3 +895,173 @@ def m_13_5_3():
         f"Студенты: {', '.join(students)}",
         sep="\n",
     )
+
+
+def m_13_5_4():
+    """
+    Добавление нового студента в CSV файл
+    ----------------------------------------------
+    Давайте создадим программу, которая добавляет нового студента
+    в существующий CSV файл, изменяя его напрямую.
+
+    На вход программа принимает:
+
+    - input_filename* - имя файла с исходными данными
+      с указанием расширения (в нашем случае это .csv)
+    - student_data - строка с данными нового студента в формате:
+      "Иванова Анна,20,95"** (имя, возраст, баллы)
+
+    **Примечание:**
+    Изменять наименование переменной нельзя, иначе сломается проверка!
+    Разложить строку можно по запятой, но остерегайтесь лишних пробелов,
+    используйте strip()
+
+    На выходе - Тот же файл input_filename,
+    но с добавленным студентом в конце:
+
+    - Все существующие студенты остаются на своих местах
+    - Новый студент добавлен в конец файла
+    - Автоматически сгенерированный ID для нового студента
+    - Заголовок таблицы сохраняется
+
+    **Требования:**
+
+    - Чтение: прочитать все данные из файла
+    - Добавление: добавить нового студента в конец файла
+    - ID: автоматически определить следующий ID (максимальный ID + 1)
+    - Изменение: изменить исходный файл (не создавать новый)
+    - Порядок: сохранить исходный порядок строк + новый студент в конце
+    """
+    input_filename, student_data = input(), input().strip()
+
+    with open(input_filename, "r", encoding="utf-8") as f:
+        data = list(csv.DictReader(f))
+
+    last_id = int(data[-1]["id"]) if data else 0
+    name, age, grade = map(str.strip, student_data.split(","))
+    new_student = {
+        "id": last_id + 1,
+        "name": name,
+        "age": int(age),
+        "grade": int(grade),
+    }
+    data.append(new_student)
+    fieldnames = new_student.keys()
+    with open(input_filename, "w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(data)
+
+
+def m_13_5_5():
+    """
+    Анализ успеваемости студентов из CSV файла II
+    -----------------------------------------------
+    Давайте усложним прошлое задание, теперь нам нужно записать новый файл,
+    где у нас будут только студенты с баллами выше 60 (столбец grade).
+    При это сохранить порядок следования строк исходного файла.
+
+    На вход программа принимает:
+
+    - input_filename - имя файла с исходными данными с указанием расширения
+    - output_filename* - Имя файла для обработки вместе с расширением
+
+    Примечание: Изменять наименование переменной нельзя,
+    иначе сломается проверка!
+
+    На выходе - новый файл output_filename где находятся студенты,
+    которые набрали строго выше 60 баллов (> 60), сохранив порядок
+    следования строк исходного файла.
+    """
+    input_filename, output_filename = input(), input()
+
+    with open(input_filename, "r", encoding="utf-8") as f:
+        data = csv.DictReader(f)
+        students = [student for student in data if int(student["grade"]) > 60]
+
+    fieldnames = ["id", "name", "age", "grade"]
+    with open(output_filename, "w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(students)
+
+
+def m_13_5_6():
+    """
+    Анализ успеваемости студентов из CSV файла III
+    -------------------------------------------------
+    Давайте усложним прошлое задание, теперь нам нужно отсортировать
+    по баллам учащихся, от максимальных баллов к минимальным.
+    Если встречаются одинаковые баллы, то фильтруем по столбцу name
+    в лексикографическом порядке.
+
+    На вход программа принимает:
+
+    - input_filename - имя файла с исходными данными с указанием расширения
+    - output_filename* - Имя файла для обработки вместе с расширением
+
+    Примечание:
+    Изменять наименование переменной нельзя, иначе сломается проверка!
+
+    На выходе - новый файл output_filename в порядке убывания по баллам
+    (столбец grade), изменять значения нельзя, нужно только отсортировать
+    и записать новый файл.
+    """
+    input_filename, output_filename = input(), input()
+
+    with open(input_filename, "r", encoding="utf-8") as f:
+        data = list(csv.DictReader(f))
+
+    students = sorted(data, key=lambda d: (-int(d["grade"]), d["name"]))
+
+    fieldnames = ["id", "name", "age", "grade"]
+    with open(output_filename, "w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(students)
+
+
+def m_13_5_7():
+    """
+    Расчет ощущаемой температуры с учетом ветра и добавление столбца в новый CSV файл
+    -----------------------------------------------------------------------------------
+    Вы получили CSV файл с метеорологическими данными. Вам нужно добавить
+    новый столбец  feels_like_c с ощущаемой температурой, рассчитанной
+    с учетом скорости ветра, используя формулу ветро-холодового индекса.
+    Задачу по нахождению ощущаемой температуры мы решали.
+
+    На вход программа принимает:
+
+    - input_filename - имя файла с исходными данными с указанием расширения
+    - output_filename** - Имя файла для обработки вместе с расширением
+
+    Примечание:
+    Обратите внимание, на сей раз разделителем будет точка с запятой - ;
+    Изменять наименование переменной нельзя, иначе сломается проверка!
+
+    На выходе - новый файл output_filename с добавленным рассчитанным
+    столбцом feels_like_c с рассчитываемой ощущаемой температурой
+    по формуле ветро-холодового индекса.
+    """
+    input_filename, output_filename = input(), input()
+
+    def feels_like(m_data: dict):
+        ta = float(m_data["temp_c"])  # фактическая температура в °C
+        va = float(m_data["wind_kmh"]) * 1000 / 3600  # скорость ветра в м/с
+        v10 = 1.5 * va  # скорость ветра на высоте 10 метров в м/с
+        # ощущаемая температура в °C (округлить до 1 знака после запятой)
+        twc = 13.12 + 0.6215 * ta - 11.37 * v10**0.16 + 0.3965 * ta * v10**0.16
+        return round(twc, 1)
+
+    result = []
+    with open(input_filename, "r", encoding="utf-8") as f:
+        data = csv.DictReader(f, delimiter=";")
+        for d in data:
+            d["feels_like_c"] = feels_like(d)
+            result.append(d)
+
+    fieldnames = ["date", "temp_c", "wind_kmh", "condition", "feels_like_c"]
+    with open(output_filename, "w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter=";")
+        writer.writeheader()
+        writer.writerows(result)
