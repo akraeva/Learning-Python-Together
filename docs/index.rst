@@ -21,6 +21,8 @@ __ https://stepik.org/course/215335
    modules/module_9 
    modules/module_10
    modules/module_11
+   modules/module_12
+   modules/module_13
 
 .. toctree::
    :hidden:
@@ -31,6 +33,8 @@ __ https://stepik.org/course/215335
    modules/tests_9
    modules/tests_10
    modules/tests_11
+   modules/tests_12
+   modules/tests_13
 
 ********************
 
