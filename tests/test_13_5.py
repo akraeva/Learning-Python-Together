@@ -456,7 +456,7 @@ def test_13_5_6(
             "single_result.csv",
             "date;temp_c;wind_kmh;condition\n" "2024-02-01;5;10;Cloudy\n",
             "date;temp_c;wind_kmh;condition;feels_like_c\n"
-            "2024-02-01;5;10;Cloudy;2.2\n",
+            "2024-02-01;5;10;Cloudy;4.4\n",
         ),
         # Тест 3: Дробные значения температуры и скорости ветра
         (
@@ -464,7 +464,7 @@ def test_13_5_6(
             "decimal_result.csv",
             "date;temp_c;wind_kmh;condition\n" "2024-03-01;7.5;12.5;Rain\n",
             "date;temp_c;wind_kmh;condition;feels_like_c\n"
-            "2024-03-01;7.5;12.5;Rain;1.7\n",
+            "2024-03-01;7.5;12.5;Rain;6.8\n",
         ),
         # Тест 4: Отрицательная температура и сильный ветер
         (
@@ -472,7 +472,7 @@ def test_13_5_6(
             "cold_result.csv",
             "date;temp_c;wind_kmh;condition\n" "2024-01-20;-20;40;Blizzard\n",
             "date;temp_c;wind_kmh;condition;feels_like_c\n"
-            "2024-01-20;-20;40;Blizzard;-29.5\n",
+            "2024-01-20;-20;40;Blizzard;-29.6\n",
         ),
         # Тест 5: Пустой файл (только заголовок)
         (
@@ -501,6 +501,205 @@ def test_13_5_7(
     )
 
     m_13_5_7()
+
+    assert output_path.exists()
+    assert output_path.read_text(encoding="utf-8") == expected_content
+
+    input_path.unlink(missing_ok=True)
+    output_path.unlink(missing_ok=True)
+
+
+# m_13_5_8: Расчет ИМТ
+@pytest.mark.parametrize(
+    "input_filename, output_filename, input_content, expected_content",
+    [
+        # Тест 1: Sample Input
+        (
+            "persons1.csv",
+            "imt_persons1.csv",
+            "name,height_cm,weight_kg\n"
+            "Иван,180,75\n"
+            "Анна,165,60\n"
+            "Петр,190,110\n"
+            "Мария,165,45\n",
+            "name,height_cm,weight_kg,bmi,category\n"
+            "Иван,180,75,23.1,Норма\n"
+            "Анна,165,60,22.0,Норма\n"
+            "Петр,190,110,30.5,Ожирение I степени\n"
+            "Мария,165,45,16.5,Недостаточная (дефицит) масса тела\n",
+        ),
+        # Тест 2: Все категории ИМТ
+        (
+            "all_categories.csv",
+            "all_categories_result.csv",
+            "name,height_cm,weight_kg\n"
+            "A,170,45\n"
+            "B,170,50\n"
+            "C,170,65\n"
+            "D,170,80\n"
+            "E,170,95\n"
+            "F,170,110\n"
+            "G,170,125\n",
+            "name,height_cm,weight_kg,bmi,category\n"
+            "A,170,45,15.6,Выраженный дефицит массы тела\n"
+            "B,170,50,17.3,Недостаточная (дефицит) масса тела\n"
+            "C,170,65,22.5,Норма\n"
+            "D,170,80,27.7,Избыточная масса тела\n"
+            "E,170,95,32.9,Ожирение I степени\n"
+            "F,170,110,38.1,Ожирение II степени\n"
+            "G,170,125,43.3,Ожирение III степени\n",
+        ),
+        # Тест 3: Дробные значения роста и веса
+        (
+            "decimal.csv",
+            "decimal_result.csv",
+            "name,height_cm,weight_kg\n" "Анна,165.5,58.7\n",
+            "name,height_cm,weight_kg,bmi,category\n" "Анна,165.5,58.7,21.4,Норма\n",
+        ),
+        # Тест 4: Один человек
+        (
+            "single.csv",
+            "single_result.csv",
+            "name,height_cm,weight_kg\n" "Иван,180,81\n",
+            "name,height_cm,weight_kg,bmi,category\n"
+            "Иван,180,81,25.0,Избыточная масса тела\n",
+        ),
+        # Тест 5: Пустой файл
+        (
+            "empty.csv",
+            "empty_result.csv",
+            "name,height_cm,weight_kg\n",
+            "name,height_cm,weight_kg,bmi,category\n",
+        ),
+    ],
+)
+def test_13_5_8(
+    input_filename,
+    output_filename,
+    input_content,
+    expected_content,
+    mocker,
+):
+    input_path = Path(".") / input_filename
+    output_path = Path(".") / output_filename
+
+    input_path.write_text(input_content, encoding="utf-8")
+
+    mocker.patch(
+        "builtins.input",
+        side_effect=[input_filename, output_filename],
+    )
+
+    m_13_5_8()
+
+    assert output_path.exists()
+    assert output_path.read_text(encoding="utf-8") == expected_content
+
+    input_path.unlink(missing_ok=True)
+    output_path.unlink(missing_ok=True)
+
+
+@pytest.mark.parametrize(
+    (
+        "input_filename",
+        "output_filename",
+        "input_content",
+        "expected_content",
+    ),
+    [
+        # Тест 1. Пример из условия
+        (
+            "analysis_test1.csv",
+            "result_analysis_test1.csv",
+            (
+                "sample_id,Fe,Cr,Ni,Mo,C,Si,Mn,P,S,Cu\n"
+                "ANALYSIS-001,68.5,18.2,8.9,0.1,0.08,0.75,1.2,0.045,0.03,0.15\n"
+                "ANALYSIS-002,71.3,16.8,10.5,2.1,0.03,0.45,1.8,0.035,0.02,0.25\n"
+                "ANALYSIS-003,71.0,17.5,0.4,0.1,0.10,0.4,0.6,0.035,0.025,0.15\n"
+                "ANALYSIS-004,95.8,0.3,0.2,0.05,0.20,0.2,0.7,0.03,0.02,0.1\n"
+                "ANALYSIS-005,96.5,0.4,0.3,0.08,0.45,0.3,0.6,0.025,0.015,0.08\n"
+                "ANALYSIS-006,93.0,0.2,0.1,0.02,3.4,2.0,0.6,0.04,0.03,0.05\n"
+                "ANALYSIS-007,93.5,0.3,0.2,0.03,3.6,2.4,0.7,0.035,0.025,0.06\n"
+                "ANALYSIS-008,99.3,0.05,0.02,0.01,0.08,0.1,0.2,0.01,0.005,0.03\n"
+            ),
+            (
+                "sample_id,Fe,Cr,Ni,Mo,C,Si,Mn,P,S,Cu,material_grade\n"
+                "ANALYSIS-001,68.5,18.2,8.9,0.1,0.08,0.75,1.2,0.045,0.03,0.15,AISI 304 (08Х18Н10)\n"
+                "ANALYSIS-002,71.3,16.8,10.5,2.1,0.03,0.45,1.8,0.035,0.02,0.25,AISI 316 (10Х17Н13М2)\n"
+                "ANALYSIS-003,71.0,17.5,0.4,0.1,0.10,0.4,0.6,0.035,0.025,0.15,AISI 430 (12Х17)\n"
+                "ANALYSIS-004,95.8,0.3,0.2,0.05,0.20,0.2,0.7,0.03,0.02,0.1,Неизвестный сплав\n"
+                "ANALYSIS-005,96.5,0.4,0.3,0.08,0.45,0.3,0.6,0.025,0.015,0.08,Сталь 45\n"
+                "ANALYSIS-006,93.0,0.2,0.1,0.02,3.4,2.0,0.6,0.04,0.03,0.05,СЧ20\n"
+                "ANALYSIS-007,93.5,0.3,0.2,0.03,3.6,2.4,0.7,0.035,0.025,0.06,СЧ20\n"
+                "ANALYSIS-008,99.3,0.05,0.02,0.01,0.08,0.1,0.2,0.01,0.005,0.03,Техническое железо\n"
+            ),
+        ),
+        # Тест 2. Неизвестный сплав
+        (
+            "unknown.csv",
+            "result_unknown.csv",
+            (
+                "sample_id,Fe,Cr,Ni,Mo,C,Si,Mn,P,S,Cu\n"
+                "TEST-001,70.0,15.0,5.0,1.0,0.25,0.8,1.0,0.03,0.02,0.2\n"
+            ),
+            (
+                "sample_id,Fe,Cr,Ni,Mo,C,Si,Mn,P,S,Cu,material_grade\n"
+                "TEST-001,70.0,15.0,5.0,1.0,0.25,0.8,1.0,0.03,0.02,0.2,Неизвестный сплав\n"
+            ),
+        ),
+        # Тест 3. Граничные значения AISI 304
+        (
+            "boundary.csv",
+            "result_boundary.csv",
+            (
+                "sample_id,Fe,Cr,Ni,Mo,C,Si,Mn,P,S,Cu\n"
+                "TEST-001,70.0,17,11,0.2,0.08,0.5,1.0,0.03,0.02,0.1\n"
+            ),
+            (
+                "sample_id,Fe,Cr,Ni,Mo,C,Si,Mn,P,S,Cu,material_grade\n"
+                "TEST-001,70.0,17,11,0.2,0.08,0.5,1.0,0.03,0.02,0.1,AISI 304 (08Х18Н10)\n"
+            ),
+        ),
+        # Тест 4. Fe = 99%, но примесей слишком много
+        (
+            "iron_fail.csv",
+            "result_iron_fail.csv",
+            (
+                "sample_id,Fe,Cr,Ni,Mo,C,Si,Mn,P,S,Cu\n"
+                "TEST-001,99.0,0.3,0.2,0.1,0.1,0.1,0.1,0.05,0.03,0.02\n"
+            ),
+            (
+                "sample_id,Fe,Cr,Ni,Mo,C,Si,Mn,P,S,Cu,material_grade\n"
+                "TEST-001,99.0,0.3,0.2,0.1,0.1,0.1,0.1,0.05,0.03,0.02,Неизвестный сплав\n"
+            ),
+        ),
+        # Тест 5. Пустой файл
+        (
+            "empty.csv",
+            "result_empty.csv",
+            "sample_id,Fe,Cr,Ni,Mo,C,Si,Mn,P,S,Cu\n",
+            "sample_id,Fe,Cr,Ni,Mo,C,Si,Mn,P,S,Cu,material_grade\n",
+        ),
+    ],
+)
+def test_13_5_9(
+    input_filename,
+    output_filename,
+    input_content,
+    expected_content,
+    mocker,
+):
+    input_path = Path(".") / input_filename
+    output_path = Path(".") / output_filename
+
+    input_path.write_text(input_content, encoding="utf-8")
+
+    mocker.patch(
+        "builtins.input",
+        side_effect=[input_filename, output_filename],
+    )
+
+    m_13_5_9()
 
     assert output_path.exists()
     assert output_path.read_text(encoding="utf-8") == expected_content

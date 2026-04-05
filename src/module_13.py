@@ -1065,3 +1065,237 @@ def m_13_5_7():
         writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter=";")
         writer.writeheader()
         writer.writerows(result)
+
+
+def m_13_5_8():
+    """
+    Расчет ИМТ (Индекса массы тела) и добавление столбца в новый CSV файл
+    --------------------------------------------------------------------------
+    Вы получили CSV файл с антропометрическими данными. Вам нужно добавить два
+    новых столбца: с рассчитанным Индексом Массы Тела (ИМТ) и соответствующей
+    категорией веса. Задачу по нахождению индекса ИМТ мы решали.
+
+    На вход программа принимает:
+
+    - input_filename - имя файла с исходными данными с указанием расширения
+    - output_filename** - Имя файла для обработки вместе с расширением
+
+    Примечание:
+    Примечание: Обратите внимание, на сей раз разделителем будет запятая - ,
+    Изменять наименование переменной нельзя, иначе сломается проверка!
+
+    На выходе - новый файл output_filename
+    с добавленными рассчитанными столбцами:
+
+    - bmi - рассчитанный Индекс Массы Тела, округлённый
+      до одного знака после точки
+    - category - категория веса согласно классификации
+      (представлена в соответствующем выпадающем списке в виде таблицы)
+    """
+    input_filename, output_filename = input(), input()
+    CATEGORIES = {
+        0: "Выраженный дефицит массы тела",
+        16: "Недостаточная (дефицит) масса тела",
+        18.5: "Норма",
+        25: "Избыточная масса тела",
+        30: "Ожирение I степени",
+        35: "Ожирение II степени",
+        40: "Ожирение III степени",
+    }
+
+    def bmi_сalculat(d):
+        h, w = float(d["height_cm"]) / 100, float(d["weight_kg"])
+        bmi = w / (h**2)
+        res = max(key for key in CATEGORIES.keys() if bmi >= key)
+        return round(bmi, 1), CATEGORIES[res]
+
+    result = []
+    with open(input_filename, "r", encoding="utf-8") as f:
+        data = csv.DictReader(f)
+        for d in data:
+            d["bmi"], d["category"] = bmi_сalculat(d)
+            result.append(d)
+
+    fieldnames = ["name", "height_cm", "weight_kg", "bmi", "category"]
+    with open(output_filename, "w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(result)
+
+
+def m_13_5_9():
+    """
+    Анализ химического состава материалов и определение марки сплава
+    --------------------------------------------------------------------------
+    Вы работаете в лаборатории материаловедения и получили CSV файл
+    с результатами химического анализа различных образцов.
+    Ваша задача - проанализировать химический состав каждого образца и
+    определить марку материала согласно ГОСТ, используя словарь
+    с описанием марок.
+
+    На вход программа принимает:
+
+    - input_filename - имя файла с исходными данными с указанием расширения
+    - output_filename*** - имя нового файла для обработки вместе с расширением
+
+    **Столбцы:**
+
+    - sample_id — идентификатор образца (строка)
+    'Fe',
+    'Cr',
+    'Ni',
+    'Mo',
+    'C',
+    'Si',
+    'Mn',
+    'P',
+    'S',
+    'Cu',
+
+    **Задание**
+    Напишите программу, которая:
+
+    - Читает данные из файла input_filename с результатами химического анализа
+    - Использует словарь с описанием марок материалов для классификации
+    - Для каждого образца определяет марку материала на основе его химического состава
+    - Сохраняет результат в новый файл output_filename с добавленным столбцом material_grade
+
+    **Важные замечания:**
+
+    - Используйте предоставленный словарь MATERIAL_GRADES без изменений
+    - Для "Технического железа" проверяйте и содержание Fe ≥ 99%, и сумму примесей < 1%
+    - Если образец не подходит ни под одну марку, возвращайте "Неизвестный сплав"
+    - Сохраняйте исходный порядок строк и данные химического состава
+
+    **Примечания:**
+    - Обратите внимание разделителем будет запятая - ,
+    - Структуру словаря вы можете посмотреть в разделе Словарь марок материалов
+    - Изменять наименование переменной нельзя, иначе сломается проверка!
+
+    **Особые случаи:**
+
+    - None в условиях: None означает отсутствие ограничения с этой стороны
+      (с минимальной или максимальной, расцениваем это как при отсутствии
+      верхней границы, то не менее, а при отсутствии нижней границы то не более)
+    - Техническое железо: требует специальной проверки суммы примесей
+    - Порядок проверки: первая подходящая марка из словаря
+    - Все условия: должны выполняться ВСЕ условия для марки
+
+    На выходе - новый файл output_filename с добавленным
+    столбцом material_grade.
+    """
+    input_filename, output_filename = input(), input()
+
+    MATERIAL_GRADES = {
+        "AISI 304 (08Х18Н10)": {
+            "conditions": [
+                ("Cr", 17, 20),  # Хром: 17-20%
+                ("Ni", 8, 11),  # Никель: 8-11%
+                ("C", None, 0.08),  # Углерод: ≤ 0.08%
+            ]
+        },
+        "AISI 316 (10Х17Н13М2)": {
+            "conditions": [
+                ("Cr", 16, 18),  # Хром: 16-18%
+                ("Ni", 10, 14),  # Никель: 10-14%
+                ("Mo", 2, 3),  # Молибден: 2-3%
+                ("C", None, 0.10),  # Углерод: ≤ 0.10%
+            ]
+        },
+        "AISI 430 (12Х17)": {
+            "conditions": [
+                ("Cr", 16, 18),  # Хром: 16-18%
+                ("Ni", None, 0.6),  # Никель: ≤ 0.6%
+                ("C", None, 0.12),  # Углерод: ≤ 0.12%
+            ]
+        },
+        "Ст3сп (Сталь 20)": {
+            "conditions": [
+                ("C", 0.14, 0.22),  # Углерод: 0.14-0.22%
+                ("Mn", 0.4, 0.65),  # Марганец: 0.4-0.65%
+                ("Si", 0.15, 0.30),  # Кремний: 0.15-0.30%
+            ]
+        },
+        "Сталь 45": {
+            "conditions": [
+                ("C", 0.42, 0.50),  # Углерод: 0.42-0.50%
+                ("Mn", 0.5, 0.8),  # Марганец: 0.5-0.8%
+                ("Si", 0.17, 0.37),  # Кремний: 0.17-0.37%
+            ]
+        },
+        "СЧ20": {
+            "conditions": [
+                ("C", 3.2, 3.6),  # Углерод: 3.2-3.6%
+                ("Si", 1.6, 2.5),  # Кремний: 1.6-2.5%
+                ("Mn", 0.5, 0.8),  # Марганец: 0.5-0.8%
+            ]
+        },
+        "ВЧ40": {
+            "conditions": [
+                ("C", 3.2, 3.8),  # Углерод: 3.2-3.8%
+                ("Si", 2.0, 2.8),  # Кремний: 2.0-2.8%
+                ("Mn", 0.3, 0.8),  # Марганец: 0.3-0.8%
+            ]
+        },
+        "Техническое железо": {
+            "conditions": [
+                ("Fe", 99, None),  # Железо: ≥ 99%
+                # Сумма примесей < 1% (проверяется отдельно)
+            ]
+        },
+    }
+
+    def border_check(g_min, g_max, value):
+        if g_min is not None and float(g_min) > value:
+            return False
+        if g_max is not None and float(g_max) < value:
+            return False
+        return True
+
+    def material_check(grades: dict, sample: dict):
+        for element in grades:
+            element_name, g_min, g_max = element
+            if element_name in sample:
+                if not border_check(g_min, g_max, sample[element_name]):
+                    return False
+            else:
+                return False
+        return True
+
+    def materials_cheker(element: dict):
+        d = {key: float(value) for key, value in element.items() if key != "sample_id"}
+        for material, grades in MATERIAL_GRADES.items():
+            if material == "Техническое железо":
+                value = d["Fe"]
+                other_summ = sum(d.values()) - value
+                if "Fe" in d and value >= 99 and other_summ < 1:
+                    return "Техническое железо"
+            elif material_check(grades["conditions"], d):
+                return material
+        return "Неизвестный сплав"
+
+    result = []
+    with open(input_filename, "r", encoding="utf-8") as f:
+        data = csv.DictReader(f)
+        for element in data:
+            element["material_grade"] = materials_cheker(element)
+            result.append(element)
+
+    fieldnames = [
+        "sample_id",
+        "Fe",
+        "Cr",
+        "Ni",
+        "Mo",
+        "C",
+        "Si",
+        "Mn",
+        "P",
+        "S",
+        "Cu",
+        "material_grade",
+    ]
+    with open(output_filename, "w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(result)
